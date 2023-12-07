@@ -13,7 +13,8 @@
 		DDC9FCCF2B20CD1B005D21FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */; };
 		DDC9FCD12B20CD1C005D21FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */; };
 		DDC9FCD42B20CD1C005D21FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */; };
-		DDFE29CA2B22126200C8D6AA /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = DDFE29C92B22126200C8D6AA /* fonts */; };
+		DDFE29CD2B22183300C8D6AA /* PT_Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDFE29CC2B22182A00C8D6AA /* PT_Mono-Regular.ttf */; };
+		DDFE29CF2B22184C00C8D6AA /* PT_Mono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDFE29CE2B22184700C8D6AA /* PT_Mono-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,8 @@
 		DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDC9FCD32B20CD1C005D21FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDC9FCD52B20CD1C005D21FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDFE29C92B22126200C8D6AA /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		DDFE29CC2B22182A00C8D6AA /* PT_Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Mono-Regular.ttf"; sourceTree = "<group>"; };
+		DDFE29CE2B22184700C8D6AA /* PT_Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Mono-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +67,18 @@
 				DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */,
 				DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */,
 				DDC9FCD52B20CD1C005D21FD /* Info.plist */,
-				DDFE29C92B22126200C8D6AA /* fonts */,
+				DDFE29CB2B22154800C8D6AA /* fonts */,
 			);
 			path = LoginScreen;
+			sourceTree = "<group>";
+		};
+		DDFE29CB2B22154800C8D6AA /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DDFE29CC2B22182A00C8D6AA /* PT_Mono-Regular.ttf */,
+				DDFE29CE2B22184700C8D6AA /* PT_Mono-Bold.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,9 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC9FCD42B20CD1C005D21FD /* LaunchScreen.storyboard in Resources */,
+				DDFE29CF2B22184C00C8D6AA /* PT_Mono-Bold.ttf in Resources */,
 				DDC9FCD12B20CD1C005D21FD /* Assets.xcassets in Resources */,
+				DDFE29CD2B22183300C8D6AA /* PT_Mono-Regular.ttf in Resources */,
 				DDC9FCCF2B20CD1B005D21FD /* Main.storyboard in Resources */,
-				DDFE29CA2B22126200C8D6AA /* fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
