@@ -25,9 +25,8 @@ class ViewController: UIViewController {
         informationLabel.addGestureRecognizer(tap)
     }
     
-    @objc
-    func tapFunction(sender:UITapGestureRecognizer) {
-        print("Task done")
+    @IBAction func tapFunction(sender: UITapGestureRecognizer) {
+        print("Task is done")
     }
 }
 
