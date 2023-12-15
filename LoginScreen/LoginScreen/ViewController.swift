@@ -20,8 +20,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ViewController.tapFunction))
+        informationLabel.isUserInteractionEnabled = true
+        informationLabel.addGestureRecognizer(tap)
     }
-
-
+    
+    @objc
+    func tapFunction(sender:UITapGestureRecognizer) {
+        print("Task done")
+    }
 }
 
