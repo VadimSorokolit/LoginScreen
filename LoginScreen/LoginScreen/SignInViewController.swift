@@ -30,16 +30,17 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupLabels()
+        self.setupTextFields()
         
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
             self.infoLabelTopConstraint.constant /= 2
             self.infoLabelBottomConstraint.constant /= 2
         }
         
-        userAccountTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
-        userAccountTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
-        userAccountTextField.leftViewMode = .always
-        userAccountTextField.rightViewMode = .always
+//        userAccountTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
+//        userAccountTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
+//        userAccountTextField.leftViewMode = .always
+//        userAccountTextField.rightViewMode = .always
          
        
     }
@@ -52,6 +53,11 @@ class SignInViewController: UIViewController {
         self.informationLabel.addGestureRecognizer(tap)
     }
     
+    private func setupTextFields() {
+        userAccountTextField.AddPaddingToTextField()
+        passwordTextField.AddPaddingToTextField()
+    }
+    
     // MARK: - IBActions
     
     @IBAction func tapFunction(sender: UITapGestureRecognizer) {
@@ -59,4 +65,18 @@ class SignInViewController: UIViewController {
     }
     
 }
+
+// Add padding to UITextField
+
+extension UITextField {
+    func AddPaddingToTextField() {
+        let borderWidth  = 15
+        let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: borderWidth, height: 0))
+        self.leftView = paddingView
+        self.leftViewMode = .always
+        self.rightView = paddingView
+        self.rightViewMode = .always
+    }
+}
+
 
