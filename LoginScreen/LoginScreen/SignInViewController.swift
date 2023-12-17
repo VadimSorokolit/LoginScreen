@@ -35,6 +35,15 @@ class SignInViewController: UIViewController {
             self.infoLabelTopConstraint.constant /= 2
             self.infoLabelBottomConstraint.constant /= 2
         }
+        
+        /*
+        
+         userAccountTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
+        userAccountTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
+        userAccountTextField.leftViewMode = .always
+        userAccountTextField.rightViewMode = .always
+         
+       */
     }
     
     // MARK: - Methods
