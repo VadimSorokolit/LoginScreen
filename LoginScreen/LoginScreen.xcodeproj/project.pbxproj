@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */; };
+		DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */; };
 		DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */; };
 		DDC9FCCA2B20CD1B005D21FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */; };
-		DDC9FCCC2B20CD1B005D21FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9FCCB2B20CD1B005D21FD /* ViewController.swift */; };
+		DDC9FCCC2B20CD1B005D21FD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9FCCB2B20CD1B005D21FD /* SignInViewController.swift */; };
 		DDC9FCCF2B20CD1B005D21FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */; };
 		DDC9FCD12B20CD1C005D21FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */; };
 		DDC9FCD42B20CD1C005D21FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */; };
@@ -18,10 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DDC9FCC42B20CD1B005D21FD /* LoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDC9FCCB2B20CD1B005D21FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
+		DDC9FCCB2B20CD1B005D21FD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SignInViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		DDC9FCCE2B20CD1B005D21FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDC9FCD32B20CD1C005D21FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,7 +66,9 @@
 			children = (
 				DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */,
 				DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */,
-				DDC9FCCB2B20CD1B005D21FD /* ViewController.swift */,
+				DDC9FCCB2B20CD1B005D21FD /* SignInViewController.swift */,
+				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
+				DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */,
 				DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */,
 				DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */,
 				DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */,
@@ -154,8 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDC9FCCC2B20CD1B005D21FD /* ViewController.swift in Sources */,
+				DDC9FCCC2B20CD1B005D21FD /* SignInViewController.swift in Sources */,
 				DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */,
+				DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */,
+				DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */,
 				DDC9FCCA2B20CD1B005D21FD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
