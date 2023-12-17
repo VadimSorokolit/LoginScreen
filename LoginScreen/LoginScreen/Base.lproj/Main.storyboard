@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -43,8 +42,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
-                                <rect key="frame" x="136.33333333333334" y="233" width="120.33333333333334" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
+                                <rect key="frame" x="122" y="233" width="149" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GUe-sT-pEz"/>
                                 </constraints>
@@ -133,6 +132,8 @@
                             <constraint firstItem="wKc-Vh-8Do" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="E90-1W-Iym"/>
                             <constraint firstItem="6dq-vA-sF9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="28" id="Ffz-Dn-zP6"/>
                             <constraint firstItem="RoN-R8-t4h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="Lki-W3-UoS"/>
+                            <constraint firstItem="RoN-R8-t4h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="Nhm-Gv-0tR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RoN-R8-t4h" secondAttribute="trailing" constant="122" id="OY8-1c-SUx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wKc-Vh-8Do" secondAttribute="trailing" constant="28" id="Ten-cA-Iu8"/>
                             <constraint firstItem="fgM-3I-mig" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="UgG-sn-Ore"/>
                             <constraint firstItem="tbm-lr-iYe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="VF1-oB-dwT"/>
@@ -151,6 +152,8 @@
                     </view>
                     <connections>
                         <outlet property="infoLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
+                        <outlet property="infoLabelBottomConstraint" destination="Cad-XP-6aX" id="ANa-0g-jdD"/>
+                        <outlet property="infoLabelTopConstraint" destination="Lki-W3-UoS" id="pE2-v9-FqO"/>
                         <outlet property="informationLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>

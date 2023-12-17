@@ -16,6 +16,13 @@ class SignInViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
     @IBOutlet weak private var informationLabel: UILabel!
+    @IBOutlet weak var infoLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var infoLabelTopConstraint: NSLayoutConstraint!
+    
+    // MARK - find the current and min Height of screenHeigh
+    
+    private let screenHeigh = UIScreen.main.bounds.height
+    private let iPhone8PlusScreenHeigh = 736.0
     
     // MARK: - Lifecycle
     
@@ -23,6 +30,11 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupLabels()
+        
+        if self.screenHeigh < self.iPhone8PlusScreenHeigh {
+            self.infoLabelTopConstraint.constant /= 2
+            self.infoLabelBottomConstraint.constant /= 2
+        }
     }
     
     // MARK: - Methods
