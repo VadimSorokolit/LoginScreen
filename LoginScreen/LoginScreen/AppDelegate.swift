@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  LoginScreen
 //
-//  Created by Vadim  on 06.12.2023.
+//  Created by Vadim on 06.12.2023.
 //
 
 import UIKit
