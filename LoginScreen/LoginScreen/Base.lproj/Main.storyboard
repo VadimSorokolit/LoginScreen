@@ -184,7 +184,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZq-Ct-LZI">
-                                <rect key="frame" x="120.66666666666667" y="233" width="151.66666666666663" height="40"/>
+                                <rect key="frame" x="120.66666666666667" y="233" width="151.66666666666663" height="40.333333333333314"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Sign Up">
                                         <attributes>
@@ -220,7 +220,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-eY-Uc5">
-                                <rect key="frame" x="28" y="423" width="337" height="63"/>
+                                <rect key="frame" x="28" y="423.33333333333331" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="cR8-BS-KGn"/>
@@ -235,7 +235,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-42-Ttp">
-                                <rect key="frame" x="28" y="508" width="337" height="63"/>
+                                <rect key="frame" x="28" y="508.33333333333326" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="gfc-NX-VFd"/>
@@ -250,16 +250,25 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-3N-K8h">
-                                <rect key="frame" x="28" y="593" width="337" height="63"/>
+                                <rect key="frame" x="28" y="593.33333333333337" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="Ssv-ZB-XYr"/>
                                 </constraints>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="SIGN UP">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="PTMono-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cormerRadius">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
@@ -287,6 +296,15 @@
                             <constraint firstItem="GQE-42-Ttp" firstAttribute="top" secondItem="6Dy-eY-Uc5" secondAttribute="bottom" constant="22" id="xYI-J3-oaT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signUpButton" destination="K0c-3N-K8h" id="NtI-98-7lw"/>
+                        <outlet property="signUpInfoLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>
+                        <outlet property="signUpInfoLabelBottomConstraint" destination="Vap-6c-Cq8" id="1o8-S6-VqI"/>
+                        <outlet property="signUpInfoLabelTopConstraint" destination="ANU-t6-xE9" id="E7h-Xl-hLi"/>
+                        <outlet property="signUpInformationLabel" destination="vly-V1-CiE" id="Zn4-r3-iAL"/>
+                        <outlet property="signUpPasswordTextField" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
+                        <outlet property="signUpUserAccountTextField" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEc-tK-8V3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
