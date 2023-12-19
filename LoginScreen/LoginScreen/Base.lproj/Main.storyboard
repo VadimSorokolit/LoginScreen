@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gRX-lK-Ej6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="271-KB-r5Y">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -317,16 +317,110 @@
                     <view key="view" contentMode="scaleToFill" id="fZf-Kl-KyV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADJ-aw-svg">
+                                <rect key="frame" x="72" y="477" width="248" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="3f8-sA-fl0"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Now you can see the app content!">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="PTMono-Regular"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <real key="NSStrokeWidth" value="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Xl-eOt">
+                                <rect key="frame" x="25" y="390" width="343" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="9hG-PU-jzW"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="NAME">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="PTMono-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYY-kr-ons">
+                                <rect key="frame" x="97" y="694" width="199" height="63"/>
+                                <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="xRU-ZN-9V8"/>
+                                </constraints>
+                                <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="LOG OUT">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name="PTMono-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.MaskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image 1" translatesAutoresizingMaskIntoConstraints="NO" id="Exr-Nh-dHF">
+                                <rect key="frame" x="130" y="117" width="240" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cre-Qm-0QB">
+                                <rect key="frame" x="46" y="302" width="300" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="zz6-Y1-Dn5"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="YOU LOGGED IN">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="PTMono-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="aNc-74-ZgE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ADJ-aw-svg" firstAttribute="leading" secondItem="fZf-Kl-KyV" secondAttribute="leading" constant="72" id="5M6-c2-796"/>
+                            <constraint firstAttribute="trailing" secondItem="SYY-kr-ons" secondAttribute="trailing" constant="97" id="Ct3-Y2-d60"/>
+                            <constraint firstItem="SYY-kr-ons" firstAttribute="top" secondItem="ADJ-aw-svg" secondAttribute="bottom" constant="154" id="Foy-49-el7"/>
+                            <constraint firstItem="SYY-kr-ons" firstAttribute="leading" secondItem="fZf-Kl-KyV" secondAttribute="leading" constant="97" id="Ft0-Vu-ROY"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="lqe-Xl-eOt" secondAttribute="trailing" constant="25" id="I7E-35-XYr"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="bottom" secondItem="SYY-kr-ons" secondAttribute="bottom" constant="61" id="TJM-XU-d8x"/>
+                            <constraint firstItem="lqe-Xl-eOt" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="25" id="dNt-Ed-1TA"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="ADJ-aw-svg" secondAttribute="trailing" constant="73" id="ntD-Nm-cYT"/>
+                            <constraint firstItem="cre-Qm-0QB" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="46" id="uaS-cf-zXm"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="cre-Qm-0QB" secondAttribute="trailing" constant="47" id="ueq-WX-6AR"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ins-Uo-fyH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="-27"/>
+            <point key="canvasLocation" x="1513.7404580152672" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Image 1" width="278" height="300"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
