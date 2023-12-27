@@ -67,11 +67,14 @@ class SignInViewController: UIViewController {
     
     // MARK: - IBActions
     
-//    @IBAction func didTapLogInButton() {
-//        let storyBoard = UIStoryboard(name: "SignUpViewController", bundle: nil)
-//        let vc = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-//        navigationController?.pushViewController(vc, animated: true)
-//    }
+    @IBAction func didTapLogInButton() {
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+        
+            self.navigationController?.pushViewController(vc, animated: true)
+            print(self.navigationController?.viewControllers.count)
+        }
+    }
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (informationLabel.text! as NSString).range(of: "Sign up")

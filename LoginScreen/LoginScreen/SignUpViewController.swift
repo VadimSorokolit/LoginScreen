@@ -66,6 +66,12 @@ class SignUpViewController: UIViewController {
             print("Good")
         }
     }
+    
+    @IBAction func pop(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
 
 
