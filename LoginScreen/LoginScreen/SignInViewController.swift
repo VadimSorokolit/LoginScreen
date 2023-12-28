@@ -16,8 +16,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
     @IBOutlet weak private var informationLabel: UILabel!
-    @IBOutlet weak var infoLabelBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var infoLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var infoLabelBottomConstraint: NSLayoutConstraint!
     
     // MARK - find the current and min Height of screenHeigh
     
@@ -133,3 +133,5 @@ extension UITapGestureRecognizer {
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
 }
+
+

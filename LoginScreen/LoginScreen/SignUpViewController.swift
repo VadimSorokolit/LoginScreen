@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var signUpInfoLabel: UILabel!
     @IBOutlet weak var signUpUserAccountTextField: UITextField!
     @IBOutlet weak var signUpPasswordTextField: UITextField!
@@ -17,10 +19,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpInformationLabel: UILabel!
     @IBOutlet weak var signUpInfoLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var signUpInfoLabelBottomConstraint: NSLayoutConstraint!
-    
-    // MARK: - IBOutlets
-    
-    
     
     // MARK - find the current and min Height of screenHeigh
     
