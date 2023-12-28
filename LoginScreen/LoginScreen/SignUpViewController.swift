@@ -51,8 +51,8 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupTextFields() {
-        signUpUserAccountTextField.AddPaddingToTextField()
-        signUpPasswordTextField.AddPaddingToTextField()
+        signUpUserAccountTextField.addPaddingToTextField()
+        signUpPasswordTextField.addPaddingToTextField()
     }
     
     // MARK: - IBActions

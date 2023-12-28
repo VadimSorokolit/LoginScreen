@@ -61,8 +61,8 @@ class SignInViewController: UIViewController {
     }
     
     private func setupTextFields() {
-        userAccountTextField.AddPaddingToTextField()
-        passwordTextField.AddPaddingToTextField()
+        userAccountTextField.addPaddingToTextField()
+        passwordTextField.addPaddingToTextField()
     }
     
     // MARK: - IBActions
@@ -72,7 +72,7 @@ class SignInViewController: UIViewController {
         if let vc = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
         
             self.navigationController?.pushViewController(vc, animated: true)
-            print(self.navigationController?.viewControllers.count)
+            // print(self.navigationController?.viewControllers.count)
         }
     }
     
@@ -90,7 +90,7 @@ class SignInViewController: UIViewController {
 // Add padding to UITextField
 
 extension UITextField {
-    func AddPaddingToTextField() {
+    func addPaddingToTextField() {
         let borderWidth  = 15
         let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: borderWidth, height: 0))
         self.leftView = paddingView
