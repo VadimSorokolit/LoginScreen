@@ -410,6 +410,16 @@
                             <constraint firstItem="SYY-kr-ons" firstAttribute="top" secondItem="ADJ-aw-svg" secondAttribute="bottom" constant="44" id="zvj-sX-JP1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="homePageButton" destination="SYY-kr-ons" id="Aut-MB-oa2"/>
+                        <outlet property="homePageFirstLabel" destination="cre-Qm-0QB" id="ygI-jb-cR7"/>
+                        <outlet property="homePageFirstLabelButtomConstraint" destination="oxM-cC-vhL" id="OmU-pC-RcX"/>
+                        <outlet property="homePageImageView" destination="Exr-Nh-dHF" id="IHU-b0-qn3"/>
+                        <outlet property="homePageSecondLabel" destination="lqe-Xl-eOt" id="A53-Hd-rS9"/>
+                        <outlet property="homePageSecondLabelButtomConstraint" destination="EaW-oC-Jra" id="2Jy-Kq-fSb"/>
+                        <outlet property="homePageThirdLabel" destination="ADJ-aw-svg" id="0tk-Oi-TBN"/>
+                        <outlet property="homePageThirdLabelButtomConstraint" destination="zvj-sX-JP1" id="ybV-tR-3Xc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ins-Uo-fyH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
