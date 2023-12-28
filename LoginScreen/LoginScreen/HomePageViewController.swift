@@ -35,6 +35,7 @@ class HomePageViewController: UIViewController {
     private func setupLabels() {
         self.homePageFirstLabel.contentMode = .bottom
         self.homePageSecondLabel.contentMode = .top
+      
     }
     
     private func defineCurrentScreen() {
@@ -44,7 +45,7 @@ class HomePageViewController: UIViewController {
         if screenHeigh < iPhone8PlusScreenHeigh {
             self.homePageFirstLabelButtomConstraint.constant /= 4
             self.homePageSecondLabelButtomConstraint.constant /= 2
-            self.homePageThirdLabelButtomConstraint.constant /= 2
+            self.homePageThirdLabelButtomConstraint.constant /= 4
         }
     }
     

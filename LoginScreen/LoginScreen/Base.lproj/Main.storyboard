@@ -321,7 +321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADJ-aw-svg">
-                                <rect key="frame" x="27" y="587" width="341" height="63"/>
+                                <rect key="frame" x="27" y="523" width="341" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="aIG-eW-S94"/>
                                 </constraints>
@@ -341,7 +341,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Xl-eOt" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="25" y="472" width="343" height="72"/>
+                                <rect key="frame" x="25" y="442" width="343" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="PNI-hc-fKN"/>
                                     <constraint firstAttribute="height" constant="72" id="cbS-Fq-42Q"/>
@@ -351,7 +351,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYY-kr-ons">
-                                <rect key="frame" x="97" y="694" width="199" height="63"/>
+                                <rect key="frame" x="97" y="740" width="199" height="63"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="xRU-ZN-9V8"/>
@@ -398,7 +398,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="SYY-kr-ons" secondAttribute="trailing" constant="97" id="Ct3-Y2-d60"/>
-                            <constraint firstItem="ADJ-aw-svg" firstAttribute="top" secondItem="lqe-Xl-eOt" secondAttribute="bottom" constant="43" id="EaW-oC-Jra"/>
+                            <constraint firstItem="ADJ-aw-svg" firstAttribute="top" secondItem="lqe-Xl-eOt" secondAttribute="bottom" constant="9" id="EaW-oC-Jra"/>
                             <constraint firstItem="SYY-kr-ons" firstAttribute="leading" secondItem="fZf-Kl-KyV" secondAttribute="leading" constant="97" id="Ft0-Vu-ROY"/>
                             <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="lqe-Xl-eOt" secondAttribute="trailing" constant="25" id="I7E-35-XYr"/>
                             <constraint firstItem="ADJ-aw-svg" firstAttribute="leading" secondItem="fZf-Kl-KyV" secondAttribute="leading" constant="27" id="OnP-xW-0CO"/>
@@ -406,11 +406,11 @@
                             <constraint firstItem="lqe-Xl-eOt" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="25" id="dNt-Ed-1TA"/>
                             <constraint firstAttribute="trailing" secondItem="cre-Qm-0QB" secondAttribute="trailing" constant="25" id="jjo-hP-kWH"/>
                             <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="Exr-Nh-dHF" secondAttribute="trailing" id="kOd-TH-BR8"/>
-                            <constraint firstItem="lqe-Xl-eOt" firstAttribute="top" secondItem="cre-Qm-0QB" secondAttribute="bottom" constant="39" id="oxM-cC-vhL"/>
+                            <constraint firstItem="lqe-Xl-eOt" firstAttribute="top" secondItem="cre-Qm-0QB" secondAttribute="bottom" constant="9" id="oxM-cC-vhL"/>
                             <constraint firstItem="cre-Qm-0QB" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="27" id="uSR-XD-nRH"/>
                             <constraint firstAttribute="trailing" secondItem="ADJ-aw-svg" secondAttribute="trailing" constant="25" id="vU9-NF-Ryd"/>
                             <constraint firstItem="Exr-Nh-dHF" firstAttribute="top" secondItem="aNc-74-ZgE" secondAttribute="top" constant="36" id="wS6-V9-Ntc"/>
-                            <constraint firstItem="SYY-kr-ons" firstAttribute="top" secondItem="ADJ-aw-svg" secondAttribute="bottom" constant="44" id="zvj-sX-JP1"/>
+                            <constraint firstItem="SYY-kr-ons" firstAttribute="top" secondItem="ADJ-aw-svg" secondAttribute="bottom" constant="154" id="zvj-sX-JP1"/>
                         </constraints>
                     </view>
                     <connections>
