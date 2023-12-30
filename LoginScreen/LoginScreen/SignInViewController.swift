@@ -29,6 +29,8 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+        
         self.setupLabels()
         self.setupTextFields()
         
@@ -37,17 +39,19 @@ class SignInViewController: UIViewController {
             self.infoLabelBottomConstraint.constant /= 2
         }
         
-    /*
-        
-        userAccountTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
-        userAccountTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
-        userAccountTextField.leftViewMode = .always
-        userAccountTextField.rightViewMode = .always
+        /*
          
-    */
+         userAccountTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
+         userAccountTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
+         userAccountTextField.leftViewMode = .always
+         userAccountTextField.rightViewMode = .always
          
-       
+         */
     }
+    
+  
+
+    
     
     // MARK: - Methods
     
@@ -65,24 +69,46 @@ class SignInViewController: UIViewController {
         passwordTextField.addPaddingToTextField()
     }
     
+    private func goToSignUp() {
+        if let signUpVC = self.navigationController?.viewControllers.first(where: { $0 is SignUpViewController }) {
+            self.navigationController?.setViewControllers([signUpVC], animated: true)
+        }  else {
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+                signUpVC.title = "Sign Up Screen"
+                self.navigationController?.setViewControllers([signUpVC], animated: true)
+            }
+        }
+        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+    }
+    
+    private func goToLogOut() {
+        if let loggedVC = self.navigationController?.viewControllers.first(where: { $0 is HomePageViewController }) {
+            self.navigationController?.setViewControllers([loggedVC], animated: true)
+        }  else {
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            if let loggedVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+                loggedVC.title = "Logged In Screen"
+                self.navigationController?.setViewControllers([loggedVC], animated: true)
+            }
+        }
+        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+    }
+
+
+    
     // MARK: - IBActions
     
-    @IBAction func didTapLogInButton() {
-        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
-        
-            self.navigationController?.pushViewController(vc, animated: true)
-            // print(self.navigationController?.viewControllers.count)
-        }
+    
+    @IBAction func onLogInButtonDidTap(_ sender: UIButton) {
+        self.goToLogOut()
     }
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (informationLabel.text! as NSString).range(of: "Sign up")
-        // comment for now
-        //let privacyRange = (text as NSString).range(of: "Privacy Policy")
-        
+       
         if gesture.didTapAttributedTextInLabel(label: informationLabel, inRange: termsRange) {
-            print("Good")
+            self.goToSignUp()
         }
     }
 }

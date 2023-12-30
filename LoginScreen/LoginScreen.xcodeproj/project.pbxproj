@@ -15,6 +15,7 @@
 		DDC9FCCF2B20CD1B005D21FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */; };
 		DDC9FCD12B20CD1C005D21FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */; };
 		DDC9FCD42B20CD1C005D21FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */; };
+		DDD9C3662B4071BC00D9CF29 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */; };
 		DDFE29CD2B22183300C8D6AA /* PT_Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDFE29CC2B22182A00C8D6AA /* PT_Mono-Regular.ttf */; };
 		DDFE29CF2B22184C00C8D6AA /* PT_Mono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DDFE29CE2B22184700C8D6AA /* PT_Mono-Bold.ttf */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDC9FCD32B20CD1C005D21FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDC9FCD52B20CD1C005D21FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DDFE29CC2B22182A00C8D6AA /* PT_Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Mono-Regular.ttf"; sourceTree = "<group>"; };
 		DDFE29CE2B22184700C8D6AA /* PT_Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PT_Mono-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 			children = (
 				DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */,
 				DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */,
+				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
 				DDC9FCCB2B20CD1B005D21FD /* SignInViewController.swift */,
 				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
 				DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC9FCCC2B20CD1B005D21FD /* SignInViewController.swift in Sources */,
+				DDD9C3662B4071BC00D9CF29 /* NavigationController.swift in Sources */,
 				DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */,
 				DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */,
 				DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */,

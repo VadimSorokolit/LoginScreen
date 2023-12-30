@@ -55,20 +55,47 @@ class SignUpViewController: UIViewController {
         signUpPasswordTextField.addPaddingToTextField()
     }
     
+    private func goToSignIn() {
+        if let loginVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
+            self.navigationController?.setViewControllers([loginVC], animated: true)
+        }  else {
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+                loginVC.title = "Log In Screen"
+                self.navigationController?.setViewControllers([loginVC], animated: true)
+            }
+        }
+        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+    }
+    
+    private func goToLogIn() {
+        if let loginVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
+            self.navigationController?.setViewControllers([loginVC], animated: true)
+        }  else {
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+                loginVC.title = "Log In Screen"
+                self.navigationController?.setViewControllers([loginVC], animated: true)
+            }
+        }
+        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+    }
+    
     // MARK: - IBActions
+    
+    
+    
+    @IBAction func onSignUpButtonDidTap(_ sender: UIButton) {
+        self.goToLogIn()
+    }
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (self.signUpInformationLabel.text! as NSString).range(of: "Log in")
-       
+        
         if gesture.didTapAttributedTextInLabel(label: self.signUpInformationLabel, inRange: termsRange) {
-            print("Good")
+            self.goToSignIn()
         }
     }
-    
-    @IBAction func pop(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     
 }
 
