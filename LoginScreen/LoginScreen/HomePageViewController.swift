@@ -17,8 +17,8 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak private var homePageSecondLabel: UILabel!
     @IBOutlet weak private var homePageThirdLabel: UILabel!
     @IBOutlet weak private var homePageButton: UIButton!
-//    @IBOutlet weak var firstLabelTopConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
+// for example:  @IBOutlet weak private var firstLabelTopConstraint: NSLayoutConstraint!
+// for example:  @IBOutlet weak private var buttoButtonConstraint: NSLayoutConstraint!
     
     // MARK: - Lifecycle
     
@@ -26,7 +26,8 @@ class HomePageViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupLabels()
-        self.defineCurrentScreen()
+//      self.defineCurrentScreen()
+//      self.getSafeAreaHeightsTopAndBottom()
     }
     
     // MARK: - Methods
@@ -34,7 +35,7 @@ class HomePageViewController: UIViewController {
     private func setupLabels() {
         self.homePageFirstLabel.contentMode = .bottom
         self.homePageSecondLabel.contentMode = .top
-      
+        
     }
     
     private func defineCurrentScreen() {
@@ -42,13 +43,18 @@ class HomePageViewController: UIViewController {
         let iPhone8PlusScreenHeigh = 736.0
         
         if screenHeigh < iPhone8PlusScreenHeigh {
-          //self.firstLabelTopConstraint.constant /= 3
-//            self.buttonTopConstraint.constant /= 8
-
+        // for example: self.firstLabelTopConstraint.constant /= 3
+        // for example: self.buttonButtomConstraint.constant /= 8
         }
     }
     
-
+    private func getSafeAreaHeightsTopAndBottom() {
+        if #available(iOS 13.0, *), let window = UIApplication.shared.windows.first {
+            let topPadding = window.safeAreaInsets.top
+            let bottomPadding = window.safeAreaInsets.bottom
+            print(topPadding, bottomPadding)
+        }
+    }
     
 }
 
@@ -56,17 +62,16 @@ class VerticalAlignedLabel: UILabel {
     
     override func drawText(in rect: CGRect) {
         var newRect = rect
+        let height = sizeThatFits(rect.size).height
         switch contentMode {
-        case .top:
-            newRect.size.height = sizeThatFits(rect.size).height
-        case .bottom:
-            let height = sizeThatFits(rect.size).height
-            newRect.origin.y += rect.size.height - height
-            newRect.size.height = height
-        default:
-            ()
+            case .top:
+                newRect.size.height = height
+            case .bottom:
+                newRect.origin.y += (rect.size.height - height)
+                newRect.size.height = height
+            default:
+                break
         }
-        
         super.drawText(in: newRect)
     }
 }
