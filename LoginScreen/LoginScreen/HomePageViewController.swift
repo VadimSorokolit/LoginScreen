@@ -17,8 +17,8 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak private var homePageSecondLabel: UILabel!
     @IBOutlet weak private var homePageThirdLabel: UILabel!
     @IBOutlet weak private var homePageButton: UIButton!
-    @IBOutlet weak var firstLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var firstLabelTopConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
     
     // MARK: - Lifecycle
     
@@ -43,7 +43,7 @@ class HomePageViewController: UIViewController {
         
         if screenHeigh < iPhone8PlusScreenHeigh {
           //self.firstLabelTopConstraint.constant /= 3
-            self.buttonTopConstraint.constant /= 8
+//            self.buttonTopConstraint.constant /= 8
 
         }
     }

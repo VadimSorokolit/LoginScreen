@@ -306,13 +306,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 1" translatesAutoresizingMaskIntoConstraints="NO" id="Exr-Nh-dHF">
-                                <rect key="frame" x="113" y="100" width="280" height="300"/>
+                                <rect key="frame" x="113" y="68" width="280" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="nCo-s1-TDB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU ARE LOGGED IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cre-Qm-0QB" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="36" y="360" width="321" height="80"/>
+                                <rect key="frame" x="50" y="307" width="293" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="LEv-Ev-rmp"/>
                                 </constraints>
@@ -321,17 +321,26 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can see the    app content!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADJ-aw-svg">
-                                <rect key="frame" x="62" y="530" width="269" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Xl-eOt" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
+                                <rect key="frame" x="15" y="396" width="363" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="aIG-eW-S94"/>
+                                    <constraint firstAttribute="height" constant="72" id="cbS-Fq-42Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can see the    app content!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADJ-aw-svg">
+                                <rect key="frame" x="62" y="477" width="269" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="aN1-cB-PUz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYY-kr-ons">
-                                <rect key="frame" x="97" y="747" width="199" height="63"/>
+                                <rect key="frame" x="97" y="694" width="199" height="63"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="xRU-ZN-9V8"/>
@@ -348,40 +357,28 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.MaskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Xl-eOt" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="15" y="449" width="363" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="cbS-Fq-42Q"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aNc-74-ZgE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cre-Qm-0QB" firstAttribute="centerX" secondItem="aNc-74-ZgE" secondAttribute="centerX" id="33P-14-6ON"/>
-                            <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="cre-Qm-0QB" secondAttribute="trailing" constant="36" id="6Y4-4Q-5Jf"/>
-                            <constraint firstItem="cre-Qm-0QB" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="36" id="6rl-GK-X5g"/>
-                            <constraint firstAttribute="trailing" secondItem="SYY-kr-ons" secondAttribute="trailing" constant="97" id="Ct3-Y2-d60"/>
-                            <constraint firstItem="SYY-kr-ons" firstAttribute="leading" secondItem="fZf-Kl-KyV" secondAttribute="leading" constant="97" id="Ft0-Vu-ROY"/>
+                            <constraint firstItem="SYY-kr-ons" firstAttribute="top" secondItem="ADJ-aw-svg" secondAttribute="bottom" constant="154" id="2tO-9B-z91"/>
+                            <constraint firstItem="SYY-kr-ons" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="97" id="4sU-05-UBd"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="SYY-kr-ons" secondAttribute="trailing" constant="97" id="Ao4-ow-uMt"/>
+                            <constraint firstItem="cre-Qm-0QB" firstAttribute="top" secondItem="aNc-74-ZgE" secondAttribute="top" constant="248" id="EFU-Wu-AZv"/>
                             <constraint firstItem="ADJ-aw-svg" firstAttribute="leading" secondItem="fZf-Kl-KyV" secondAttribute="leading" constant="62" id="KQj-dr-bSB"/>
-                            <constraint firstItem="SYY-kr-ons" firstAttribute="top" secondItem="ADJ-aw-svg" secondAttribute="bottom" constant="154" id="LAr-Fe-2C2"/>
-                            <constraint firstItem="cre-Qm-0QB" firstAttribute="top" secondItem="Exr-Nh-dHF" secondAttribute="bottom" constant="-40" id="UPl-vV-Snu"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="cre-Qm-0QB" secondAttribute="trailing" constant="50" id="R8H-90-73n"/>
                             <constraint firstItem="lqe-Xl-eOt" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="15" id="Vzk-xy-Oss"/>
                             <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="lqe-Xl-eOt" secondAttribute="trailing" constant="15" id="Wdi-Kn-ESn"/>
+                            <constraint firstItem="Exr-Nh-dHF" firstAttribute="top" secondItem="aNc-74-ZgE" secondAttribute="top" constant="9" id="XmI-HG-a2c"/>
                             <constraint firstItem="ADJ-aw-svg" firstAttribute="top" secondItem="lqe-Xl-eOt" secondAttribute="bottom" constant="9" id="Xxi-32-DtZ"/>
-                            <constraint firstItem="cre-Qm-0QB" firstAttribute="top" secondItem="aNc-74-ZgE" secondAttribute="top" constant="301" id="gO9-mO-Ua6"/>
                             <constraint firstItem="aNc-74-ZgE" firstAttribute="trailing" secondItem="Exr-Nh-dHF" secondAttribute="trailing" id="kOd-TH-BR8"/>
                             <constraint firstAttribute="trailing" secondItem="ADJ-aw-svg" secondAttribute="trailing" constant="62" id="nIN-pV-jDr"/>
-                            <constraint firstItem="Exr-Nh-dHF" firstAttribute="top" secondItem="aNc-74-ZgE" secondAttribute="top" constant="41" id="wS6-V9-Ntc"/>
+                            <constraint firstItem="cre-Qm-0QB" firstAttribute="leading" secondItem="aNc-74-ZgE" secondAttribute="leading" constant="50" id="qhQ-Jj-icH"/>
+                            <constraint firstItem="aNc-74-ZgE" firstAttribute="bottom" secondItem="SYY-kr-ons" secondAttribute="bottom" constant="61" id="tzr-GB-izb"/>
                             <constraint firstItem="lqe-Xl-eOt" firstAttribute="top" secondItem="cre-Qm-0QB" secondAttribute="bottom" constant="9" id="z82-7t-JVJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonTopConstraint" destination="LAr-Fe-2C2" id="2wg-xb-KRo"/>
-                        <outlet property="firstLabelTopConstraint" destination="gO9-mO-Ua6" id="Xb0-Fd-AKq"/>
                         <outlet property="homePageButton" destination="SYY-kr-ons" id="Aut-MB-oa2"/>
                         <outlet property="homePageFirstLabel" destination="cre-Qm-0QB" id="ygI-jb-cR7"/>
                         <outlet property="homePageImageView" destination="Exr-Nh-dHF" id="IHU-b0-qn3"/>
