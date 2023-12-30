@@ -19,6 +19,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="241-rw-XSU">
                                 <rect key="frame" x="105" y="424" width="183" height="100"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="183" id="5sm-5P-cKg"/>
                                     <constraint firstAttribute="height" constant="100" id="eCM-ts-dGa"/>
                                 </constraints>
                             </imageView>
@@ -26,10 +27,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="241-rw-XSU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="3vZ-Gw-T4c"/>
                             <constraint firstItem="241-rw-XSU" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nww-s2-TuG"/>
                             <constraint firstItem="241-rw-XSU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="365" id="VYZ-Uu-ZdR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="241-rw-XSU" secondAttribute="trailing" constant="105" id="X56-Qv-nX9"/>
                         </constraints>
                     </view>
                 </viewController>
