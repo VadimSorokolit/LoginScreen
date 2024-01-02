@@ -43,10 +43,11 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
-                                <rect key="frame" x="122" y="233" width="149" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
+                                <rect key="frame" x="121.00000000000001" y="233" width="151.33333333333337" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GUe-sT-pEz"/>
+                                    <constraint firstAttribute="width" constant="151.33333333333337" id="dvy-7V-Cps"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="36"/>
                                 <nil key="textColor"/>
@@ -78,11 +79,11 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="63"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="LOG IN" cornerStyle="fixed">
-                                    <fontDescription key="titleFontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
-                                    <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="LOG IN">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -136,8 +137,6 @@
                             <constraint firstItem="6dq-vA-sF9" firstAttribute="top" secondItem="RoN-R8-t4h" secondAttribute="bottom" constant="150" id="Cad-XP-6aX"/>
                             <constraint firstItem="wKc-Vh-8Do" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="E90-1W-Iym"/>
                             <constraint firstItem="6dq-vA-sF9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="28" id="Ffz-Dn-zP6"/>
-                            <constraint firstItem="RoN-R8-t4h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="Nhm-Gv-0tR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RoN-R8-t4h" secondAttribute="trailing" constant="122" id="OY8-1c-SUx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wKc-Vh-8Do" secondAttribute="trailing" constant="28" id="Ten-cA-Iu8"/>
                             <constraint firstItem="fgM-3I-mig" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="UgG-sn-Ore"/>
                             <constraint firstItem="tbm-lr-iYe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="VF1-oB-dwT"/>
@@ -247,11 +246,10 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="gje-Tq-ZdW"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="SIGN UP">
-                                    <fontDescription key="titleFontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="SIGN UP"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
