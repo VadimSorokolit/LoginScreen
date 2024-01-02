@@ -80,7 +80,6 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="LOG IN" cornerStyle="fixed">
-                                    <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="1"/>
                                     <fontDescription key="titleFontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
                                     <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
