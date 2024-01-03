@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpInfoLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var signUpInfoLabelBottomConstraint: NSLayoutConstraint!
     
-    // MARK - find the current and min Height of screenHeigh
+    // MARK - Current and min Height of screenHeigh
     
     private let screenHeigh = UIScreen.main.bounds.height
     private let iPhone8PlusScreenHeigh = 736.0
@@ -32,21 +32,17 @@ class SignUpViewController: UIViewController {
         
         self.setupLabels()
         self.setupTextFields()
-        
-        if self.screenHeigh < self.iPhone8PlusScreenHeigh {
-            self.signUpInfoLabelTopConstraint.constant /= 2
-            self.signUpInfoLabelBottomConstraint.constant /= 2
-        }
     }
     
     // MARK: - Methods
     
     private func setupLabels() {
-        if let text = signUpInformationLabel.text {
-            let underlineAttriString = NSMutableAttributedString(string: text)
-            let range1 = (text as NSString).range(of: "Log in")
-            self.signUpInformationLabel.isUserInteractionEnabled = true
-            self.signUpInformationLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        self.signUpInformationLabel.isUserInteractionEnabled = true
+        self.signUpInformationLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        
+        if self.screenHeigh < self.iPhone8PlusScreenHeigh {
+            self.signUpInfoLabelTopConstraint.constant /= 2
+            self.signUpInfoLabelBottomConstraint.constant /= 2
         }
     }
     
@@ -56,26 +52,25 @@ class SignUpViewController: UIViewController {
     }
     
     private func goToSignIn() {
-        if let loginVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
-            self.navigationController?.setViewControllers([loginVC], animated: true)
+        if let SignInVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
+            self.navigationController?.setViewControllers([SignInVC], animated: true)
         }  else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
-                loginVC.title = "Log In Screen"
-                self.navigationController?.setViewControllers([loginVC], animated: true)
+            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+                SignInVC.title = "Log In Screen"
+                self.navigationController?.setViewControllers([SignInVC], animated: true)
             }
         }
-        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
     }
     
-    private func goToLogIn() {
-        if let loginVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
-            self.navigationController?.setViewControllers([loginVC], animated: true)
+    private func goHomePage() {
+        if let HomePageVC = self.navigationController?.viewControllers.first(where: { $0 is HomePageViewController }) {
+            self.navigationController?.setViewControllers([HomePageVC], animated: true)
         }  else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
-                loginVC.title = "Log In Screen"
-                self.navigationController?.setViewControllers([loginVC], animated: true)
+            if let loggedVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+                loggedVC.title = "Home Page Screen"
+                self.navigationController?.setViewControllers([loggedVC], animated: true)
             }
         }
         UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
@@ -83,20 +78,17 @@ class SignUpViewController: UIViewController {
     
     // MARK: - IBActions
     
-    
-    
     @IBAction func onSignUpButtonDidTap(_ sender: UIButton) {
-        self.goToLogIn()
+        self.goHomePage()
     }
     
     @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (self.signUpInformationLabel.text! as NSString).range(of: "Log in")
         
         if gesture.didTapAttributedTextInLabel(label: self.signUpInformationLabel, inRange: termsRange) {
-            self.goToSignIn()
+            self.navigationController?.popViewController(animated: true)
         }
     }
-    
 }
 
 

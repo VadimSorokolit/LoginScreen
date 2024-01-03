@@ -26,7 +26,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+       UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
         
         self.setupLabels()
 //      self.defineCurrentScreen()
@@ -60,13 +60,13 @@ class HomePageViewController: UIViewController {
     }
     
     private func goToLogIn() {
-        if let loginVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
-            self.navigationController?.setViewControllers([loginVC], animated: true)
+        if let SignInVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
+            self.navigationController?.setViewControllers([SignInVC], animated: true)
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let loginVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
-                loginVC.title = "Log In Screen"
-                self.navigationController?.setViewControllers([loginVC], animated: true)
+            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+                SignInVC.title = "Log In Screen"
+                self.navigationController?.setViewControllers([SignInVC], animated: true)
             }
         }
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
