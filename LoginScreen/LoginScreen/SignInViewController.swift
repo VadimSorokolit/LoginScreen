@@ -12,6 +12,7 @@ class SignInViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak private var infoLabel: UILabel!
+    @IBOutlet weak private var foundError: UILabel!
     @IBOutlet weak private var emailTF: UITextField!
     @IBOutlet weak private var passwordTF: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
