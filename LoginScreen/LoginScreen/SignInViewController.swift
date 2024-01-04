@@ -32,6 +32,7 @@ class SignInViewController: UIViewController {
         
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
         
+        self.resetForm()
         self.setupLabels()
         self.setupTextFields()
         
@@ -47,6 +48,40 @@ class SignInViewController: UIViewController {
     
     // MARK: - Methods
     
+    private func resetForm() {
+        self.logInButton.isEnabled = false
+        
+        self.foundError.isHidden = false
+        
+        self.foundError.text = "Required"
+        self.foundError.text = ""
+    }
+    
+    private func invalidEmail(_ value: String) -> String? {
+        let reqularExpression = "[A-Z0-9a-z._%+_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2.64}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        if  !predicate.evaluate(with: value) {
+            return "Invalid email address"
+        }
+        return nil
+        
+    }
+    
+    private func invalidPassword(_ value: String) -> String? {
+        if value.count < 8 {
+            return "Password must be at least 8 characters"
+        }
+        return nil
+    }
+    
+    private func checkForValidForm() {
+        if self.foundError.isHidden {
+            self.logInButton.isEnabled = true
+        } else {
+            self.logInButton.isEnabled = false
+        }
+    }
+    
     private func setupLabels() {
         self.informationLabel.isUserInteractionEnabled = true
         self.informationLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
@@ -58,8 +93,8 @@ class SignInViewController: UIViewController {
     }
     
     private func setupTextFields() {
-        emailTF.addPaddingToTextField()
-        passwordTF.addPaddingToTextField()
+        self.emailTF.addPaddingToTextField()
+        self.passwordTF.addPaddingToTextField()
     }
     
     private func goToSignUp() {
@@ -89,7 +124,33 @@ class SignInViewController: UIViewController {
 
     // MARK: - IBActions
     
+    @IBAction func emailChanged(_ sender: Any) {
+        if let email = self.emailTF.text {
+            if let errorMessage = invalidEmail(email) {
+                self.foundError.text = errorMessage
+                self.foundError.isHidden = false
+            } else {
+                self.foundError.isHidden = true
+            }
+        }
+        checkForValidForm()
+    }
+    
+    
+    @IBAction func passwordChanged(_ sender: Any) {
+        if let password = passwordTF.text {
+            if let errorMessage = invalidPassword(password) {
+                foundError.text = errorMessage
+                foundError.isHidden = false
+            } else {
+                foundError.isHidden = true
+            }
+        }
+        checkForValidForm()
+    }
+    
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
+        resetForm()
         self.goToHomePage()
     }
     
