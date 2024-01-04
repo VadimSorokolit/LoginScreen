@@ -13,8 +13,8 @@ class SignUpViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak var signUpInfoLabel: UILabel!
-    @IBOutlet weak var signUpUserAccountTextField: UITextField!
-    @IBOutlet weak var signUpPasswordTextField: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signUpInformationLabel: UILabel!
     @IBOutlet weak var signUpInfoLabelTopConstraint: NSLayoutConstraint!
@@ -47,8 +47,8 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupTextFields() {
-        signUpUserAccountTextField.addPaddingToTextField()
-        signUpPasswordTextField.addPaddingToTextField()
+        emailTF.addPaddingToTextField()
+        passwordTF.addPaddingToTextField()
     }
     
     private func goToSignIn() {

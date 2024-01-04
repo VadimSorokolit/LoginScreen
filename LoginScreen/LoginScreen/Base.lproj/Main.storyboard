@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-vA-sF9">
-                                <rect key="frame" x="28" y="423" width="337" height="63"/>
+                                <rect key="frame" x="28" y="379" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES"/>
@@ -44,7 +44,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
-                                <rect key="frame" x="121.00000000000001" y="233" width="151.33333333333337" height="40"/>
+                                <rect key="frame" x="121.00000000000001" y="189" width="151.33333333333337" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GUe-sT-pEz"/>
                                     <constraint firstAttribute="width" constant="151.33333333333337" id="dvy-7V-Cps"/>
@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Vh-8Do">
-                                <rect key="frame" x="28" y="508" width="337" height="63"/>
+                                <rect key="frame" x="28" y="464" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES"/>
@@ -72,7 +72,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
-                                <rect key="frame" x="28" y="593" width="337" height="63"/>
+                                <rect key="frame" x="28" y="549" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="IQJ-xn-rYZ">
@@ -145,7 +145,7 @@
                             <constraint firstItem="RoN-R8-t4h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nYX-9a-BHU"/>
                             <constraint firstItem="wKc-Vh-8Do" firstAttribute="top" secondItem="6dq-vA-sF9" secondAttribute="bottom" constant="22" id="oAl-SB-NqY"/>
                             <constraint firstAttribute="trailing" secondItem="6dq-vA-sF9" secondAttribute="trailing" constant="28" id="tBB-13-VZh"/>
-                            <constraint firstItem="RoN-R8-t4h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="xkn-gf-uOS"/>
+                            <constraint firstItem="RoN-R8-t4h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="xkn-gf-uOS"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -156,13 +156,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="p2f-U6-e7c"/>
                     <connections>
+                        <outlet property="emailTF" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
                         <outlet property="infoLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
                         <outlet property="infoLabelBottomConstraint" destination="Cad-XP-6aX" id="tiy-uD-etW"/>
                         <outlet property="infoLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                         <outlet property="informationLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
-                        <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
-                        <outlet property="userAccountTextField" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
+                        <outlet property="passwordTF" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZq-Ct-LZI">
-                                <rect key="frame" x="121.00000000000001" y="233" width="151.33333333333337" height="40"/>
+                                <rect key="frame" x="121.00000000000001" y="189" width="151.33333333333337" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="k6U-67-KsG"/>
                                     <constraint firstAttribute="width" constant="151.33333333333337" id="to6-Lb-aax"/>
@@ -212,7 +212,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-42-Ttp">
-                                <rect key="frame" x="28" y="511" width="337" height="63"/>
+                                <rect key="frame" x="28" y="467" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="bQk-xR-C1A"/>
@@ -227,7 +227,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-3N-K8h">
-                                <rect key="frame" x="28" y="596" width="337" height="63"/>
+                                <rect key="frame" x="28" y="552" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="gje-Tq-ZdW"/>
@@ -247,7 +247,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-eY-Uc5">
-                                <rect key="frame" x="28" y="426" width="337" height="63"/>
+                                <rect key="frame" x="28" y="382" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="ahI-mL-hgX"/>
@@ -273,7 +273,7 @@
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="vly-V1-CiE" secondAttribute="trailing" constant="28" id="Uot-Dr-3eb"/>
                             <constraint firstItem="GQE-42-Ttp" firstAttribute="top" secondItem="6Dy-eY-Uc5" secondAttribute="bottom" constant="22" id="V8M-nE-UBO"/>
                             <constraint firstItem="K0c-3N-K8h" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="VpZ-u8-Wnu"/>
-                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="top" secondItem="Ilf-hC-amr" secondAttribute="top" constant="174" id="WIu-HB-Voe"/>
+                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="top" secondItem="Ilf-hC-amr" secondAttribute="top" constant="130" id="WIu-HB-Voe"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="bottom" secondItem="vly-V1-CiE" secondAttribute="bottom" constant="25" id="b0D-Z2-Q6Y"/>
                             <constraint firstAttribute="trailing" secondItem="K0c-3N-K8h" secondAttribute="trailing" constant="28" id="cRO-Gh-ECa"/>
                             <constraint firstItem="6Dy-eY-Uc5" firstAttribute="top" secondItem="XZq-Ct-LZI" secondAttribute="bottom" constant="153" id="gAv-oF-ceE"/>
@@ -282,12 +282,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTF" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
+                        <outlet property="passwordTF" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
                         <outlet property="signUpButton" destination="K0c-3N-K8h" id="NtI-98-7lw"/>
                         <outlet property="signUpInfoLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>
                         <outlet property="signUpInfoLabelTopConstraint" destination="WIu-HB-Voe" id="a9m-Qi-ZEY"/>
                         <outlet property="signUpInformationLabel" destination="vly-V1-CiE" id="Zn4-r3-iAL"/>
-                        <outlet property="signUpPasswordTextField" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
-                        <outlet property="signUpUserAccountTextField" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEc-tK-8V3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

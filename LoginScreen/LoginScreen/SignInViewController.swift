@@ -12,12 +12,12 @@ class SignInViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak private var infoLabel: UILabel!
-    @IBOutlet weak private var userAccountTextField: UITextField!
-    @IBOutlet weak private var passwordTextField: UITextField!
+    @IBOutlet weak private var emailTF: UITextField!
+    @IBOutlet weak private var passwordTF: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
     @IBOutlet weak private var informationLabel: UILabel!
-    @IBOutlet weak var infoLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var infoLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var infoLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var infoLabelBottomConstraint: NSLayoutConstraint!
     
     // MARK - Current and min Height of screenHeigh
     
@@ -57,8 +57,8 @@ class SignInViewController: UIViewController {
     }
     
     private func setupTextFields() {
-        userAccountTextField.addPaddingToTextField()
-        passwordTextField.addPaddingToTextField()
+        emailTF.addPaddingToTextField()
+        passwordTF.addPaddingToTextField()
     }
     
     private func goToSignUp() {
@@ -88,11 +88,11 @@ class SignInViewController: UIViewController {
 
     // MARK: - IBActions
     
-    @IBAction func onLogInButtonDidTap(_ sender: UIButton) {
+    @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
         self.goToHomePage()
     }
     
-    @IBAction func tapLabel(gesture: UITapGestureRecognizer) {
+    @IBAction private func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (informationLabel.text! as NSString).range(of: "Sign up")
         
         if gesture.didTapAttributedTextInLabel(label: informationLabel, inRange: termsRange) {
