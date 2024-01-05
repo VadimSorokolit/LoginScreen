@@ -125,8 +125,6 @@ class SignInViewController: UIViewController {
     private func setupTextFields() {
         self.emailTF.addPaddingToTextField()
         self.passwordTF.addPaddingToTextField()
-        let myColor = UIColor.red
-        self.passwordTF.layer.borderColor = myColor.cgColor
     }
     
     private func goToSignUp() {
@@ -157,29 +155,35 @@ class SignInViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func emailChanged(_ sender: Any) {
-                if let email = self.emailTF.text {
-                    if let errorMessage = invalidEmail(email) {
-                        self.foundError.text = errorMessage
-                        self.foundError.isHidden = false
-                    } else {
-                        self.foundError.isHidden = true
-                    }
-                }
+        if let email = self.emailTF.text {
+            if let errorMessage = invalidEmail(email) {
+                self.foundError.text = errorMessage
+                self.emailTF.layer.borderWidth = 1
+                self.emailTF.layer.borderColor = UIColor.red.cgColor
+                self.foundError.isHidden = false
+            } else {
+                self.foundError.isHidden = true
+                self.emailTF.layer.borderWidth = 0
+                self.emailTF.layer.borderColor = UIColor.clear.cgColor
+            }
+        }
         checkForValidForm()
     }
 
     @IBAction func passwordChanged(_ sender: Any) {
-                if let password = passwordTF.text {
-                    if let errorMessage = invalidPassword(password) {
-                        self.foundError.text = errorMessage
-                        let myColor = UIColor.red
-                        self.passwordTF.layer.borderColor = myColor.cgColor
-                        self.foundError.isHidden = false
-                    } else {
-                        self.foundError.isHidden = true
-                    }
-                }
-                self.checkForValidForm()
+        if let password = passwordTF.text {
+            if let errorMessage = invalidPassword(password) {
+                self.foundError.text = errorMessage
+                self.passwordTF.layer.borderWidth = 1
+                self.passwordTF.layer.borderColor = UIColor.red.cgColor
+                self.foundError.isHidden = false
+            } else {
+                self.foundError.isHidden = true
+                self.passwordTF.layer.borderWidth = 0
+                self.passwordTF.layer.borderColor = UIColor.clear.cgColor
+            }
+        }
+        self.checkForValidForm()
     }
 
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
