@@ -58,7 +58,7 @@ class SignInViewController: UIViewController {
     }
     
     private func invalidEmail(_ value: String) -> String? {
-        let reqularExpression = "[A-Z0-9a-z._%+_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2.64}"
+        let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
         if  !predicate.evaluate(with: value) {
             return "Invalid email address"
@@ -66,16 +66,46 @@ class SignInViewController: UIViewController {
         return nil
         
     }
-    
+
     private func invalidPassword(_ value: String) -> String? {
         if value.count < 8 {
             return "Password must be at least 8 characters"
         }
+        
+        if containsDigit(value) {
+            return "Password must contain at least 1 digit"
+        }
+        
+        if containsLowerCase(value) {
+            return "Password must contain at least 1 lowerCase character"
+        }
+        
+        if containsUpperCase(value) {
+            return "Password must contain at least 1 upperCase character"
+        }
         return nil
     }
     
+    private func containsDigit(_ value: String) -> Bool {
+        let reqularExpression = ".*[0-9]+.*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        return !predicate.evaluate(with: value)
+    }
+    
+    private func containsLowerCase(_ value: String) -> Bool {
+        let reqularExpression = ".*[a-z]+.*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        return !predicate.evaluate(with: value)
+    }
+    
+    private func containsUpperCase(_ value: String) -> Bool {
+            let reqularExpression = ".*[A-Z]+.*"
+            let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+            return !predicate.evaluate(with: value)
+    }
+    
     private func checkForValidForm() {
-        if self.foundError.isHidden {
+        if self.foundError.isHidden, self.emailTF.hasText, self.passwordTF.hasText {
             self.logInButton.isEnabled = true
         } else {
             self.logInButton.isEnabled = false
@@ -95,6 +125,8 @@ class SignInViewController: UIViewController {
     private func setupTextFields() {
         self.emailTF.addPaddingToTextField()
         self.passwordTF.addPaddingToTextField()
+        let myColor = UIColor.red
+        self.passwordTF.layer.borderColor = myColor.cgColor
     }
     
     private func goToSignUp() {
@@ -125,33 +157,36 @@ class SignInViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func emailChanged(_ sender: Any) {
-        if let email = self.emailTF.text {
-            if let errorMessage = invalidEmail(email) {
-                self.foundError.text = errorMessage
-                self.foundError.isHidden = false
-            } else {
-                self.foundError.isHidden = true
-            }
-        }
+                if let email = self.emailTF.text {
+                    if let errorMessage = invalidEmail(email) {
+                        self.foundError.text = errorMessage
+                        self.foundError.isHidden = false
+                    } else {
+                        self.foundError.isHidden = true
+                    }
+                }
         checkForValidForm()
     }
-    
-    
+
     @IBAction func passwordChanged(_ sender: Any) {
-        if let password = passwordTF.text {
-            if let errorMessage = invalidPassword(password) {
-                foundError.text = errorMessage
-                foundError.isHidden = false
-            } else {
-                foundError.isHidden = true
-            }
-        }
-        checkForValidForm()
+                if let password = passwordTF.text {
+                    if let errorMessage = invalidPassword(password) {
+                        self.foundError.text = errorMessage
+                        let myColor = UIColor.red
+                        self.passwordTF.layer.borderColor = myColor.cgColor
+                        self.foundError.isHidden = false
+                    } else {
+                        self.foundError.isHidden = true
+                    }
+                }
+                self.checkForValidForm()
     }
-    
+
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
-        resetForm()
-        self.goToHomePage()
+        if self.emailTF.hasText || self.passwordTF.hasText {
+            self.goToHomePage()
+        }
+        self.logInButton.isHidden = true
     }
     
     @IBAction private func tapLabel(gesture: UITapGestureRecognizer) {

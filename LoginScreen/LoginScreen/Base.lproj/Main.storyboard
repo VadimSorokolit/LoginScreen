@@ -44,6 +44,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SoO-aP-usn"/>
+                                    <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="jXL-4Y-fDh"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
@@ -74,6 +75,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="aRk-bE-9dM"/>
                                     <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fP1-xw-0X8"/>
                                 </connections>
                             </textField>
@@ -134,12 +136,12 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly">
                                 <rect key="frame" x="28" y="297" width="337" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="zh9-wI-Ru9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
                             </label>
                         </subviews>
