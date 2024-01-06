@@ -142,7 +142,7 @@ class SignInViewController: UIViewController {
     
     @IBAction func enterEmail(_ sender: Any) {
         if let email = self.emailTextField.text {
-            if let errorMessage = checkValidEmail(email) {
+            if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
                 self.emailTextField.layer.borderWidth = 1
                 self.emailTextField.layer.borderColor = UIColor.red.cgColor
