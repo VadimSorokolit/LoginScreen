@@ -43,6 +43,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="emailEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Z2P-sF-uco"/>
                                     <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SoO-aP-usn"/>
                                     <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingChanged" id="jXL-4Y-fDh"/>
                                 </connections>
@@ -77,6 +78,7 @@
                                 <connections>
                                     <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingChanged" id="aRk-bE-9dM"/>
                                     <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fP1-xw-0X8"/>
+                                    <action selector="passwordEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="D2U-2m-ySd"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
@@ -439,7 +441,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

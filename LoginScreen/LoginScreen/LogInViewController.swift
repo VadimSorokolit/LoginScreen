@@ -146,6 +146,14 @@ class LogInViewController: UIViewController {
     
     // MARK: - IBActions
     
+    @IBAction func emailEditingDidBegin(_ sender: UITextField) {
+        self.errorLabel.text?.removeAll()
+    }
+    
+    @IBAction func passwordEditingDidBegin(_ sender: UITextField) {
+        self.errorLabel.text = ""
+    }
+    
     @IBAction func enterEmail(_ sender: Any) {
         if let email = self.emailTextField.text {
             if let errorMessage = self.checkValidEmail(email) {
