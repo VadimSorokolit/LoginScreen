@@ -54,6 +54,9 @@ class LogInViewController: UIViewController {
     }
     
     private func checkValidEmail(_ value: String) -> String? {
+        if value.isEmpty {
+            return nil
+        }
         let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
         if !predicate.evaluate(with: value) {
@@ -63,6 +66,9 @@ class LogInViewController: UIViewController {
     }
 
     private func checkValidPassword(_ value: String) -> String? {
+        if value.isEmpty {
+            return nil
+        }
         if value.count > 0, value.count <= 8  {
             return "Password must be at least 8 characters"
         }
@@ -153,11 +159,6 @@ class LogInViewController: UIViewController {
                 self.emailTextField.layer.borderColor = UIColor.clear.cgColor
             }
         }
-        if !self.emailTextField.hasText {
-            self.errorLabel.isHidden = true
-            self.emailTextField.layer.borderWidth = 0
-            self.emailTextField.layer.borderColor = UIColor.clear.cgColor
-        }
         self.checkValidForm()
     }
 
@@ -174,19 +175,11 @@ class LogInViewController: UIViewController {
                 self.passwordTextField.layer.borderColor = UIColor.clear.cgColor
             }
         }
-        if !self.passwordTextField.hasText {
-            self.errorLabel.isHidden = true
-            self.passwordTextField.layer.borderWidth = 0
-            self.passwordTextField.layer.borderColor = UIColor.clear.cgColor
-        }
         self.checkValidForm()
     }
 
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
-        if self.emailTextField.hasText || self.passwordTextField.hasText {
-            self.goToHomePage()
-        }
-        self.logInButton.isHidden = true
+        self.goToHomePage()
     }
     
     @IBAction private func tapLabel(gesture: UITapGestureRecognizer) {
