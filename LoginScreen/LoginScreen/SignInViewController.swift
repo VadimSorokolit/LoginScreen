@@ -12,7 +12,7 @@ class SignInViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet weak private var infoLabel: UILabel!
-    @IBOutlet weak private var foundErrorLabel: UILabel!
+    @IBOutlet weak private var errorLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
@@ -50,7 +50,7 @@ class SignInViewController: UIViewController {
     
     private func resetForm() {
         self.logInButton.isEnabled = false
-        self.foundErrorLabel.text = ""
+        self.errorLabel.text = ""
     }
     
     private func checkValidEmail(_ value: String) -> String? {
@@ -59,9 +59,6 @@ class SignInViewController: UIViewController {
         if  !predicate.evaluate(with: value) {
             return "Invalid email address"
         }
-//        if reqularExpression.count == 0 {
-//            return ""
-//        }
         return nil
     }
 
@@ -83,14 +80,7 @@ class SignInViewController: UIViewController {
         }
         return nil
     }
-    
-    private func checkPasswordIsEmpty(_ value: String) -> String? {
-        if value.isEmpty {
-            return nil
-        }
-        return nil
-    }
-    
+
     private func containsDigit(_ value: String) -> Bool {
         let reqularExpression = ".*[0-9]+.*"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
@@ -110,7 +100,7 @@ class SignInViewController: UIViewController {
     }
     
     private func checkValidForm() {
-        if self.foundErrorLabel.isHidden, self.emailTextField.hasText, self.passwordTextField.hasText {
+        if self.errorLabel.isHidden, self.emailTextField.hasText, self.passwordTextField.hasText {
             self.logInButton.isEnabled = true
         } else {
             self.logInButton.isEnabled = false
@@ -119,7 +109,7 @@ class SignInViewController: UIViewController {
     
     private func setupLabels() {
         self.informationLabel.isUserInteractionEnabled = true
-        self.informationLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(tapLabel(gesture:))))
+        self.informationLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapLabel(gesture:))))
         
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
             self.infoLabelTopConstraint.constant /= 2
@@ -142,9 +132,9 @@ class SignInViewController: UIViewController {
     
     private func goToHomePage() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        if let HomePageVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
-            HomePageVC.title = "Home Page Screen"
-            self.navigationController?.setViewControllers([HomePageVC], animated: true)
+        if let homePage = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+            homePage.title = "Home Page Screen"
+            self.navigationController?.setViewControllers([homePage], animated: true)
         }
     }
     
@@ -153,18 +143,18 @@ class SignInViewController: UIViewController {
     @IBAction func enterEmail(_ sender: Any) {
         if let email = self.emailTextField.text {
             if let errorMessage = checkValidEmail(email) {
-                self.foundErrorLabel.text = errorMessage
+                self.errorLabel.text = errorMessage
                 self.emailTextField.layer.borderWidth = 1
                 self.emailTextField.layer.borderColor = UIColor.red.cgColor
-                self.foundErrorLabel.isHidden = false
+                self.errorLabel.isHidden = false
             } else {
-                self.foundErrorLabel.isHidden = true
+                self.errorLabel.isHidden = true
                 self.emailTextField.layer.borderWidth = 0
                 self.emailTextField.layer.borderColor = UIColor.clear.cgColor
             }
         }
         if !self.emailTextField.hasText {
-            self.foundErrorLabel.isHidden = true
+            self.errorLabel.isHidden = true
             self.emailTextField.layer.borderWidth = 0
             self.emailTextField.layer.borderColor = UIColor.clear.cgColor
         }
@@ -174,18 +164,18 @@ class SignInViewController: UIViewController {
     @IBAction func enterPassword(_ sender: Any) {
         if let password = self.passwordTextField.text {
             if let errorMessage = self.checkValidPassword(password) {
-                self.foundErrorLabel.text = errorMessage
+                self.errorLabel.text = errorMessage
                 self.passwordTextField.layer.borderWidth = 1
                 self.passwordTextField.layer.borderColor = UIColor.red.cgColor
-                self.foundErrorLabel.isHidden = false
+                self.errorLabel.isHidden = false
             } else {
-                self.foundErrorLabel.isHidden = true
+                self.errorLabel.isHidden = true
                 self.passwordTextField.layer.borderWidth = 0
                 self.passwordTextField.layer.borderColor = UIColor.clear.cgColor
             }
         }
         if !self.passwordTextField.hasText {
-            self.foundErrorLabel.isHidden = true
+            self.errorLabel.isHidden = true
             self.passwordTextField.layer.borderWidth = 0
             self.passwordTextField.layer.borderColor = UIColor.clear.cgColor
         }
