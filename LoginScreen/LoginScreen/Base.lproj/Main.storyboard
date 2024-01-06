@@ -79,7 +79,7 @@
                                     <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fP1-xw-0X8"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
                                 <rect key="frame" x="28" y="549" width="337" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="IQJ-xn-rYZ">
