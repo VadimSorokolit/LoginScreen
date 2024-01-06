@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yDq-CZ-gSe">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,10 +17,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Sign In View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="BYZ-38-t0r" customClass="SignInViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="BYZ-38-t0r" customClass="LogInViewController" customModule="LoginScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +113,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbm-lr-iYe">
-                                <rect key="frame" x="28" y="730" width="337" height="63"/>
+                                <rect key="frame" x="28" y="764" width="337" height="63"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" staticText="YES"/>
                                 </accessibility>
@@ -145,7 +146,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eeeeeeeeeeeeeeeeeeeee" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly">
                                 <rect key="frame" x="28" y="347" width="337" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zh9-wI-Ru9"/>
@@ -165,7 +166,7 @@
                             <constraint firstItem="fgM-3I-mig" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="UgG-sn-Ore"/>
                             <constraint firstItem="tbm-lr-iYe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="VF1-oB-dwT"/>
                             <constraint firstItem="L64-KU-Nly" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="WIz-n4-RB6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbm-lr-iYe" secondAttribute="bottom" constant="25" id="e4M-f6-j32"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbm-lr-iYe" secondAttribute="bottom" constant="-9" id="e4M-f6-j32"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbm-lr-iYe" secondAttribute="trailing" constant="28" id="g8l-EU-zfI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L64-KU-Nly" secondAttribute="trailing" constant="28" id="grK-3W-qcX"/>
                             <constraint firstItem="6dq-vA-sF9" firstAttribute="top" secondItem="L64-KU-Nly" secondAttribute="bottom" constant="2" id="hmW-7Q-sgf"/>
@@ -186,11 +187,11 @@
                     <connections>
                         <outlet property="emailTextField" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
                         <outlet property="errorLabel" destination="L64-KU-Nly" id="m5x-IS-1Rt"/>
-                        <outlet property="infoLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
-                        <outlet property="infoLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
-                        <outlet property="informationLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
+                        <outlet property="termsRangeLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
+                        <outlet property="titleLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
+                        <outlet property="titleLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

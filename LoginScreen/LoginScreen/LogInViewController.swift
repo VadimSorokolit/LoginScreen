@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  LogInViewController.swift
 //  LoginScreen
 //
 //  Created by Vadim on 06.12.2023.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class LogInViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak private var infoLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var errorLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
-    @IBOutlet weak private var informationLabel: UILabel!
-    @IBOutlet weak private var infoLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak private var infoLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var termsRangeLabel: UILabel!
+    @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var titleLabelBottomConstraint: NSLayoutConstraint!
     
     // MARK - Current and min Height of screenHeigh
     
-    private let screenHeigh = UIScreen.main.bounds.height
-    private let iPhone8PlusScreenHeigh = 736.0
+    private let screenHeigh: CGFloat = UIScreen.main.bounds.height
+    private let iPhone8PlusScreenHeigh: CGFloat = 736.0
     
     // MARK: - Lifecycle
     
@@ -56,7 +56,7 @@ class SignInViewController: UIViewController {
     private func checkValidEmail(_ value: String) -> String? {
         let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
-        if  !predicate.evaluate(with: value) {
+        if !predicate.evaluate(with: value) {
             return "Invalid email address"
         }
         return nil
@@ -108,12 +108,12 @@ class SignInViewController: UIViewController {
     }
     
     private func setupLabels() {
-        self.informationLabel.isUserInteractionEnabled = true
-        self.informationLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapLabel(gesture:))))
+        self.termsRangeLabel.isUserInteractionEnabled = true
+        self.termsRangeLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapLabel(gesture:))))
         
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
-            self.infoLabelTopConstraint.constant /= 2
-            self.infoLabelBottomConstraint.constant /= 2
+            self.titleLabelTopConstraint.constant /= 2
+            self.titleLabelBottomConstraint.constant /= 2
         }
     }
     
@@ -132,9 +132,9 @@ class SignInViewController: UIViewController {
     
     private func goToHomePage() {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        if let homePage = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
-            homePage.title = "Home Page Screen"
-            self.navigationController?.setViewControllers([homePage], animated: true)
+        if let homePageVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+            homePageVC.title = "Home Page Screen"
+            self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
     
@@ -190,8 +190,8 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction private func tapLabel(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.informationLabel.text! as NSString).range(of: "Sign up")
-        if gesture.didTapAttributedTextInLabel(label: self.informationLabel, inRange: termsRange) {
+        let termsRange = (self.termsRangeLabel.text! as NSString).range(of: "Sign up")
+        if gesture.didTapAttributedTextInLabel(label: self.termsRangeLabel, inRange: termsRange) {
             self.goToSignUp()
         }
     }

@@ -22,7 +22,7 @@ class MainNavigationController: UINavigationController {
                 self.setViewControllers([HomePageVC], animated: true)
             }
         } else {
-            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? LogInViewController {
                 SignInVC.title = "Log In Screen"
                 self.setViewControllers([SignInVC], animated: true)
             }

@@ -52,11 +52,11 @@ class SignUpViewController: UIViewController {
     }
     
     private func goToSignIn() {
-        if let SignInVC = self.navigationController?.viewControllers.first(where: { $0 is SignInViewController }) {
+        if let SignInVC = self.navigationController?.viewControllers.first(where: { $0 is LogInViewController }) {
             self.navigationController?.setViewControllers([SignInVC], animated: true)
         }  else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? SignInViewController {
+            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? LogInViewController {
                 SignInVC.title = "Log In Screen"
                 self.navigationController?.setViewControllers([SignInVC], animated: true)
             }
