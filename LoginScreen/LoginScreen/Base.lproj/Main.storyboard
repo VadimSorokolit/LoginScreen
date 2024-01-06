@@ -25,8 +25,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-vA-sF9">
-                                <rect key="frame" x="28" y="339" width="337" height="63"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email address" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-vA-sF9">
+                                <rect key="frame" x="28" y="379" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES"/>
@@ -43,8 +43,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SoO-aP-usn"/>
-                                    <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="jXL-4Y-fDh"/>
+                                    <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SoO-aP-usn"/>
+                                    <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingChanged" id="jXL-4Y-fDh"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
@@ -57,8 +57,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Vh-8Do">
-                                <rect key="frame" x="28" y="424" width="337" height="63"/>
+                            <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Vh-8Do">
+                                <rect key="frame" x="28" y="464" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES"/>
@@ -75,12 +75,12 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="aRk-bE-9dM"/>
-                                    <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fP1-xw-0X8"/>
+                                    <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingChanged" id="aRk-bE-9dM"/>
+                                    <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fP1-xw-0X8"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
-                                <rect key="frame" x="28" y="509" width="337" height="63"/>
+                                <rect key="frame" x="28" y="549" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="IQJ-xn-rYZ">
@@ -136,10 +136,10 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly">
-                                <rect key="frame" x="28" y="297" width="337" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eeeeeeeeeeeeeeeeeeeee" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly">
+                                <rect key="frame" x="28" y="347" width="337" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="zh9-wI-Ru9"/>
+                                    <constraint firstAttribute="height" constant="30" id="zh9-wI-Ru9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="12"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -159,9 +159,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbm-lr-iYe" secondAttribute="bottom" constant="25" id="e4M-f6-j32"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbm-lr-iYe" secondAttribute="trailing" constant="28" id="g8l-EU-zfI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L64-KU-Nly" secondAttribute="trailing" constant="28" id="grK-3W-qcX"/>
-                            <constraint firstItem="6dq-vA-sF9" firstAttribute="top" secondItem="L64-KU-Nly" secondAttribute="bottom" constant="22" id="hmW-7Q-sgf"/>
+                            <constraint firstItem="6dq-vA-sF9" firstAttribute="top" secondItem="L64-KU-Nly" secondAttribute="bottom" constant="2" id="hmW-7Q-sgf"/>
                             <constraint firstItem="RoN-R8-t4h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nYX-9a-BHU"/>
-                            <constraint firstItem="L64-KU-Nly" firstAttribute="top" secondItem="RoN-R8-t4h" secondAttribute="bottom" constant="68" id="nbp-Pp-KMQ"/>
+                            <constraint firstItem="L64-KU-Nly" firstAttribute="top" secondItem="RoN-R8-t4h" secondAttribute="bottom" constant="118" id="nbp-Pp-KMQ"/>
                             <constraint firstItem="wKc-Vh-8Do" firstAttribute="top" secondItem="6dq-vA-sF9" secondAttribute="bottom" constant="22" id="oAl-SB-NqY"/>
                             <constraint firstAttribute="trailing" secondItem="6dq-vA-sF9" secondAttribute="trailing" constant="28" id="tBB-13-VZh"/>
                             <constraint firstItem="RoN-R8-t4h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="xkn-gf-uOS"/>
@@ -175,13 +175,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="p2f-U6-e7c"/>
                     <connections>
-                        <outlet property="emailTF" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
-                        <outlet property="foundError" destination="L64-KU-Nly" id="m5x-IS-1Rt"/>
+                        <outlet property="emailTextField" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
+                        <outlet property="foundErrorLabel" destination="L64-KU-Nly" id="m5x-IS-1Rt"/>
                         <outlet property="infoLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
                         <outlet property="infoLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                         <outlet property="informationLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
-                        <outlet property="passwordTF" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
+                        <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
