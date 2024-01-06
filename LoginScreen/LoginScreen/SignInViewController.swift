@@ -109,13 +109,6 @@ class SignInViewController: UIViewController {
         return !predicate.evaluate(with: value)
     }
     
-    private func isEmptyPassword(_ value: String) {
-        if let password = self.passwordTextField.text?.isEmpty {
-            self.emailTextField.layer.borderWidth = 0
-            self.emailTextField.layer.borderColor = UIColor.clear.cgColor
-        }
-    }
-    
     private func checkValidForm() {
         if self.foundErrorLabel.isHidden, self.emailTextField.hasText, self.passwordTextField.hasText {
             self.logInButton.isEnabled = true
