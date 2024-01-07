@@ -57,6 +57,9 @@ class LogInViewController: UIViewController {
         if value.isEmpty {
             return nil
         }
+        if value.contains(" ") {
+            return "Email dosn't must contain spaces"
+        }
         let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
         if !predicate.evaluate(with: value) {
@@ -68,6 +71,9 @@ class LogInViewController: UIViewController {
     private func checkValidPassword(_ value: String) -> String? {
         if value.isEmpty {
             return nil
+        }
+        if value.contains(" ") {
+            return "Password dosn't must contain spaces"
         }
         if value.count > 0, value.count <= 8  {
             return "Password must be at least 8 characters"
