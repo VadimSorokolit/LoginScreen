@@ -31,7 +31,7 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
-        
+       
         self.resetForm()
         self.setupLabels()
         self.setupTextFields()
@@ -45,6 +45,11 @@ class LogInViewController: UIViewController {
          
          */
     }
+    
+    var isCorrectPassword = false
+    var isCorrectEmail = false
+    var emailText = String()
+    var passwordText = String()
     
     // MARK: - Methods
     
@@ -113,7 +118,7 @@ class LogInViewController: UIViewController {
     }
     
     private func checkValidForm() {
-        if self.errorLabel.isHidden, self.emailTextField.hasText, self.passwordTextField.hasText {
+        if self.errorLabel.isHidden, self.emailTextField.hasText, self.isCorrectEmail,        self.passwordTextField.hasText, self.isCorrectPassword {
             self.logInButton.isEnabled = true
             self.logInButton.alpha = 1
         } else {
@@ -156,11 +161,27 @@ class LogInViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func emailEditingDidBegin(_ sender: UITextField) {
-        self.errorLabel.text?.removeAll()
+        if let text = self.errorLabel.text, text.count > 0 {
+            self.emailText = self.errorLabel.text!
+            self.errorLabel.text?.removeAll()
+            self.errorLabel.text = self.passwordText
+        } else {
+            self.errorLabel.isHidden = true
+            self.errorLabel.text?.removeAll()
+//            self.errorLabel.text = self.passwordText
+            
+        }
     }
     
     @IBAction func passwordEditingDidBegin(_ sender: UITextField) {
-        self.errorLabel.text = ""
+        if let text = self.errorLabel.text, text.count > 0 {
+            self.passwordText = self.errorLabel.text!
+            self.errorLabel.text?.removeAll()
+            self.errorLabel.text = self.emailText
+        } else {
+            self.errorLabel.isHidden  = true
+            self.errorLabel.text = self.emailText
+        }
     }
     
     @IBAction func emailEditingChanged(_ UITextField: UITextField) {
@@ -170,10 +191,13 @@ class LogInViewController: UIViewController {
                 UITextField.layer.borderWidth = 1
                 UITextField.layer.borderColor = UIColor.red.cgColor
                 self.errorLabel.isHidden = false
+                self.isCorrectEmail = false
             } else {
                 self.errorLabel.isHidden = true
+                self.isCorrectEmail = true
                 UITextField.layer.borderWidth = 0
                 UITextField.layer.borderColor = UIColor.clear.cgColor
+    
             }
         }
         self.checkValidForm()
@@ -186,8 +210,11 @@ class LogInViewController: UIViewController {
                 UITextField.layer.borderWidth = 1
                 UITextField.layer.borderColor = UIColor.red.cgColor
                 self.errorLabel.isHidden = false
+                self.isCorrectPassword = false
             } else {
                 self.errorLabel.isHidden = true
+                self.isCorrectPassword = true
+                self.errorLabel.text?.removeAll()
                 UITextField.layer.borderWidth = 0
                 UITextField.layer.borderColor = UIColor.clear.cgColor
             }
