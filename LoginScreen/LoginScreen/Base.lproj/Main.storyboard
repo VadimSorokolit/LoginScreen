@@ -43,9 +43,8 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="emailEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="pjp-b8-UHA"/>
                                     <action selector="emailEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Z2P-sF-uco"/>
-                                    <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SoO-aP-usn"/>
-                                    <action selector="enterEmail:" destination="BYZ-38-t0r" eventType="editingChanged" id="jXL-4Y-fDh"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
@@ -76,34 +75,24 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingChanged" id="aRk-bE-9dM"/>
-                                    <action selector="enterPassword:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="fP1-xw-0X8"/>
+                                    <action selector="passwordEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Hbk-8H-clG"/>
                                     <action selector="passwordEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="D2U-2m-ySd"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
                                 <rect key="frame" x="28" y="549" width="337" height="63"/>
+                                <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="IQJ-xn-rYZ">
                                         <variation key="heightClass=regular-widthClass=compact" constant="63"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <buttonConfiguration key="configuration" style="gray">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="LOG IN">
-                                            <attributes>
-                                                <font key="NSFont" size="18" name="PTMono-Bold"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <color key="baseForegroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="baseBackgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>

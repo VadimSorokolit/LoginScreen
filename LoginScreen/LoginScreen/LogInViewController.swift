@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
     
     private func resetForm() {
         self.logInButton.isEnabled = false
+        self.logInButton.alpha = 0.5
         self.errorLabel.text = ""
     }
     
@@ -114,8 +115,10 @@ class LogInViewController: UIViewController {
     private func checkValidForm() {
         if self.errorLabel.isHidden, self.emailTextField.hasText, self.passwordTextField.hasText {
             self.logInButton.isEnabled = true
+            self.logInButton.alpha = 1
         } else {
             self.logInButton.isEnabled = false
+            self.logInButton.alpha = 0.5
         }
     }
     
@@ -160,43 +163,43 @@ class LogInViewController: UIViewController {
         self.errorLabel.text = ""
     }
     
-    @IBAction func enterEmail(_ sender: Any) {
-        if let email = self.emailTextField.text {
+    @IBAction func emailEditingChanged(_ UITextField: UITextField) {
+        if let email = UITextField.text {
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
-                self.emailTextField.layer.borderWidth = 1
-                self.emailTextField.layer.borderColor = UIColor.red.cgColor
+                UITextField.layer.borderWidth = 1
+                UITextField.layer.borderColor = UIColor.red.cgColor
                 self.errorLabel.isHidden = false
             } else {
                 self.errorLabel.isHidden = true
-                self.emailTextField.layer.borderWidth = 0
-                self.emailTextField.layer.borderColor = UIColor.clear.cgColor
+                UITextField.layer.borderWidth = 0
+                UITextField.layer.borderColor = UIColor.clear.cgColor
             }
         }
         self.checkValidForm()
     }
-
-    @IBAction func enterPassword(_ sender: Any) {
-        if let password = self.passwordTextField.text {
+    
+    @IBAction func passwordEditingChanged(_ UITextField: UITextField) {
+        if let password = UITextField.text {
             if let errorMessage = self.checkValidPassword(password) {
                 self.errorLabel.text = errorMessage
-                self.passwordTextField.layer.borderWidth = 1
-                self.passwordTextField.layer.borderColor = UIColor.red.cgColor
+                UITextField.layer.borderWidth = 1
+                UITextField.layer.borderColor = UIColor.red.cgColor
                 self.errorLabel.isHidden = false
             } else {
                 self.errorLabel.isHidden = true
-                self.passwordTextField.layer.borderWidth = 0
-                self.passwordTextField.layer.borderColor = UIColor.clear.cgColor
+                UITextField.layer.borderWidth = 0
+                UITextField.layer.borderColor = UIColor.clear.cgColor
             }
         }
         self.checkValidForm()
     }
-
+    
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
         self.goToHomePage()
     }
     
-    @IBAction private func tapLabel(gesture: UITapGestureRecognizer) {
+    @objc private func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (self.termsRangeLabel.text! as NSString).range(of: "Sign up")
         if gesture.didTapAttributedTextInLabel(label: self.termsRangeLabel, inRange: termsRange) {
             self.goToSignUp()
