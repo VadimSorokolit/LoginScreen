@@ -50,6 +50,7 @@ class LogInViewController: UIViewController {
     var isCorrectEmail = false
     var emailText = String()
     var passwordText = String()
+    var text = String()
     
     // MARK: - Methods
     
@@ -61,7 +62,7 @@ class LogInViewController: UIViewController {
     
     private func checkValidEmail(_ value: String) -> String? {
         if value.isEmpty {
-            return nil
+            return ""
         }
         if value.contains(" ") {
             return "Email dosn't must contain spaces"
@@ -76,7 +77,7 @@ class LogInViewController: UIViewController {
 
     private func checkValidPassword(_ value: String) -> String? {
         if value.isEmpty {
-            return nil
+            return ""
         }
         if value.contains(" ") {
             return "Password dosn't must contain spaces"
@@ -118,7 +119,7 @@ class LogInViewController: UIViewController {
     }
     
     private func checkValidForm() {
-        if self.errorLabel.isHidden, self.emailTextField.hasText, self.isCorrectEmail,        self.passwordTextField.hasText, self.isCorrectPassword {
+        if self.errorLabel.isHidden, self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
             self.logInButton.isEnabled = true
             self.logInButton.alpha = 1
         } else {
@@ -161,26 +162,22 @@ class LogInViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func emailEditingDidBegin(_ sender: UITextField) {
-        if let text = self.errorLabel.text, text.count > 0 {
-            self.emailText = self.errorLabel.text!
-            self.errorLabel.text?.removeAll()
-            self.errorLabel.text = self.passwordText
-        } else {
+        if self.isCorrectEmail {
             self.errorLabel.isHidden = true
+        } else {
+            self.errorLabel.isHidden = false
             self.errorLabel.text?.removeAll()
-//            self.errorLabel.text = self.passwordText
-            
+            self.errorLabel.text = self.emailText
         }
     }
     
     @IBAction func passwordEditingDidBegin(_ sender: UITextField) {
-        if let text = self.errorLabel.text, text.count > 0 {
-            self.passwordText = self.errorLabel.text!
-            self.errorLabel.text?.removeAll()
-            self.errorLabel.text = self.emailText
+        if self.isCorrectPassword {
+            self.errorLabel.isHidden = true
         } else {
-            self.errorLabel.isHidden  = true
-            self.errorLabel.text = self.emailText
+            self.errorLabel.isHidden = false
+            self.errorLabel.text?.removeAll()
+            self.errorLabel.text = self.passwordText
         }
     }
     
@@ -188,13 +185,14 @@ class LogInViewController: UIViewController {
         if let email = UITextField.text {
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
+                self.errorLabel.isHidden = false
                 UITextField.layer.borderWidth = 1
                 UITextField.layer.borderColor = UIColor.red.cgColor
-                self.errorLabel.isHidden = false
                 self.isCorrectEmail = false
+                self.emailText = self.errorLabel.text!
             } else {
-                self.errorLabel.isHidden = true
                 self.isCorrectEmail = true
+                self.errorLabel.isHidden = true
                 UITextField.layer.borderWidth = 0
                 UITextField.layer.borderColor = UIColor.clear.cgColor
     
@@ -207,14 +205,14 @@ class LogInViewController: UIViewController {
         if let password = UITextField.text {
             if let errorMessage = self.checkValidPassword(password) {
                 self.errorLabel.text = errorMessage
+                self.errorLabel.isHidden = false
                 UITextField.layer.borderWidth = 1
                 UITextField.layer.borderColor = UIColor.red.cgColor
-                self.errorLabel.isHidden = false
                 self.isCorrectPassword = false
+                self.passwordText = self.errorLabel.text!
             } else {
-                self.errorLabel.isHidden = true
                 self.isCorrectPassword = true
-                self.errorLabel.text?.removeAll()
+                self.errorLabel.isHidden = true
                 UITextField.layer.borderWidth = 0
                 UITextField.layer.borderColor = UIColor.clear.cgColor
             }
