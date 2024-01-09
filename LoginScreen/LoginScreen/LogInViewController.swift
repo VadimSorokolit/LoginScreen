@@ -20,10 +20,18 @@ class LogInViewController: UIViewController {
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak private var titleLabelBottomConstraint: NSLayoutConstraint!
     
-    // MARK - Current and min Height of screenHeigh
+    // MARK: - Current and min Height of screenHeigh
     
     private let screenHeigh: CGFloat = UIScreen.main.bounds.height
     private let iPhone8PlusScreenHeigh: CGFloat = 736.0
+    
+    // MARK: - Properties
+    
+    private var isCorrectPassword = false
+    private var isCorrectEmail = false
+    private var emailText = String()
+    private var passwordText = String()
+    private var text = String()
     
     // MARK: - Lifecycle
     
@@ -46,11 +54,6 @@ class LogInViewController: UIViewController {
          */
     }
     
-    var isCorrectPassword = false
-    var isCorrectEmail = false
-    var emailText = String()
-    var passwordText = String()
-    var text = String()
     
     // MARK: - Methods
     
@@ -161,7 +164,7 @@ class LogInViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func emailEditingDidBegin(_ sender: UITextField) {
+    @IBAction private func emailEditingDidBegin(_ textField: UITextField) {
         if self.isCorrectEmail {
             self.errorLabel.isHidden = true
         } else {
@@ -171,7 +174,7 @@ class LogInViewController: UIViewController {
         }
     }
     
-    @IBAction func passwordEditingDidBegin(_ sender: UITextField) {
+    @IBAction private func passwordEditingDidBegin(_ textField: UITextField) {
         if self.isCorrectPassword {
             self.errorLabel.isHidden = true
         } else {
@@ -181,40 +184,40 @@ class LogInViewController: UIViewController {
         }
     }
     
-    @IBAction func emailEditingChanged(_ UITextField: UITextField) {
-        if let email = UITextField.text {
+    @IBAction func emailEditingChanged(_ textField: UITextField) {
+        if let email = textField.text {
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false
-                UITextField.layer.borderWidth = 1
-                UITextField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 1
+                textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectEmail = false
                 self.emailText = self.errorLabel.text!
             } else {
                 self.isCorrectEmail = true
                 self.errorLabel.isHidden = true
-                UITextField.layer.borderWidth = 0
-                UITextField.layer.borderColor = UIColor.clear.cgColor
+                textField.layer.borderWidth = 0
+                textField.layer.borderColor = UIColor.clear.cgColor
     
             }
         }
         self.checkValidForm()
     }
     
-    @IBAction func passwordEditingChanged(_ UITextField: UITextField) {
-        if let password = UITextField.text {
+    @IBAction private func passwordEditingChanged(_ textField: UITextField) {
+        if let password = textField.text {
             if let errorMessage = self.checkValidPassword(password) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false
-                UITextField.layer.borderWidth = 1
-                UITextField.layer.borderColor = UIColor.red.cgColor
+                textField.layer.borderWidth = 1
+                textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectPassword = false
                 self.passwordText = self.errorLabel.text!
             } else {
                 self.isCorrectPassword = true
                 self.errorLabel.isHidden = true
-                UITextField.layer.borderWidth = 0
-                UITextField.layer.borderColor = UIColor.clear.cgColor
+                textField.layer.borderWidth = 0
+                textField.layer.borderColor = UIColor.clear.cgColor
             }
         }
         self.checkValidForm()
