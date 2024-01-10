@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - IBOutlets
     
@@ -26,15 +26,17 @@ class LogInViewController: UIViewController {
     private let iPhone8PlusScreenHeigh: CGFloat = 736.0
     private var isCorrectEmail = false
     private var isCorrectPassword = false
-
+    private var  buttonHasBeenPressed = false
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
-       
+        
+        self.registerForKeyboardNotifications()
         self.resetForm()
         self.setupLabels()
         self.setupTextFields()
@@ -51,6 +53,11 @@ class LogInViewController: UIViewController {
     
     
     // MARK: - Methods
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     private func resetForm() {
         self.logInButton.isEnabled = false
@@ -117,7 +124,7 @@ class LogInViewController: UIViewController {
     }
     
     private func checkValidForm() {
-        if self.errorLabel.isHidden, self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
+        if self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
             self.logInButton.isEnabled = true
             self.logInButton.alpha = 1
         } else {
@@ -139,6 +146,9 @@ class LogInViewController: UIViewController {
     private func setupTextFields() {
         self.emailTextField.addPaddingToTextField()
         self.passwordTextField.addPaddingToTextField()
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
     }
     
     private func goToSignUp() {
@@ -156,6 +166,35 @@ class LogInViewController: UIViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= keyboardFrame.height
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc private func tapLabel(gesture: UITapGestureRecognizer) {
+        let termsRange = (self.termsRangeLabel.text! as NSString).range(of: "Sign up")
+        if gesture.didTapAttributedTextInLabel(label: self.termsRangeLabel, inRange: termsRange) {
+            self.goToSignUp()
+        }
+    }
+    
+    
     
     // MARK: - IBActions
     
@@ -222,7 +261,6 @@ class LogInViewController: UIViewController {
                 textField.layer.borderWidth = 1
                 textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectPassword = false
-//                self.passwordText = self.errorLabel.text!
             } else {
                 self.isCorrectPassword = true
                 self.errorLabel.isHidden = true
@@ -230,7 +268,6 @@ class LogInViewController: UIViewController {
                 textField.layer.borderColor = UIColor.clear.cgColor
             }
         }
-        
         self.checkValidForm()
     }
     
@@ -238,12 +275,6 @@ class LogInViewController: UIViewController {
         self.goToHomePage()
     }
     
-    @objc private func tapLabel(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.termsRangeLabel.text! as NSString).range(of: "Sign up")
-        if gesture.didTapAttributedTextInLabel(label: self.termsRangeLabel, inRange: termsRange) {
-            self.goToSignUp()
-        }
-    }
 }
 
 // Add padding to UITextField
