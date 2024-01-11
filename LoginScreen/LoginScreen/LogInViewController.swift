@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak private var titleLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabelBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -43,15 +43,6 @@ class LogInViewController: UIViewController {
         self.setupLabels()
         self.setupTextFields()
         self.view.addGestureRecognizer(tap)
-        
-        /*
-         
-         userAccountTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
-         userAccountTextField.rightView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: userAccountTextField.frame.height))
-         userAccountTextField.leftViewMode = .always
-         userAccountTextField.rightViewMode = .always
-         
-         */
     }
     
     // MARK: - Methods
@@ -72,7 +63,7 @@ class LogInViewController: UIViewController {
             return nil
         }
         if value.contains(" ") {
-            return "Email dosn't must contain spaces"
+            return "Email doesn't must contain spaces"
         }
         let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
@@ -145,9 +136,6 @@ class LogInViewController: UIViewController {
     private func setupTextFields() {
         self.emailTextField.addPaddingToTextField()
         self.passwordTextField.addPaddingToTextField()
-//   UITextFieldDelegate   self.emailTextField.delegate = self
-//                         self.passwordTextField.delegate = self
-        
     }
     
     private func goToSignUp() {
@@ -166,12 +154,6 @@ class LogInViewController: UIViewController {
         }
     }
     
-//  UITextFieldDelegate   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//                              textField.resignFirstResponder()
-//                              self.errorLabel.isHidden = true
-//                              return true
-//                        }
-
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -289,7 +271,7 @@ class LogInViewController: UIViewController {
     
 }
 
-// Add padding to UITextField
+// MARK: - UITextfield
 
 extension UITextField {
     
@@ -303,6 +285,8 @@ extension UITextField {
     }
     
 }
+
+// MARK: - UITapGestureRecognizer
 
 extension UITapGestureRecognizer {
     

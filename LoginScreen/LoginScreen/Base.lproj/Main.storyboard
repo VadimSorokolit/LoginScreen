@@ -184,7 +184,7 @@
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
                         <outlet property="termsLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="titleLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
-                        <outlet property="titleLabelBottomConstraint" destination="8bC-Xf-vdC" id="AgK-WJ-Vuw"/>
+                        <outlet property="titleLabelBottomConstraint" destination="nbp-Pp-KMQ" id="J95-3D-xwv"/>
                         <outlet property="titleLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                     </connections>
                 </viewController>
