@@ -13,10 +13,10 @@ class LogInViewController: UIViewController {
     
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var errorLabel: UILabel!
+    @IBOutlet weak private var termsLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
-    @IBOutlet weak private var termsLabel: UILabel!
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak private var titleLabelBottomConstraint: NSLayoutConstraint!
     
@@ -34,7 +34,7 @@ class LogInViewController: UIViewController {
         
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
         
@@ -92,7 +92,6 @@ class LogInViewController: UIViewController {
         if value.count > 0, value.count <= 8  {
             return "Password must be at least 8 characters"
         }
-        
         if containsDigit(value) {
             return "Password must contain at least 1 digit"
         }
@@ -173,10 +172,6 @@ class LogInViewController: UIViewController {
 //                              return true
 //                        }
 
-    private func textFieldShouldReturn(_ textField: UITextField!) {
-        textField.resignFirstResponder()
-    }
-    
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -194,7 +189,8 @@ class LogInViewController: UIViewController {
     }
     
     @objc private func dismissKeyboard() {
-        view.endEditing(true)
+        self.view.endEditing(true)
+        self.errorLabel.isHidden = true
     }
 
     
@@ -208,11 +204,11 @@ class LogInViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func emailPrimaryActionTriggered(_ textField: UITextField) {
-        self.textFieldShouldReturn(textField)
+        self.dismissKeyboard()
     }
     
     @IBAction private func passwordPrimaryActionTriggered(_ textField: UITextField) {
-        self.textFieldShouldReturn(textField)
+        self.dismissKeyboard()
     }
     
     @IBAction private func emailEditingDidBegin(_ textField: UITextField) {
