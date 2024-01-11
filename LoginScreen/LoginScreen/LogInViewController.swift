@@ -173,6 +173,10 @@ class LogInViewController: UIViewController {
 //                              return true
 //                        }
 
+    private func textFieldShouldReturn(_ textField: UITextField!) {
+        textField.resignFirstResponder()
+    }
+    
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -193,9 +197,6 @@ class LogInViewController: UIViewController {
         view.endEditing(true)
     }
 
-    private func textFieldShouldReturn(_ textField: UITextField!) {
-        textField.resignFirstResponder()
-    }
     
     @objc private func tapLabel(gesture: UITapGestureRecognizer) {
         let termsRange = (self.termsLabel.text! as NSString).range(of: "Sign up")
