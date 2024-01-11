@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LogInViewController: UIViewController, UITextFieldDelegate {
+class LogInViewController: UIViewController {
     
     // MARK: - IBOutlets
     
@@ -16,7 +16,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
-    @IBOutlet weak private var termsRangeLabel: UILabel!
+    @IBOutlet weak private var termsLabel: UILabel!
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak private var titleLabelBottomConstraint: NSLayoutConstraint!
     
@@ -26,13 +26,15 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private let iPhone8PlusScreenHeigh: CGFloat = 736.0
     private var isCorrectEmail = false
     private var isCorrectPassword = false
-    private var  buttonHasBeenPressed = false
-    
+    private var keyboardDismissTapGesture: UITapGestureRecognizer?
+  
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
         
@@ -40,6 +42,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         self.resetForm()
         self.setupLabels()
         self.setupTextFields()
+        self.view.addGestureRecognizer(tap)
         
         /*
          
@@ -51,12 +54,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
          */
     }
     
-    
     // MARK: - Methods
     
     private func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func resetForm() {
@@ -94,11 +96,9 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         if containsDigit(value) {
             return "Password must contain at least 1 digit"
         }
-        
         if containsLowerCase(value) {
             return "Password must contain at least 1 lowerCase character"
         }
-        
         if containsUpperCase(value) {
             return "Password must contain at least 1 upperCase character"
         }
@@ -134,8 +134,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setupLabels() {
-        self.termsRangeLabel.isUserInteractionEnabled = true
-        self.termsRangeLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapLabel(gesture:))))
+        self.termsLabel.isUserInteractionEnabled = true
+        self.termsLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapLabel(gesture:))))
         
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
             self.titleLabelTopConstraint.constant /= 2
@@ -146,8 +146,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     private func setupTextFields() {
         self.emailTextField.addPaddingToTextField()
         self.passwordTextField.addPaddingToTextField()
-        self.emailTextField.delegate = self
-        self.passwordTextField.delegate = self
+//   UITextFieldDelegate   self.emailTextField.delegate = self
+//                         self.passwordTextField.delegate = self
         
     }
     
@@ -167,17 +167,19 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+//  UITextFieldDelegate   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//                              textField.resignFirstResponder()
+//                              self.errorLabel.isHidden = true
+//                              return true
+//                        }
 
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = keyboardSize.cgRectValue
+        let keyboardHeigh = keyboardFrame.height
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= keyboardFrame.height
+            self.view.frame.origin.y -= (keyboardHeigh / 2)
         }
     }
     
@@ -187,16 +189,30 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    private func textFieldShouldReturn(_ textField: UITextField!) {
+        textField.resignFirstResponder()
+    }
+    
     @objc private func tapLabel(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.termsRangeLabel.text! as NSString).range(of: "Sign up")
-        if gesture.didTapAttributedTextInLabel(label: self.termsRangeLabel, inRange: termsRange) {
+        let termsRange = (self.termsLabel.text! as NSString).range(of: "Sign up")
+        if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
             self.goToSignUp()
         }
     }
     
-    
-    
     // MARK: - IBActions
+    
+    @IBAction private func emailPrimaryActionTriggered(_ textField: UITextField) {
+        self.textFieldShouldReturn(textField)
+    }
+    
+    @IBAction private func passwordPrimaryActionTriggered(_ textField: UITextField) {
+        self.textFieldShouldReturn(textField)
+    }
     
     @IBAction private func emailEditingDidBegin(_ textField: UITextField) {
         if let email = textField.text {
@@ -247,7 +263,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
                 self.errorLabel.isHidden = true
                 textField.layer.borderWidth = 0
                 textField.layer.borderColor = UIColor.clear.cgColor
-                
             }
         }
         self.checkValidForm()

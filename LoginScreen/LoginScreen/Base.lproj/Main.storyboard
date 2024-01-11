@@ -45,6 +45,7 @@
                                 <connections>
                                     <action selector="emailEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="pjp-b8-UHA"/>
                                     <action selector="emailEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Z2P-sF-uco"/>
+                                    <action selector="emailPrimaryActionTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Tt5-93-7bi"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-R8-t4h">
@@ -77,6 +78,7 @@
                                 <connections>
                                     <action selector="passwordEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Hbk-8H-clG"/>
                                     <action selector="passwordEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="D2U-2m-ySd"/>
+                                    <action selector="passwordPrimaryActionTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="C2O-q8-mz0"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
@@ -180,8 +182,9 @@
                         <outlet property="errorLabel" destination="L64-KU-Nly" id="m5x-IS-1Rt"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
-                        <outlet property="termsRangeLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
+                        <outlet property="termsLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="titleLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
+                        <outlet property="titleLabelBottomConstraint" destination="8bC-Xf-vdC" id="AgK-WJ-Vuw"/>
                         <outlet property="titleLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                     </connections>
                 </viewController>
@@ -430,7 +433,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
