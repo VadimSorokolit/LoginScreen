@@ -8,7 +8,12 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    private struct LocalConstans {
+        static let signUpViewController = "SignUpViewController"
+        static let signUp = "Sign up"
+    }
+
+    // MARK: IBOutlets
     
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var errorLabel: UILabel!
@@ -19,14 +24,13 @@ class LogInViewController: UIViewController {
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak private var emailTextFieldTopConstraint: NSLayoutConstraint!
     
-    // MARK: - Properties
+    // MARK: Properties
     
     private let screenHeigh: CGFloat = UIScreen.main.bounds.height
-    private let iPhone8PlusScreenHeigh: CGFloat = GlobalConstans.iPhone8PlusScreenHeigh
     private var isCorrectEmail = false
     private var isCorrectPassword = false
    
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +46,7 @@ class LogInViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
     }
     
-    // MARK: - Methods
+    // MARK: Methods
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -63,7 +67,7 @@ class LogInViewController: UIViewController {
             return GlobalConstans.errorMessageEmailDoesntMustContainSpaces
         }
         let reqularExpression = GlobalConstans.emailReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
+        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
         if !predicate.evaluate(with: value) {
             return GlobalConstans.errorMessageInvalidEmailAddress
         }
@@ -77,7 +81,7 @@ class LogInViewController: UIViewController {
         if value.contains(" ") {
             return GlobalConstans.errorMessagePasswordDoesntMustContainSpaces
         }
-        if value.count > 0, value.count <= 8  {
+        if value.count <= 8 {
             return GlobalConstans.errorMessagePasswordMustBeAtLeast8Characters
         }
         if self.containsDigit(value) {
@@ -94,19 +98,19 @@ class LogInViewController: UIViewController {
 
     private func containsDigit(_ value: String) -> Bool {
         let reqularExpression = GlobalConstans.containsDigitReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
+        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsLowerCase(_ value: String) -> Bool {
         let reqularExpression = GlobalConstans.containsLowerCaseReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
+        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsUpperCase(_ value: String) -> Bool {
         let reqularExpression = GlobalConstans.containsUpperCaseReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
+        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
@@ -121,7 +125,7 @@ class LogInViewController: UIViewController {
     }
     
     private func setupLabels() {
-        if self.screenHeigh < self.iPhone8PlusScreenHeigh {
+        if self.screenHeigh < GlobalConstans.iPhone8PlusScreenHeigh {
             self.titleLabelTopConstraint.constant /= 2
             self.emailTextFieldTopConstraint.constant /= 2
         }
@@ -177,12 +181,13 @@ class LogInViewController: UIViewController {
         }
     }
     
-    // MARK: - IBActions
+    // MARK: IBActions
     
     // 'Return' button tap
     @IBAction private func emailPrimaryActionTriggered(_ textField: UITextField) {
         self.dismissKeyboard()
     }
+    
     // 'Return' button tap
     @IBAction private func passwordPrimaryActionTriggered(_ textField: UITextField) {
         self.dismissKeyboard()
@@ -304,5 +309,3 @@ extension UITapGestureRecognizer {
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
 }
-
-
