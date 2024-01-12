@@ -17,13 +17,11 @@ class MainNavigationController: UINavigationController {
         let isLoggedIn = UserDefaults.standard.bool(forKey: "isLoggedIn")
         
         if isLoggedIn {
-            if let HomePageVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
-                HomePageVC.title = "Home Page Screen"
-                self.setViewControllers([HomePageVC], animated: true)
+            if let homePageVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+                self.setViewControllers([homePageVC], animated: true)
             }
         } else {
             if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? LogInViewController {
-                SignInVC.title = "Log In Screen"
                 self.setViewControllers([SignInVC], animated: true)
             }
         }

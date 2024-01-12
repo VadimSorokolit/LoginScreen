@@ -26,12 +26,10 @@ class LogInViewController: UIViewController {
     private let iPhone8PlusScreenHeigh: CGFloat = 736.0
     private var isCorrectEmail = false
     private var isCorrectPassword = false
-    private var keyboardDismissTapGesture: UITapGestureRecognizer?
-  
+   
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -124,13 +122,12 @@ class LogInViewController: UIViewController {
     }
     
     private func setupLabels() {
-        self.termsLabel.isUserInteractionEnabled = true
-        self.termsLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.tapLabel(gesture:))))
-        
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
             self.titleLabelTopConstraint.constant /= 2
             self.titleLabelBottomConstraint.constant /= 2
         }
+        self.termsLabel.isUserInteractionEnabled = true
+        self.termsLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.onTermsLabelDidTap(gesture:))))
     }
     
     private func setupTextFields() {
@@ -139,17 +136,13 @@ class LogInViewController: UIViewController {
     }
     
     private func goToSignUp() {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        if let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
-            signUpVC.title = "Sign Up Screen"
+        if let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             self.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
     
     private func goToHomePage() {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-        if let homePageVC = storyboard.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
-            homePageVC.title = "Home Page Screen"
+        if let homePageVC = storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
@@ -175,8 +168,7 @@ class LogInViewController: UIViewController {
         self.errorLabel.isHidden = true
     }
 
-    
-    @objc private func tapLabel(gesture: UITapGestureRecognizer) {
+    @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
         let termsRange = (self.termsLabel.text! as NSString).range(of: "Sign up")
         if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
             self.goToSignUp()
@@ -274,7 +266,6 @@ class LogInViewController: UIViewController {
 // MARK: - UITextfield
 
 extension UITextField {
-    
     func addPaddingToTextField() {
         let borderWidth  = 15
         let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: borderWidth, height: 0))
@@ -283,30 +274,25 @@ extension UITextField {
         self.rightView = paddingView
         self.rightViewMode = .always
     }
-    
 }
 
 // MARK: - UITapGestureRecognizer
 
 extension UITapGestureRecognizer {
-    
     func didTapAttributedTextInLabel(label: UILabel, inRange targetRange: NSRange) -> Bool {
         // Create instances of NSLayoutManager, NSTextContainer and NSTextStorage
         let layoutManager = NSLayoutManager()
         let textContainer = NSTextContainer(size: CGSize.zero)
         let textStorage = NSTextStorage(attributedString: label.attributedText!)
-        
         // Configure layoutManager and textStorage
         layoutManager.addTextContainer(textContainer)
         textStorage.addLayoutManager(layoutManager)
-        
         // Configure textContainer
         textContainer.lineFragmentPadding = 0.0
         textContainer.lineBreakMode = label.lineBreakMode
         textContainer.maximumNumberOfLines = label.numberOfLines
         let labelSize = label.bounds.size
         textContainer.size = labelSize
-        
         // Find the tapped character location and compare it to the specified range
         let locationOfTouchInLabel = self.location(in: label)
         let textBoundingBox = layoutManager.usedRect(for: textContainer)
@@ -315,7 +301,6 @@ extension UITapGestureRecognizer {
         let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
-    
 }
 
 
