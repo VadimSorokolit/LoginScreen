@@ -1,6 +1,5 @@
 //
 //  HomePageViewController.swift
-//  LoginScreen
 //
 //  Created by Vadym Sorokolit on 17.12.2023.
 //
@@ -11,22 +10,21 @@ import UIKit
 class HomePageViewController: UIViewController {
     
   
-    // MARK: - IBOutlets
+    // MARK: IBOutlets
     
     @IBOutlet weak private var homePageImageView: UIImageView!
     @IBOutlet weak private var homePageFirstLabel: UILabel!
     @IBOutlet weak private var homePageSecondLabel: UILabel!
     @IBOutlet weak private var homePageThirdLabel: UILabel!
     @IBOutlet weak private var homePageButton: UIButton!
-// for example:  @IBOutlet weak private var firstLabelTopConstraint: NSLayoutConstraint!
-// for example:  @IBOutlet weak private var buttoButtonConstraint: NSLayoutConstraint!
+
     
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
+        UserDefaults.standard.setValue(true, forKey: GlobalConstans.isLoggedIn)
         
         self.setupLabels()
 //      self.defineCurrentScreen()
@@ -60,15 +58,15 @@ class HomePageViewController: UIViewController {
     }
     
     private func goToLogIn() {
-        if let SignInVC = self.navigationController?.viewControllers.first(where: { $0 is LogInViewController }) {
-            self.navigationController?.setViewControllers([SignInVC], animated: true)
+        if let logInVC = self.navigationController?.viewControllers.first(where: { $0 is LogInViewController }) {
+            self.navigationController?.setViewControllers([logInVC], animated: true)
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? LogInViewController {
-                self.navigationController?.setViewControllers([SignInVC], animated: true)
+            if let logInVC = storyboard.instantiateViewController(withIdentifier: GlobalConstans.loginViewController) as? LogInViewController {
+                self.navigationController?.setViewControllers([logInVC], animated: true)
             }
         }
-        UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
+        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedIn)
     }
     
     @IBAction func onLogOutButtonDidTap(_ sender: UIButton) {

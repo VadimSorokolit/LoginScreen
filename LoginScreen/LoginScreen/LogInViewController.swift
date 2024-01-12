@@ -1,6 +1,5 @@
 //
 //  LogInViewController.swift
-//  LoginScreen
 //
 //  Created by Vadym Sorokolit on 06.12.2023.
 //
@@ -23,7 +22,7 @@ class LogInViewController: UIViewController {
     // MARK: - Properties
     
     private let screenHeigh: CGFloat = UIScreen.main.bounds.height
-    private let iPhone8PlusScreenHeigh: CGFloat = 736.0
+    private let iPhone8PlusScreenHeigh: CGFloat = GlobalConstans.iPhone8PlusScreenHeigh
     private var isCorrectEmail = false
     private var isCorrectPassword = false
    
@@ -32,7 +31,7 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
+        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedIn)
         
         self.registerForKeyboardNotifications()
         self.resetForm()
@@ -61,12 +60,12 @@ class LogInViewController: UIViewController {
             return nil
         }
         if value.contains(" ") {
-            return "Email doesn't must contain spaces"
+            return GlobalConstans.errorMessageEmailDoesntMustContainSpaces
         }
-        let reqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        let reqularExpression = GlobalConstans.emailReqularExpression
+        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
         if !predicate.evaluate(with: value) {
-            return "Invalid email address"
+            return GlobalConstans.errorMessageInvalidEmailAddress
         }
         return nil
     }
@@ -76,38 +75,38 @@ class LogInViewController: UIViewController {
             return nil
         }
         if value.contains(" ") {
-            return "Password doesn't must contain spaces"
+            return GlobalConstans.errorMessagePasswordDoesntMustContainSpaces
         }
         if value.count > 0, value.count <= 8  {
-            return "Password must be at least 8 characters"
+            return GlobalConstans.errorMessagePasswordMustBeAtLeast8Characters
         }
         if self.containsDigit(value) {
-            return "Password must contain at least 1 digit"
+            return GlobalConstans.errorMessagePasswordMustContainAtLeast1Digit
         }
         if self.containsLowerCase(value) {
-            return "Password must contain at least 1 lowerCase character"
+            return GlobalConstans.errorMessagePasswordMustContainAtLeast1LowerCaseCharacter
         }
         if self.containsUpperCase(value) {
-            return "Password must contain at least 1 upperCase character"
+            return GlobalConstans.errorMessagePasswordMustContainAtLeast1UpperCaseCharacter
         }
         return nil
     }
 
     private func containsDigit(_ value: String) -> Bool {
-        let reqularExpression = ".*[0-9]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        let reqularExpression = GlobalConstans.containsDigitReqularExpression
+        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsLowerCase(_ value: String) -> Bool {
-        let reqularExpression = ".*[a-z]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        let reqularExpression = GlobalConstans.containsLowerCaseReqularExpression
+        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsUpperCase(_ value: String) -> Bool {
-        let reqularExpression = ".*[A-Z]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", reqularExpression)
+        let reqularExpression = GlobalConstans.containsUpperCaseReqularExpression
+        let predicate = NSPredicate(format: GlobalConstans.nsPredicateReqularExpression, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
@@ -137,13 +136,13 @@ class LogInViewController: UIViewController {
     }
     
     private func goToSignUp() {
-        if let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+        if let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: LocalConstans.signUpViewController) as? SignUpViewController {
             self.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
     
     private func goToHomePage() {
-        if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+        if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstans.homePageViewController) as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
@@ -172,7 +171,7 @@ class LogInViewController: UIViewController {
     }
 
     @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.termsLabel.text! as NSString).range(of: "Sign up")
+        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstans.signUp)
         if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
             self.goToSignUp()
         }
