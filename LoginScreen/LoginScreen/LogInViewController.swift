@@ -76,7 +76,7 @@ class LogInViewController: UIViewController {
             return nil
         }
         if value.contains(" ") {
-            return "Password dosn't must contain spaces"
+            return "Password doesn't must contain spaces"
         }
         if value.count > 0, value.count <= 8  {
             return "Password must be at least 8 characters"
