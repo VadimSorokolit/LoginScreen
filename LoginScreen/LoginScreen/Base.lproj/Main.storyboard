@@ -179,12 +179,12 @@
                     <navigationItem key="navigationItem" id="p2f-U6-e7c"/>
                     <connections>
                         <outlet property="emailTextField" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
+                        <outlet property="emailTextFieldTopConstraint" destination="nbp-Pp-KMQ" id="J95-3D-xwv"/>
                         <outlet property="errorLabel" destination="L64-KU-Nly" id="m5x-IS-1Rt"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
                         <outlet property="termsLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
                         <outlet property="titleLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
-                        <outlet property="titleLabelBottomConstraint" destination="nbp-Pp-KMQ" id="J95-3D-xwv"/>
                         <outlet property="titleLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                     </connections>
                 </viewController>
@@ -292,6 +292,7 @@
                             <constraint firstItem="GQE-42-Ttp" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="Bwb-JB-qpz"/>
                             <constraint firstItem="K0c-3N-K8h" firstAttribute="top" secondItem="GQE-42-Ttp" secondAttribute="bottom" constant="22" id="ICg-Po-O3L"/>
                             <constraint firstItem="XZq-Ct-LZI" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="Pd6-Jf-VQ6"/>
+                            <constraint firstItem="6Dy-eY-Uc5" firstAttribute="top" secondItem="XZq-Ct-LZI" secondAttribute="bottom" constant="153" id="RWK-Oe-mEP"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="6Dy-eY-Uc5" secondAttribute="trailing" constant="28" id="TXC-Gj-ibp"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="vly-V1-CiE" secondAttribute="trailing" constant="28" id="Uot-Dr-3eb"/>
                             <constraint firstItem="GQE-42-Ttp" firstAttribute="top" secondItem="6Dy-eY-Uc5" secondAttribute="bottom" constant="22" id="V8M-nE-UBO"/>
@@ -299,13 +300,13 @@
                             <constraint firstItem="XZq-Ct-LZI" firstAttribute="top" secondItem="Ilf-hC-amr" secondAttribute="top" constant="130" id="WIu-HB-Voe"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="bottom" secondItem="vly-V1-CiE" secondAttribute="bottom" constant="25" id="b0D-Z2-Q6Y"/>
                             <constraint firstAttribute="trailing" secondItem="K0c-3N-K8h" secondAttribute="trailing" constant="28" id="cRO-Gh-ECa"/>
-                            <constraint firstItem="6Dy-eY-Uc5" firstAttribute="top" secondItem="XZq-Ct-LZI" secondAttribute="bottom" constant="153" id="gAv-oF-ceE"/>
                             <constraint firstItem="vly-V1-CiE" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="khD-BF-PYv"/>
                             <constraint firstItem="6Dy-eY-Uc5" firstAttribute="leading" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="28" id="pLn-9H-vmS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTF" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
+                        <outlet property="emailTextFieldTopConstraint" destination="RWK-Oe-mEP" id="MEl-k1-b27"/>
                         <outlet property="passwordTF" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
                         <outlet property="signUpButton" destination="K0c-3N-K8h" id="NtI-98-7lw"/>
                         <outlet property="signUpInfoLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>

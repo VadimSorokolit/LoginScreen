@@ -2,7 +2,7 @@
 //  SignUpViewController.swift
 //  LoginScreen
 //
-//  Created by Vadim on 17.12.2023.
+//  Created by Vadym Sorokolit on 17.12.2023.
 //
 
 import Foundation
@@ -10,22 +10,22 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    // MARK: IBOutlets
     
     @IBOutlet weak var signUpInfoLabel: UILabel!
+    @IBOutlet weak var signUpInformationLabel: UILabel!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signUpInformationLabel: UILabel!
     @IBOutlet weak var signUpInfoLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var signUpInfoLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailTextFieldTopConstraint: NSLayoutConstraint!
     
-    // MARK - Current and min Height of screenHeigh
+    // MARK Current and min Height of screenHeigh
     
     private let screenHeigh = UIScreen.main.bounds.height
     private let iPhone8PlusScreenHeigh = 736.0
     
-    // MARK: - Lifecycle
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController {
         self.setupTextFields()
     }
     
-    // MARK: - Methods
+    // MARK: Methods
     
     private func setupLabels() {
         self.signUpInformationLabel.isUserInteractionEnabled = true
@@ -42,7 +42,7 @@ class SignUpViewController: UIViewController {
         
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
             self.signUpInfoLabelTopConstraint.constant /= 2
-            self.signUpInfoLabelBottomConstraint.constant /= 2
+           self.emailTextFieldTopConstraint.constant /= 2
         }
     }
     
@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController {
         UserDefaults.standard.setValue(true, forKey: "isLoggedIn")
     }
     
-    // MARK: - IBActions
+    // MARK: IBActions
     
     @IBAction func onSignUpButtonDidTap(_ sender: UIButton) {
         self.goHomePage()

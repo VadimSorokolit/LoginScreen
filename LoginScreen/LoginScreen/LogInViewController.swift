@@ -2,7 +2,7 @@
 //  LogInViewController.swift
 //  LoginScreen
 //
-//  Created by Vadim on 06.12.2023.
+//  Created by Vadym Sorokolit on 06.12.2023.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var titleLabelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var emailTextFieldTopConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -32,14 +32,14 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        
         UserDefaults.standard.setValue(false, forKey: "isLoggedIn")
         
         self.registerForKeyboardNotifications()
         self.resetForm()
         self.setupLabels()
         self.setupTextFields()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
     }
     
@@ -81,13 +81,13 @@ class LogInViewController: UIViewController {
         if value.count > 0, value.count <= 8  {
             return "Password must be at least 8 characters"
         }
-        if containsDigit(value) {
+        if self.containsDigit(value) {
             return "Password must contain at least 1 digit"
         }
-        if containsLowerCase(value) {
+        if self.containsLowerCase(value) {
             return "Password must contain at least 1 lowerCase character"
         }
-        if containsUpperCase(value) {
+        if self.containsUpperCase(value) {
             return "Password must contain at least 1 upperCase character"
         }
         return nil
@@ -114,7 +114,7 @@ class LogInViewController: UIViewController {
     private func checkValidForm() {
         if self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
             self.logInButton.isEnabled = true
-            self.logInButton.alpha = 1
+            self.logInButton.alpha = 1.0
         } else {
             self.logInButton.isEnabled = false
             self.logInButton.alpha = 0.5
@@ -124,10 +124,11 @@ class LogInViewController: UIViewController {
     private func setupLabels() {
         if self.screenHeigh < self.iPhone8PlusScreenHeigh {
             self.titleLabelTopConstraint.constant /= 2
-            self.titleLabelBottomConstraint.constant /= 2
+            self.emailTextFieldTopConstraint.constant /= 2
         }
         self.termsLabel.isUserInteractionEnabled = true
-        self.termsLabel.addGestureRecognizer(UITapGestureRecognizer(target:self, action: #selector(self.onTermsLabelDidTap(gesture:))))
+        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(self.onTermsLabelDidTap))
+        self.termsLabel.addGestureRecognizer(tapGesture)
     }
     
     private func setupTextFields() {
@@ -136,13 +137,13 @@ class LogInViewController: UIViewController {
     }
     
     private func goToSignUp() {
-        if let signUpVC = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+        if let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             self.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
     
     private func goToHomePage() {
-        if let homePageVC = storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
+        if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
@@ -152,14 +153,16 @@ class LogInViewController: UIViewController {
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
         let keyboardFrame = keyboardSize.cgRectValue
         let keyboardHeigh = keyboardFrame.height
-        if self.view.frame.origin.y == 0 {
+        if self.view.frame.origin.y == 0.0 {
             self.view.frame.origin.y -= (keyboardHeigh / 2)
         }
     }
     
+    // MARK: Events
+    
     @objc private func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
+        if self.view.frame.origin.y != 0.0 {
+            self.view.frame.origin.y = 0.0
         }
     }
     
@@ -177,10 +180,11 @@ class LogInViewController: UIViewController {
     
     // MARK: - IBActions
     
+    // 'Return' button tap
     @IBAction private func emailPrimaryActionTriggered(_ textField: UITextField) {
         self.dismissKeyboard()
     }
-    
+    // 'Return' button tap
     @IBAction private func passwordPrimaryActionTriggered(_ textField: UITextField) {
         self.dismissKeyboard()
     }
@@ -190,13 +194,13 @@ class LogInViewController: UIViewController {
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false
-                textField.layer.borderWidth = 1
+                textField.layer.borderWidth = 1.0
                 textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectEmail = false
             } else {
                 self.isCorrectEmail = true
                 self.errorLabel.isHidden = true
-                textField.layer.borderWidth = 0
+                textField.layer.borderWidth = 0.0
                 textField.layer.borderColor = UIColor.clear.cgColor
             }
         }
@@ -208,13 +212,13 @@ class LogInViewController: UIViewController {
             if let errorMessage = self.checkValidPassword(password) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false
-                textField.layer.borderWidth = 1
+                textField.layer.borderWidth = 1.0
                 textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectPassword = false
             } else {
                 self.isCorrectPassword = true
                 self.errorLabel.isHidden = true
-                textField.layer.borderWidth = 0
+                textField.layer.borderWidth = 0.0
                 textField.layer.borderColor = UIColor.clear.cgColor
             }
         }
@@ -226,13 +230,13 @@ class LogInViewController: UIViewController {
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false
-                textField.layer.borderWidth = 1
+                textField.layer.borderWidth = 1.0
                 textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectEmail = false
             } else {
                 self.isCorrectEmail = true
                 self.errorLabel.isHidden = true
-                textField.layer.borderWidth = 0
+                textField.layer.borderWidth = 0.0
                 textField.layer.borderColor = UIColor.clear.cgColor
             }
         }
@@ -244,13 +248,13 @@ class LogInViewController: UIViewController {
             if let errorMessage = self.checkValidPassword(password) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false
-                textField.layer.borderWidth = 1
+                textField.layer.borderWidth = 1.0
                 textField.layer.borderColor = UIColor.red.cgColor
                 self.isCorrectPassword = false
             } else {
                 self.isCorrectPassword = true
                 self.errorLabel.isHidden = true
-                textField.layer.borderWidth = 0
+                textField.layer.borderWidth = 0.0
                 textField.layer.borderColor = UIColor.clear.cgColor
             }
         }
@@ -267,8 +271,7 @@ class LogInViewController: UIViewController {
 
 extension UITextField {
     func addPaddingToTextField() {
-        let borderWidth  = 15
-        let paddingView: UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: borderWidth, height: 0))
+        let paddingView: UIView = UIView.init(frame: CGRect(x: 0.0, y: 0.0, width: 15.0, height: 0.0))
         self.leftView = paddingView
         self.leftViewMode = .always
         self.rightView = paddingView

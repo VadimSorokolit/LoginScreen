@@ -2,7 +2,7 @@
 //  HomePageViewController.swift
 //  LoginScreen
 //
-//  Created by Vadim on 17.12.2023.
+//  Created by Vadym Sorokolit on 17.12.2023.
 //
 
 import Foundation
@@ -65,7 +65,6 @@ class HomePageViewController: UIViewController {
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
             if let SignInVC = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as? LogInViewController {
-                SignInVC.title = "Log In Screen"
                 self.navigationController?.setViewControllers([SignInVC], animated: true)
             }
         }
