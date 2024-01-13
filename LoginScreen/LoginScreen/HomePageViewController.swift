@@ -24,7 +24,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setValue(true, forKey: GlobalConstans.isLoggedIn)
+        UserDefaults.standard.setValue(true, forKey: GlobalConstans.isLoggedInKey)
         
         self.setupLabels()
 //      self.defineCurrentScreen()
@@ -62,11 +62,11 @@ class HomePageViewController: UIViewController {
             self.navigationController?.setViewControllers([logInVC], animated: true)
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let logInVC = storyboard.instantiateViewController(withIdentifier: GlobalConstans.loginViewController) as? LogInViewController {
+            if let logInVC = storyboard.instantiateViewController(withIdentifier: GlobalConstans.loginViewControllerId) as? LogInViewController {
                 self.navigationController?.setViewControllers([logInVC], animated: true)
             }
         }
-        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedIn)
+        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedInKey)
     }
     
     @IBAction func onLogOutButtonDidTap(_ sender: UIButton) {

@@ -8,12 +8,11 @@
 import Foundation
 
 struct GlobalConstans {
-    static let main = "Main"
-    static let loginViewController = "LogInViewController"
-    static let homePageViewController = "HomePageViewController"
-    static let isLoggedIn = "isLoggedIn"
+    static let mainStoryboardNameKey = "Main"
+    static let loginViewControllerId = "LogInViewController"
+    static let homePageViewControllerId = "HomePageViewController"
+    static let isLoggedInKey = "isLoggedIn"
     static let iPhone8PlusScreenHeigh = 736.0
-    static let NSPredicateFormat = ""
     static let emailReqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let containsDigitReqularExpression = ".*[0-9]+.*"
     static let containsLowerCaseReqularExpression = ".*[a-z]+.*"

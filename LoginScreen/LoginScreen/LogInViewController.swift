@@ -8,9 +8,11 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    // MARK: Objects
+    
     private struct LocalConstans {
-        static let signUpViewController = "SignUpViewController"
-        static let signUp = "Sign up"
+        static let signUpViewControllerId = "SignUpViewController"
+        static let signUpKeyword = "Sign up"
     }
 
     // MARK: IBOutlets
@@ -35,12 +37,12 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedIn)
+        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedInKey)
         
-        self.registerForKeyboardNotifications()
         self.resetForm()
         self.setupLabels()
         self.setupTextFields()
+        self.registerForKeyboardNotifications()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
@@ -140,13 +142,13 @@ class LogInViewController: UIViewController {
     }
     
     private func goToSignUp() {
-        if let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: LocalConstans.signUpViewController) as? SignUpViewController {
+        if let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: LocalConstans.signUpViewControllerId) as? SignUpViewController {
             self.navigationController?.pushViewController(signUpVC, animated: true)
         }
     }
     
     private func goToHomePage() {
-        if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstans.homePageViewController) as? HomePageViewController {
+        if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstans.homePageViewControllerId) as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
@@ -175,7 +177,7 @@ class LogInViewController: UIViewController {
     }
 
     @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstans.signUp)
+        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstans.signUpKeyword)
         if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
             self.goToSignUp()
         }
