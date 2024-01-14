@@ -9,7 +9,6 @@ import UIKit
 
 class HomePageViewController: UIViewController {
     
-  
     // MARK: IBOutlets
     
     @IBOutlet weak private var homePageImageView: UIImageView!
@@ -17,7 +16,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak private var homePageSecondLabel: UILabel!
     @IBOutlet weak private var homePageThirdLabel: UILabel!
     @IBOutlet weak private var homePageButton: UIButton!
-
+    
     
     // MARK: Lifecycle
     
@@ -27,8 +26,6 @@ class HomePageViewController: UIViewController {
         UserDefaults.standard.setValue(true, forKey: GlobalConstans.isLoggedInKey)
         
         self.setupLabels()
-//      self.defineCurrentScreen()
-//      self.getSafeAreaHeightsTopAndBottom()
     }
     
     // MARK: - Methods
@@ -36,35 +33,14 @@ class HomePageViewController: UIViewController {
     private func setupLabels() {
         self.homePageFirstLabel.contentMode = .bottom
         self.homePageSecondLabel.contentMode = .top
-        
-    }
-    
-    private func defineCurrentScreen() {
-        let screenHeigh = UIScreen.main.bounds.height
-        let iPhone8PlusScreenHeigh = 736.0
-        
-        if screenHeigh < iPhone8PlusScreenHeigh {
-        // for example: self.firstLabelTopConstraint.constant /= 3
-        // for example: self.buttonButtomConstraint.constant /= 8
-        }
-    }
-    
-    private func getSafeAreaHeightsTopAndBottom() {
-        if #available(iOS 13.0, *), let window = UIApplication.shared.windows.first {
-            let topPadding = window.safeAreaInsets.top
-            let bottomPadding = window.safeAreaInsets.bottom
-            print(topPadding, bottomPadding)
-        }
     }
     
     private func goToLogIn() {
         if let logInVC = self.navigationController?.viewControllers.first(where: { $0 is LogInViewController }) {
             self.navigationController?.setViewControllers([logInVC], animated: true)
-        } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            if let logInVC = storyboard.instantiateViewController(withIdentifier: GlobalConstans.loginViewControllerId) as? LogInViewController {
-                self.navigationController?.setViewControllers([logInVC], animated: true)
-            }
+        }
+        if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstans.loginViewControllerId) as? LogInViewController {
+            self.navigationController?.setViewControllers([logInVC], animated: true)
         }
         UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedInKey)
     }
@@ -73,7 +49,6 @@ class HomePageViewController: UIViewController {
         self.goToLogIn()
     }
 }
-
 
 class VerticalAlignedLabel: UILabel {
     
