@@ -179,8 +179,8 @@
                     <navigationItem key="navigationItem" id="p2f-U6-e7c"/>
                     <connections>
                         <outlet property="emailTextField" destination="6dq-vA-sF9" id="j9X-Kb-esD"/>
-                        <outlet property="emailTextFieldTopConstraint" destination="nbp-Pp-KMQ" id="J95-3D-xwv"/>
                         <outlet property="errorLabel" destination="L64-KU-Nly" id="m5x-IS-1Rt"/>
+                        <outlet property="errorLabelTopConstraint" destination="nbp-Pp-KMQ" id="J95-3D-xwv"/>
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
                         <outlet property="termsLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
@@ -211,7 +211,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vly-V1-CiE">
-                                <rect key="frame" x="28" y="730" width="337" height="63"/>
+                                <rect key="frame" x="28" y="764" width="337" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="fPc-Ng-bq3"/>
                                 </constraints>
@@ -298,20 +298,19 @@
                             <constraint firstItem="GQE-42-Ttp" firstAttribute="top" secondItem="6Dy-eY-Uc5" secondAttribute="bottom" constant="22" id="V8M-nE-UBO"/>
                             <constraint firstItem="K0c-3N-K8h" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="VpZ-u8-Wnu"/>
                             <constraint firstItem="XZq-Ct-LZI" firstAttribute="top" secondItem="Ilf-hC-amr" secondAttribute="top" constant="130" id="WIu-HB-Voe"/>
-                            <constraint firstItem="Ilf-hC-amr" firstAttribute="bottom" secondItem="vly-V1-CiE" secondAttribute="bottom" constant="25" id="b0D-Z2-Q6Y"/>
+                            <constraint firstItem="Ilf-hC-amr" firstAttribute="bottom" secondItem="vly-V1-CiE" secondAttribute="bottom" constant="-9" id="b0D-Z2-Q6Y"/>
                             <constraint firstAttribute="trailing" secondItem="K0c-3N-K8h" secondAttribute="trailing" constant="28" id="cRO-Gh-ECa"/>
                             <constraint firstItem="vly-V1-CiE" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="khD-BF-PYv"/>
                             <constraint firstItem="6Dy-eY-Uc5" firstAttribute="leading" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="28" id="pLn-9H-vmS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="emailTF" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
-                        <outlet property="emailTextFieldTopConstraint" destination="RWK-Oe-mEP" id="MEl-k1-b27"/>
-                        <outlet property="passwordTF" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
+                        <outlet property="emailTextField" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
+                        <outlet property="passwordTextField" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
                         <outlet property="signUpButton" destination="K0c-3N-K8h" id="NtI-98-7lw"/>
-                        <outlet property="signUpInfoLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>
-                        <outlet property="signUpInfoLabelTopConstraint" destination="WIu-HB-Voe" id="a9m-Qi-ZEY"/>
-                        <outlet property="signUpInformationLabel" destination="vly-V1-CiE" id="Zn4-r3-iAL"/>
+                        <outlet property="termsLabel" destination="vly-V1-CiE" id="Zn4-r3-iAL"/>
+                        <outlet property="titleLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>
+                        <outlet property="titleLabelTopConstraint" destination="WIu-HB-Voe" id="a9m-Qi-ZEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DEc-tK-8V3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -434,7 +433,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -24,7 +24,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var logInButton: UIButton!
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak private var emailTextFieldTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var errorLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     
@@ -129,7 +129,7 @@ class LogInViewController: UIViewController {
     private func setupLabels() {
         if self.screenHeigh < GlobalConstans.iPhone8PlusScreenHeigh {
             self.titleLabelTopConstraint.constant /= 2
-            self.emailTextFieldTopConstraint.constant /= 2
+            self.errorLabelTopConstraint.constant /= 2
         }
         self.termsLabel.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target:self, action: #selector(self.onTermsLabelDidTap))
@@ -153,6 +153,8 @@ class LogInViewController: UIViewController {
         }
     }
     
+    // MARK: Events
+    
     @objc private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -162,8 +164,6 @@ class LogInViewController: UIViewController {
             self.view.frame.origin.y -= (keyboardHeigh / 2)
         }
     }
-    
-    // MARK: Events
     
     @objc private func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0.0 {
