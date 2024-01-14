@@ -18,12 +18,13 @@ class SignUpViewController: UIViewController {
     // MARK: IBOutlets
     
     @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var errorLabel: UILabel!
     @IBOutlet weak private var termsLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
     @IBOutlet weak private var passwordTextField: UITextField!
     @IBOutlet weak private var signUpButton: UIButton!
     @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var errorLabelTopConstraint: NSLayoutConstraint!
     // MARK: Properties
     
     private let screenHeigh = UIScreen.main.bounds.height
