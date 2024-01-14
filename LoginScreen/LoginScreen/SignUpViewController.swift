@@ -11,7 +11,7 @@ class SignUpViewController: UIViewController {
     
     // MARK: Objects
     
-    private struct LocalConstans {
+    private struct LocalConstants {
         static let logInKeyword = "Log in"
     }
     
@@ -28,7 +28,7 @@ class SignUpViewController: UIViewController {
     
     // MARK: Properties
     
-    private let screenHeigh = UIScreen.main.bounds.height
+    private let screenHeight = UIScreen.main.bounds.height
     private var isCorrectEmail = false
     private var isCorrectPassword = false
     
@@ -64,12 +64,12 @@ class SignUpViewController: UIViewController {
             return nil
         }
         if value.contains(" ") {
-            return GlobalConstans.errorMessageEmailDoesntMustContainSpaces
+            return GlobalConstants.errorMessageEmailDoesntMustContainSpaces
         }
-        let reqularExpression = GlobalConstans.emailReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
+        let reqularExpression = GlobalConstants.emailReqularExpression
+        let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         if !predicate.evaluate(with: value) {
-            return GlobalConstans.errorMessageInvalidEmailAddress
+            return GlobalConstants.errorMessageInvalidEmailAddress
         }
         return nil
     }
@@ -79,38 +79,38 @@ class SignUpViewController: UIViewController {
             return nil
         }
         if value.contains(" ") {
-            return GlobalConstans.errorMessagePasswordDoesntMustContainSpaces
+            return GlobalConstants.errorMessagePasswordDoesntMustContainSpaces
         }
         if value.count <= 8 {
-            return GlobalConstans.errorMessagePasswordMustBeAtLeast8Characters
+            return GlobalConstants.errorMessagePasswordMustBeAtLeast8Characters
         }
         if self.containsDigit(value) {
-            return GlobalConstans.errorMessagePasswordMustContainAtLeast1Digit
+            return GlobalConstants.errorMessagePasswordMustContainAtLeast1Digit
         }
         if self.containsLowerCase(value) {
-            return GlobalConstans.errorMessagePasswordMustContainAtLeast1LowerCaseCharacter
+            return GlobalConstants.errorMessagePasswordMustContainAtLeast1LowerCaseCharacter
         }
         if self.containsUpperCase(value) {
-            return GlobalConstans.errorMessagePasswordMustContainAtLeast1UpperCaseCharacter
+            return GlobalConstants.errorMessagePasswordMustContainAtLeast1UpperCaseCharacter
         }
         return nil
     }
     
     private func containsDigit(_ value: String) -> Bool {
-        let reqularExpression = GlobalConstans.containsDigitReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
+        let reqularExpression = GlobalConstants.containsDigitReqularExpression
+        let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsLowerCase(_ value: String) -> Bool {
-        let reqularExpression = GlobalConstans.containsLowerCaseReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
+        let reqularExpression = GlobalConstants.containsLowerCaseReqularExpression
+        let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsUpperCase(_ value: String) -> Bool {
-        let reqularExpression = GlobalConstans.containsUpperCaseReqularExpression
-        let predicate = NSPredicate(format: GlobalConstans.predicateFormat, reqularExpression)
+        let reqularExpression = GlobalConstants.containsUpperCaseReqularExpression
+        let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
@@ -161,12 +161,12 @@ class SignUpViewController: UIViewController {
     }
     
     private func setupLabels() {
-        if self.screenHeigh < GlobalConstans.iPhone8PlusScreenHeigh {
+        if self.screenHeight < GlobalConstants.iPhone8PlusScreenHeight {
             self.titleLabelTopConstraint.constant /= 2
             self.errorLabelTopConstraint.constant /= 2
         }
         self.termsLabel.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(onTermsLabelDidTap))
+        let tapGesture = UITapGestureRecognizer(target:self, action: #selector(self.onTermsLabelDidTap))
         self.termsLabel.addGestureRecognizer(tapGesture)
     }
     
@@ -176,38 +176,34 @@ class SignUpViewController: UIViewController {
     }
     
     private func goHomePage() {
-        if let homePageVC = self.navigationController?.viewControllers.first(where: { $0 is HomePageViewController }) {
+        if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
-        if let loggedVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstans.homePageViewControllerId) as? HomePageViewController {
-            self.navigationController?.setViewControllers([loggedVC], animated: true)
-        }
-        UserDefaults.standard.setValue(true, forKey: GlobalConstans.isLoggedInKey)
     }
     
     // MARK: IBActions
     
-    @IBAction func emailEditingChanged(_ textField: UITextField) {
+    @IBAction private func emailEditingChanged(_ textField: UITextField) {
         self.makeCheckingEmail(textField)
     }
     
-    @IBAction func passwordEditingChanged(_ textField: UITextField) {
+    @IBAction private func passwordEditingChanged(_ textField: UITextField) {
         self.makeCheckingPassword(textField)
     }
     
-    @IBAction func emailDidBegin(_ textField: UITextField) {
+    @IBAction private func emailDidBegin(_ textField: UITextField) {
         self.makeCheckingEmail(textField)
     }
     
-    @IBAction func passwordDidBegin(_ textField: UITextField) {
+    @IBAction private func passwordDidBegin(_ textField: UITextField) {
         self.makeCheckingPassword(textField)
     }
     
-    @IBAction func emailPrimaryActionTriggered(_ textField: UITextField) {
+    @IBAction private func emailPrimaryActionTriggered(_ textField: UITextField) {
         self.dismissKeyboard()
     }
     
-    @IBAction func passwordPrimaryActionTriggered(_ textField: UITextField) {
+    @IBAction private func passwordPrimaryActionTriggered(_ textField: UITextField) {
         self.dismissKeyboard()
     }
     
@@ -239,7 +235,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstans.logInKeyword)
+        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstants.logInKeyword)
         if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
             self.navigationController?.popViewController(animated: true)
         }

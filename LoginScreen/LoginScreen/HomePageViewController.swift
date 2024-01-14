@@ -11,47 +11,41 @@ class HomePageViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak private var homePageImageView: UIImageView!
-    @IBOutlet weak private var homePageFirstLabel: UILabel!
-    @IBOutlet weak private var homePageSecondLabel: UILabel!
-    @IBOutlet weak private var homePageThirdLabel: UILabel!
-    @IBOutlet weak private var homePageButton: UIButton!
-    
+    @IBOutlet weak private var girlImageView: UIImageView!
+    @IBOutlet weak private var loggedInLabel: UILabel!
+    @IBOutlet weak private var userNameLabel: UILabel!
+    @IBOutlet weak private var informationLabel: UILabel!
+    @IBOutlet weak private var logOutButton: UIButton!
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setValue(true, forKey: GlobalConstans.isLoggedInKey)
+        UserDefaults.standard.setValue(true, forKey: GlobalConstants.isLoggedInKey)
         
         self.setupLabels()
     }
     
-    // MARK: - Methods
+    // MARK: Methods
     
     private func setupLabels() {
-        self.homePageFirstLabel.contentMode = .bottom
-        self.homePageSecondLabel.contentMode = .top
+        self.loggedInLabel.contentMode = .bottom
+        self.userNameLabel.contentMode = .top
     }
     
     private func goToLogIn() {
-        if let logInVC = self.navigationController?.viewControllers.first(where: { $0 is LogInViewController }) {
-            self.navigationController?.setViewControllers([logInVC], animated: true)
+        if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
+            self.navigationController?.setViewControllers([loginVC], animated: true)
         }
-        if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstans.loginViewControllerId) as? LogInViewController {
-            self.navigationController?.setViewControllers([logInVC], animated: true)
-        }
-        UserDefaults.standard.setValue(false, forKey: GlobalConstans.isLoggedInKey)
     }
     
-    @IBAction func onLogOutButtonDidTap(_ sender: UIButton) {
+    @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
         self.goToLogIn()
     }
 }
 
 class VerticalAlignedLabel: UILabel {
-    
     override func drawText(in rect: CGRect) {
         var newRect = rect
         let height = sizeThatFits(rect.size).height

@@ -7,12 +7,13 @@
 
 import Foundation
 
-struct GlobalConstans {
-    static let mainStoryboardNameKey = "Main"
+struct GlobalConstants {
+    static let iPhone8PlusScreenHeight: CGFloat = 736.0
+    
     static let loginViewControllerId = "LogInViewController"
     static let homePageViewControllerId = "HomePageViewController"
     static let isLoggedInKey = "isLoggedIn"
-    static let iPhone8PlusScreenHeigh = 736.0
+    static let predicateFormat = "SELF MATCHES %@"
     static let emailReqularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let containsDigitReqularExpression = ".*[0-9]+.*"
     static let containsLowerCaseReqularExpression = ".*[a-z]+.*"
@@ -24,5 +25,4 @@ struct GlobalConstans {
     static let errorMessagePasswordMustContainAtLeast1Digit = "Password must contain at least 1 digit"
     static let errorMessagePasswordMustContainAtLeast1LowerCaseCharacter = "Password must contain at least 1 lowerCase character"
     static let errorMessagePasswordMustContainAtLeast1UpperCaseCharacter = "Password must contain at least 1 upperCase character"
-    static let predicateFormat = "SELF MATCHES %@"
 }

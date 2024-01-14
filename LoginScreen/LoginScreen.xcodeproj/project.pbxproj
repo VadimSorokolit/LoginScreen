@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DD4B858B2B51D00000290F1B /* GlobalConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B858A2B51D00000290F1B /* GlobalConstans.swift */; };
+		DD4B858B2B51D00000290F1B /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B858A2B51D00000290F1B /* GlobalConstants.swift */; };
 		DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */; };
 		DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */; };
 		DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */; };
@@ -22,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DD4B858A2B51D00000290F1B /* GlobalConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstans.swift; sourceTree = "<group>"; };
+		DD4B858A2B51D00000290F1B /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DDC9FCC42B20CD1B005D21FD /* LoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +70,7 @@
 			children = (
 				DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */,
 				DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */,
-				DD4B858A2B51D00000290F1B /* GlobalConstans.swift */,
+				DD4B858A2B51D00000290F1B /* GlobalConstants.swift */,
 				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
 				DDC9FCCB2B20CD1B005D21FD /* LogInViewController.swift */,
 				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
@@ -166,7 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD4B858B2B51D00000290F1B /* GlobalConstans.swift in Sources */,
+				DD4B858B2B51D00000290F1B /* GlobalConstants.swift in Sources */,
 				DDC9FCCC2B20CD1B005D21FD /* LogInViewController.swift in Sources */,
 				DDD9C3662B4071BC00D9CF29 /* NavigationController.swift in Sources */,
 				DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */,
