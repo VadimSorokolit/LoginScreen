@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email address" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-vA-sF9">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email address" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-vA-sF9">
                                 <rect key="frame" x="28" y="379" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="height" constant="63" id="0Wj-OW-FhD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -45,6 +45,7 @@
                                 <connections>
                                     <action selector="emailEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="pjp-b8-UHA"/>
                                     <action selector="emailEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="Z2P-sF-uco"/>
+                                    <action selector="emailPrimaryActionTriggered:" destination="Aa3-B7-wbg" eventType="primaryActionTriggered" id="1ac-bh-cZg"/>
                                     <action selector="emailPrimaryActionTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Tt5-93-7bi"/>
                                 </connections>
                             </textField>
@@ -58,7 +59,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Vh-8Do">
+                            <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Vh-8Do">
                                 <rect key="frame" x="28" y="464" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -68,7 +69,7 @@
                                     <constraint firstAttribute="height" constant="63" id="hdf-fY-qgb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
@@ -79,6 +80,7 @@
                                     <action selector="passwordEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Hbk-8H-clG"/>
                                     <action selector="passwordEditingDidBegin:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="D2U-2m-ySd"/>
                                     <action selector="passwordPrimaryActionTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="C2O-q8-mz0"/>
+                                    <action selector="passwordlPrimaryActionTriggered:" destination="Aa3-B7-wbg" eventType="primaryActionTriggered" id="Xd4-hw-h85"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
@@ -146,6 +148,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -189,6 +192,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Aa3-B7-wbg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-118.32061068702289" y="-27.464788732394368"/>
         </scene>
@@ -201,10 +205,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZq-Ct-LZI">
-                                <rect key="frame" x="121.00000000000001" y="189" width="151.33333333333337" height="40"/>
+                                <rect key="frame" x="120" y="189" width="153" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="k6U-67-KsG"/>
-                                    <constraint firstAttribute="width" constant="151.33333333333337" id="to6-Lb-aax"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="36"/>
                                 <nil key="textColor"/>
@@ -234,20 +237,25 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-42-Ttp">
+                            <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-42-Ttp">
                                 <rect key="frame" x="28" y="464" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="bQk-xR-C1A"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="passwordDidBegin:" destination="gRX-lK-Ej6" eventType="editingDidBegin" id="FeI-eu-LoY"/>
+                                    <action selector="passwordEditingChanged:" destination="gRX-lK-Ej6" eventType="editingChanged" id="bLp-dn-g9u"/>
+                                    <action selector="passwordPrimaryActionTriggered:" destination="gRX-lK-Ej6" eventType="primaryActionTriggered" id="Yct-YW-kxh"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-3N-K8h">
                                 <rect key="frame" x="28" y="549" width="337" height="63"/>
@@ -269,22 +277,27 @@
                                     <action selector="onSignUpButtonDidTap:" destination="gRX-lK-Ej6" eventType="touchUpInside" id="F9S-oK-kaW"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-eY-Uc5">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email address" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-eY-Uc5">
                                 <rect key="frame" x="28" y="379" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="ahI-mL-hgX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="emailDidBegin:" destination="gRX-lK-Ej6" eventType="editingDidBegin" id="CMI-HP-ebR"/>
+                                    <action selector="emailEditingChanged:" destination="gRX-lK-Ej6" eventType="editingChanged" id="iou-a6-kCm"/>
+                                    <action selector="emailPrimaryActionTriggered:" destination="gRX-lK-Ej6" eventType="primaryActionTriggered" id="DLh-Kg-qeC"/>
+                                </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5d-Dh-oCw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5d-Dh-oCw" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
                                 <rect key="frame" x="28" y="339" width="337" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Bg5-Jh-JCD"/>
@@ -297,12 +310,10 @@
                         <viewLayoutGuide key="safeArea" id="Ilf-hC-amr"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="GQE-42-Ttp" secondAttribute="trailing" constant="28" id="0Vo-R0-W9G"/>
-                            <constraint firstItem="GQE-42-Ttp" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="Bwb-JB-qpz"/>
+                            <constraint firstItem="GQE-42-Ttp" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="33H-BI-HbD"/>
                             <constraint firstItem="K0c-3N-K8h" firstAttribute="top" secondItem="GQE-42-Ttp" secondAttribute="bottom" constant="22" id="ICg-Po-O3L"/>
                             <constraint firstItem="6Dy-eY-Uc5" firstAttribute="top" secondItem="j5d-Dh-oCw" secondAttribute="bottom" constant="10" id="Lkb-cb-8R0"/>
                             <constraint firstItem="j5d-Dh-oCw" firstAttribute="top" secondItem="XZq-Ct-LZI" secondAttribute="bottom" constant="110" id="PHW-UK-v3w"/>
-                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="Pd6-Jf-VQ6"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="6Dy-eY-Uc5" secondAttribute="trailing" constant="28" id="TXC-Gj-ibp"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="vly-V1-CiE" secondAttribute="trailing" constant="28" id="Uot-Dr-3eb"/>
                             <constraint firstItem="GQE-42-Ttp" firstAttribute="top" secondItem="6Dy-eY-Uc5" secondAttribute="bottom" constant="22" id="V8M-nE-UBO"/>
@@ -314,13 +325,17 @@
                             <constraint firstItem="vly-V1-CiE" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="khD-BF-PYv"/>
                             <constraint firstItem="j5d-Dh-oCw" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="oux-Td-mdD"/>
                             <constraint firstItem="6Dy-eY-Uc5" firstAttribute="leading" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="28" id="pLn-9H-vmS"/>
+                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="120" id="vpJ-MR-Gy1"/>
+                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="x3a-OR-8M0"/>
+                            <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="GQE-42-Ttp" secondAttribute="trailing" constant="28" id="yzj-cc-N1g"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="XZq-Ct-LZI" secondAttribute="trailing" constant="120" id="z8p-G8-xDe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="6Dy-eY-Uc5" id="06c-6J-tul"/>
                         <outlet property="errorLabel" destination="j5d-Dh-oCw" id="3Fl-uY-cu0"/>
                         <outlet property="errorLabelTopConstraint" destination="PHW-UK-v3w" id="QF8-Uq-TjJ"/>
-                        <outlet property="passwordTextField" destination="GQE-42-Ttp" id="BSu-LH-7VC"/>
+                        <outlet property="passwordTextField" destination="GQE-42-Ttp" id="Ce8-th-ktq"/>
                         <outlet property="signUpButton" destination="K0c-3N-K8h" id="NtI-98-7lw"/>
                         <outlet property="termsLabel" destination="vly-V1-CiE" id="Zn4-r3-iAL"/>
                         <outlet property="titleLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>
