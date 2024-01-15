@@ -138,6 +138,8 @@ class LogInViewController: UIViewController {
     private func setupTextFields() {
         self.emailTextField.addPaddingToTextField()
         self.passwordTextField.addPaddingToTextField()
+        self.emailTextField.keyboardType = .asciiCapable
+        self.passwordTextField.keyboardType = .asciiCapable
     }
     
     private func goToSignUp() {
@@ -232,6 +234,7 @@ class LogInViewController: UIViewController {
     
     @IBAction private func emailEditingChanged(_ textField: UITextField) {
         if let email = textField.text {
+            textField.keyboardType = .asciiCapable
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false

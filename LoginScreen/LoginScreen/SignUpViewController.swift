@@ -172,6 +172,8 @@ class SignUpViewController: UIViewController {
     private func setupTextFields() {
         self.emailTextField.addPaddingToTextField()
         self.passwordTextField.addPaddingToTextField()
+        self.emailTextField.keyboardType = .asciiCapable
+        self.passwordTextField.keyboardType = .asciiCapable
     }
     
     private func goHomePage() {
