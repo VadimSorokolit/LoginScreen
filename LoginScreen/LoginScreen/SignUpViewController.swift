@@ -17,7 +17,6 @@ class SignUpViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var errorLabel: UILabel!
     @IBOutlet weak private var termsLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!

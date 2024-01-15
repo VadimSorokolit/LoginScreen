@@ -17,7 +17,6 @@ class LogInViewController: UIViewController {
 
     // MARK: IBOutlets
     
-    @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var errorLabel: UILabel!
     @IBOutlet weak private var termsLabel: UILabel!
     @IBOutlet weak private var emailTextField: UITextField!
@@ -28,7 +27,7 @@ class LogInViewController: UIViewController {
     
     // MARK: Properties
     
-    private let screenHeigh: CGFloat = UIScreen.main.bounds.height
+    private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private var isCorrectEmail = false
     private var isCorrectPassword = false
    
@@ -127,7 +126,7 @@ class LogInViewController: UIViewController {
     }
     
     private func setupLabels() {
-        if self.screenHeigh < GlobalConstants.iPhone8PlusScreenHeight {
+        if self.screenHeight < GlobalConstants.iPhone8PlusScreenHeight {
             self.titleLabelTopConstraint.constant /= 2
             self.errorLabelTopConstraint.constant /= 2
         }

@@ -20,8 +20,7 @@ class NavigationController: UINavigationController {
             if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
                 self.setViewControllers([homePageVC], animated: true)
             }
-        }
-        if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
+        } else if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
                 self.setViewControllers([logInVC], animated: true)
         }
     }

@@ -187,7 +187,6 @@
                         <outlet property="logInButton" destination="fgM-3I-mig" id="x2b-Vz-NOr"/>
                         <outlet property="passwordTextField" destination="wKc-Vh-8Do" id="9Wx-kf-WpF"/>
                         <outlet property="termsLabel" destination="tbm-lr-iYe" id="5oL-ss-x8N"/>
-                        <outlet property="titleLabel" destination="RoN-R8-t4h" id="KrS-3c-nGv"/>
                         <outlet property="titleLabelTopConstraint" destination="xkn-gf-uOS" id="nff-Lk-JHk"/>
                     </connections>
                 </viewController>
@@ -338,7 +337,6 @@
                         <outlet property="passwordTextField" destination="GQE-42-Ttp" id="Ce8-th-ktq"/>
                         <outlet property="signUpButton" destination="K0c-3N-K8h" id="NtI-98-7lw"/>
                         <outlet property="termsLabel" destination="vly-V1-CiE" id="Zn4-r3-iAL"/>
-                        <outlet property="titleLabel" destination="XZq-Ct-LZI" id="3ux-yP-6rQ"/>
                         <outlet property="titleLabelTopConstraint" destination="WIu-HB-Voe" id="a9m-Qi-ZEY"/>
                     </connections>
                 </viewController>
@@ -431,11 +429,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="homePageImageView" destination="Exr-Nh-dHF" id="IHU-b0-qn3"/>
-                        <outlet property="informationLabel" destination="ADJ-aw-svg" id="0tk-Oi-TBN"/>
-                        <outlet property="logOutButton" destination="SYY-kr-ons" id="Aut-MB-oa2"/>
                         <outlet property="loggedInLabel" destination="cre-Qm-0QB" id="ygI-jb-cR7"/>
-                        <outlet property="nameLabel" destination="lqe-Xl-eOt" id="A53-Hd-rS9"/>
+                        <outlet property="userNameLabel" destination="lqe-Xl-eOt" id="Xoy-zl-yGy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ins-Uo-fyH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -462,7 +457,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

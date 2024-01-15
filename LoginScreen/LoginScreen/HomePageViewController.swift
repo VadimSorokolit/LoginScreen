@@ -11,12 +11,9 @@ class HomePageViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet weak private var girlImageView: UIImageView!
     @IBOutlet weak private var loggedInLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
-    @IBOutlet weak private var informationLabel: UILabel!
-    @IBOutlet weak private var logOutButton: UIButton!
-    
+   
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -49,7 +46,7 @@ class VerticalAlignedLabel: UILabel {
     override func drawText(in rect: CGRect) {
         var newRect = rect
         let height = sizeThatFits(rect.size).height
-        switch contentMode {
+        switch self.contentMode {
             case .top:
                 newRect.size.height = height
             case .bottom:
