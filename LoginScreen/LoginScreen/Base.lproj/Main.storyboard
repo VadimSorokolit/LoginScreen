@@ -325,7 +325,7 @@
                             <constraint firstItem="vly-V1-CiE" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="khD-BF-PYv"/>
                             <constraint firstItem="j5d-Dh-oCw" firstAttribute="leading" secondItem="Ilf-hC-amr" secondAttribute="leading" constant="28" id="oux-Td-mdD"/>
                             <constraint firstItem="6Dy-eY-Uc5" firstAttribute="leading" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="28" id="pLn-9H-vmS"/>
-                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="120" id="vpJ-MR-Gy1"/>
+                            <constraint firstItem="XZq-Ct-LZI" firstAttribute="leading" relation="lessThanOrEqual" secondItem="bKQ-bF-0Pj" secondAttribute="leading" constant="120" id="vpJ-MR-Gy1"/>
                             <constraint firstItem="XZq-Ct-LZI" firstAttribute="centerX" secondItem="Ilf-hC-amr" secondAttribute="centerX" id="x3a-OR-8M0"/>
                             <constraint firstItem="Ilf-hC-amr" firstAttribute="trailing" secondItem="GQE-42-Ttp" secondAttribute="trailing" constant="28" id="yzj-cc-N1g"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="XZq-Ct-LZI" secondAttribute="trailing" constant="120" id="z8p-G8-xDe"/>
