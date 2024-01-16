@@ -27,9 +27,9 @@ class SignUpViewController: UIViewController {
     
     // MARK: Properties
     
-    private let screenHeight = UIScreen.main.bounds.height
-    private var isCorrectEmail = false
-    private var isCorrectPassword = false
+    private let screenHeight: CGFloat = UIScreen.main.bounds.height
+    private var isCorrectEmail: Bool = false
+    private var isCorrectPassword: Bool = false
     
     // MARK: Lifecycle
     

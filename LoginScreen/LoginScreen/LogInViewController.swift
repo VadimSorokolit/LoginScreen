@@ -28,8 +28,8 @@ class LogInViewController: UIViewController {
     // MARK: Properties
     
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
-    private var isCorrectEmail = false
-    private var isCorrectPassword = false
+    private var isCorrectEmail: Bool = false
+    private var isCorrectPassword: Bool = false
    
     // MARK: Lifecycle
     
