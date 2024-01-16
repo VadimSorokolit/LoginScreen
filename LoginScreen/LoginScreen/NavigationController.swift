@@ -11,7 +11,7 @@ class NavigationController: UINavigationController {
     
     // MARK: Properties
     
-    let isLoggedIn = UserDefaults.standard.bool(forKey: GlobalConstants.isLoggedInKey)
+    private let isLoggedIn = UserDefaults.standard.bool(forKey: GlobalConstants.isLoggedInKey)
     
     // MARK: Lifecycle
     
