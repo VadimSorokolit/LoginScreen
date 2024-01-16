@@ -33,7 +33,7 @@ class HomePageViewController: UIViewController {
     
     private func goToLogIn() {
         if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
-            self.navigationController?.setViewControllers([loginVC], animated: true)
+            self.navigationController?.setViewControllers([loginVC], animated: false)
         }
     }
     
@@ -45,7 +45,7 @@ class HomePageViewController: UIViewController {
 class VerticalAlignedLabel: UILabel {
     override func drawText(in rect: CGRect) {
         var newRect = rect
-        let height = sizeThatFits(rect.size).height
+        let height = self.sizeThatFits(rect.size).height
         switch self.contentMode {
             case .top:
                 newRect.size.height = height

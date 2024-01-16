@@ -234,7 +234,6 @@ class LogInViewController: UIViewController {
     
     @IBAction private func emailEditingChanged(_ textField: UITextField) {
         if let email = textField.text {
-            textField.keyboardType = .asciiCapable
             if let errorMessage = self.checkValidEmail(email) {
                 self.errorLabel.text = errorMessage
                 self.errorLabel.isHidden = false

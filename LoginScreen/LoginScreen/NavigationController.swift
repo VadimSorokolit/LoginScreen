@@ -9,12 +9,14 @@ import UIKit
 
 class NavigationController: UINavigationController {
     
+    // MARK: Properties
+    
+    let isLoggedIn = UserDefaults.standard.bool(forKey: GlobalConstants.isLoggedInKey)
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let isLoggedIn = UserDefaults.standard.bool(forKey: GlobalConstants.isLoggedInKey)
         
         if isLoggedIn {
             if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
