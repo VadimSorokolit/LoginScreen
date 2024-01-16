@@ -17,13 +17,13 @@ class LogInViewController: UIViewController {
 
     // MARK: IBOutlets
     
-    @IBOutlet weak private var errorLabel: UILabel!
-    @IBOutlet weak private var termsLabel: UILabel!
-    @IBOutlet weak private var emailTextField: UITextField!
-    @IBOutlet weak private var passwordTextField: UITextField!
-    @IBOutlet weak private var logInButton: UIButton!
-    @IBOutlet weak private var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak private var errorLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak  var errorLabel: UILabel!
+    @IBOutlet private weak  var termsLabel: UILabel!
+    @IBOutlet private weak  var emailTextField: UITextField!
+    @IBOutlet private weak  var passwordTextField: UITextField!
+    @IBOutlet private weak  var logInButton: UIButton!
+    @IBOutlet private weak  var titleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak  var errorLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     
