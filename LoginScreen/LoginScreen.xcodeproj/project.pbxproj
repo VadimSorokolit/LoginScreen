@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24444EC944771C45472DC3DF /* Pods_LoginScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA5872A21D5DA96DC344063F /* Pods_LoginScreen.framework */; };
+		DD12EEAD2B585AAF00A3D1A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD12EEAC2B585AAF00A3D1A1 /* GoogleService-Info.plist */; };
 		DD4B858B2B51D00000290F1B /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B858A2B51D00000290F1B /* GlobalConstants.swift */; };
-		DD4E4B5D2B57E56C002BBE26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD4E4B5C2B57E56C002BBE26 /* GoogleService-Info.plist */; };
 		DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */; };
 		DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */; };
 		DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */; };
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		6D1CA8F10C6843DA093F64F6 /* Pods-LoginScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginScreen.release.xcconfig"; path = "Target Support Files/Pods-LoginScreen/Pods-LoginScreen.release.xcconfig"; sourceTree = "<group>"; };
 		AA5872A21D5DA96DC344063F /* Pods_LoginScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD12EEAC2B585AAF00A3D1A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD4B858A2B51D00000290F1B /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
-		DD4E4B5C2B57E56C002BBE26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DDC9FCC42B20CD1B005D21FD /* LoginScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +76,7 @@
 		DDC9FCBB2B20CD1B005D21FD = {
 			isa = PBXGroup;
 			children = (
+				DD12EEAC2B585AAF00A3D1A1 /* GoogleService-Info.plist */,
 				DDC9FCC62B20CD1B005D21FD /* LoginScreen */,
 				DDC9FCC52B20CD1B005D21FD /* Products */,
 				8A509C0954BE71B77578E99E /* Pods */,
@@ -104,7 +105,6 @@
 				DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */,
 				DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */,
 				DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */,
-				DD4E4B5C2B57E56C002BBE26 /* GoogleService-Info.plist */,
 				DDC9FCD52B20CD1C005D21FD /* Info.plist */,
 				DDFE29CB2B22154800C8D6AA /* fonts */,
 			);
@@ -185,7 +185,7 @@
 				DDC9FCD12B20CD1C005D21FD /* Assets.xcassets in Resources */,
 				DDFE29CD2B22183300C8D6AA /* PT_Mono-Regular.ttf in Resources */,
 				DDC9FCCF2B20CD1B005D21FD /* Main.storyboard in Resources */,
-				DD4E4B5D2B57E56C002BBE26 /* GoogleService-Info.plist in Resources */,
+				DD12EEAD2B585AAF00A3D1A1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
