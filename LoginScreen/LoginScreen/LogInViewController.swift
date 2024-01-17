@@ -5,6 +5,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
     
@@ -17,13 +18,13 @@ class LogInViewController: UIViewController {
 
     // MARK: IBOutlets
     
-    @IBOutlet private weak  var errorLabel: UILabel!
-    @IBOutlet private weak  var termsLabel: UILabel!
-    @IBOutlet private weak  var emailTextField: UITextField!
-    @IBOutlet private weak  var passwordTextField: UITextField!
-    @IBOutlet private weak  var logInButton: UIButton!
-    @IBOutlet private weak  var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak  var errorLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var errorLabel: UILabel!
+    @IBOutlet private weak var termsLabel: UILabel!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var logInButton: UIButton!
+    @IBOutlet private weak var titleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var errorLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     
