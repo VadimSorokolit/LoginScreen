@@ -394,7 +394,7 @@
                                     <constraint firstAttribute="height" constant="63" id="xRU-ZN-9V8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
-                                <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="LOG OUT"/>
                                 <userDefinedRuntimeAttributes>
@@ -455,7 +455,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

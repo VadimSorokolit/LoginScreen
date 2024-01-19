@@ -5,6 +5,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
 
 class LogInViewController: UIViewController {
     
@@ -30,6 +32,7 @@ class LogInViewController: UIViewController {
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private var isCorrectEmail: Bool = false
     private var isCorrectPassword: Bool = false
+    private var isLoggedUser: Bool = false
    
     // MARK: Lifecycle
     
@@ -117,12 +120,23 @@ class LogInViewController: UIViewController {
     
     private func checkValidForm() {
         if self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
-            self.logInButton.isEnabled = true
-            self.logInButton.alpha = 1.0
-        } else {
-            self.logInButton.isEnabled = false
-            self.logInButton.alpha = 0.5
-        }
+            if let email = self.emailTextField.text,
+               let password = self.passwordTextField.text {
+                FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                    guard let user = authResult?.user, error == nil else {
+                        print("\(String(describing: authResult?.user)) doesn't log in")
+                        return
+                    }
+                    print("\(String(describing: user)) log in")
+                    self.isLoggedUser = true
+                }
+                    self.logInButton.isEnabled = true
+                    self.logInButton.alpha = 1.0
+                }
+            }   else {
+                self.logInButton.isEnabled = false
+                self.logInButton.alpha = 0.5
+            }
     }
     
     private func setupLabels() {
@@ -269,9 +283,13 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
-        self.goToHomePage()
+        if self.isLoggedUser {
+            self.goToHomePage()
+        } else {
+            self.errorLabel.isHidden = false
+            self.errorLabel.text = "Firebase doesn't have user, please try write other login or password of sign up"
+        }
     }
-    
 }
 
 // MARK: - UITextfield

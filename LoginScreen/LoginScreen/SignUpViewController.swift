@@ -6,6 +6,8 @@
 
 import Foundation
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 class SignUpViewController: UIViewController {
     
@@ -17,19 +19,20 @@ class SignUpViewController: UIViewController {
     
     // MARK: IBOutlets
     
-    @IBOutlet private weak  var errorLabel: UILabel!
-    @IBOutlet private weak  var termsLabel: UILabel!
-    @IBOutlet private weak  var emailTextField: UITextField!
-    @IBOutlet private weak  var passwordTextField: UITextField!
-    @IBOutlet private weak  var signUpButton: UIButton!
-    @IBOutlet private weak  var titleLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet private weak  var errorLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var errorLabel: UILabel!
+    @IBOutlet private weak var termsLabel: UILabel!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet private weak var titleLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var errorLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private var isCorrectEmail: Bool = false
     private var isCorrectPassword: Bool = false
+    private var isLoggedUser: Bool = false
     
     // MARK: Lifecycle
     
@@ -115,12 +118,23 @@ class SignUpViewController: UIViewController {
     
     private func checkValidForm() {
         if self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
-            self.signUpButton.isEnabled = true
-            self.signUpButton.alpha = 1.0
-        } else {
-            self.signUpButton.isEnabled = false
-            self.signUpButton.alpha = 0.5
-        }
+            if let email = self.emailTextField.text,
+               let password = self.passwordTextField.text {
+                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { ( authResult, error) in
+                    guard let user = authResult?.user, error == nil else {
+                        print("\(String(describing: authResult?.user)) doesn't sign up")
+                        return
+                    }
+                    print("\(String(describing: user)) sign up")
+                    self.isLoggedUser = true
+                }
+                self.signUpButton.isEnabled = true
+                self.signUpButton.alpha = 1.0
+            }
+        }   else {
+                self.signUpButton.isEnabled = false
+                self.signUpButton.alpha = 0.5
+            }
     }
     
     private func makeCheckingEmail(_ textField: UITextField) {
@@ -176,7 +190,7 @@ class SignUpViewController: UIViewController {
         self.passwordTextField.keyboardType = .asciiCapable
     }
     
-    private func goHomePage() {
+    private func goToHomePage() {
         if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
@@ -209,9 +223,14 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
-        self.goHomePage()
+        if self.isLoggedUser {
+            self.goToHomePage()
+        } else {
+            self.errorLabel.isHidden = false
+            self.errorLabel.text = "It's user is in Firebase, please try write other login and password"
+        }
     }
-    
+
     // MARK: Events
     
     @objc private func keyboardWillShow(notification: NSNotification) {
