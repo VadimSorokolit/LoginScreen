@@ -26,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email address" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-vA-sF9">
-                                <rect key="frame" x="28" y="379" width="337" height="63"/>
+                                <rect key="frame" x="28" y="409" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES"/>
@@ -60,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="wKc-Vh-8Do">
-                                <rect key="frame" x="28" y="464" width="337" height="63"/>
+                                <rect key="frame" x="28" y="494" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES"/>
@@ -84,7 +84,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-3I-mig">
-                                <rect key="frame" x="28" y="549" width="337" height="63"/>
+                                <rect key="frame" x="28" y="579" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="IQJ-xn-rYZ">
@@ -139,10 +139,10 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="28" y="339" width="337" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L64-KU-Nly" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
+                                <rect key="frame" x="28" y="339" width="337" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="zh9-wI-Ru9"/>
+                                    <constraint firstAttribute="height" constant="60" id="zh9-wI-Ru9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -235,7 +235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="GQE-42-Ttp">
-                                <rect key="frame" x="28" y="464" width="337" height="63"/>
+                                <rect key="frame" x="28" y="494" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="bQk-xR-C1A"/>
@@ -255,7 +255,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0c-3N-K8h">
-                                <rect key="frame" x="28" y="549" width="337" height="63"/>
+                                <rect key="frame" x="28" y="579" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.24313727020000001" green="0.5411764979" blue="0.8156862855" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="gje-Tq-ZdW"/>
@@ -275,7 +275,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter email address" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="6Dy-eY-Uc5">
-                                <rect key="frame" x="28" y="379" width="337" height="63"/>
+                                <rect key="frame" x="28" y="409" width="337" height="63"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.93725490570000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="ahI-mL-hgX"/>
@@ -294,10 +294,10 @@
                                     <action selector="emailPrimaryActionTriggered:" destination="gRX-lK-Ej6" eventType="primaryActionTriggered" id="DLh-Kg-qeC"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5d-Dh-oCw" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="28" y="339" width="337" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5d-Dh-oCw" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
+                                <rect key="frame" x="28" y="339" width="337" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Bg5-Jh-JCD"/>
+                                    <constraint firstAttribute="height" constant="60" id="Bg5-Jh-JCD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Regular" family="PT Mono" pointSize="14"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
