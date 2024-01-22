@@ -6,10 +6,14 @@
 
 import Foundation
 import UIKit
+import FirebaseCore
+import FirebaseAuth
 
 class NavigationController: UINavigationController {
     
     // MARK: Properties
+    
+    var handle: AuthStateDidChangeListenerHandle?
     
     private let isLoggedIn = UserDefaults.standard.bool(forKey: GlobalConstants.isLoggedInKey)
     
@@ -26,4 +30,17 @@ class NavigationController: UINavigationController {
                 self.setViewControllers([logInVC], animated: true)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        handle =  FirebaseAuth.Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) -> Void in
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+    }
+    
 }
