@@ -120,23 +120,12 @@ class LogInViewController: UIViewController {
     
     private func checkValidForm() {
         if self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
-            if let email = self.emailTextField.text,
-               let password = self.passwordTextField.text {
-                FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-                    guard let user = authResult?.user, error == nil else {
-                        print("\(String(describing: authResult?.user)) doesn't log in")
-                        return
-                    }
-                    print("\(String(describing: user)) log in")
-                    self.isLoggedUser = true
-                }
-                    self.logInButton.isEnabled = true
-                    self.logInButton.alpha = 1.0
-                }
-            }   else {
-                self.logInButton.isEnabled = false
-                self.logInButton.alpha = 0.5
-            }
+            self.logInButton.isEnabled = true
+            self.logInButton.alpha = 1.0
+        } else {
+            self.logInButton.isEnabled = false
+            self.logInButton.alpha = 0.5
+        }
     }
     
     private func setupLabels() {
@@ -159,6 +148,20 @@ class LogInViewController: UIViewController {
     private func goToSignUp() {
         if let signUpVC = self.storyboard?.instantiateViewController(withIdentifier: LocalConstants.signUpViewControllerId) as? SignUpViewController {
             self.navigationController?.pushViewController(signUpVC, animated: true)
+        }
+    }
+    
+    private func addedNewUserToFirebase() {
+        if let email = self.emailTextField.text,
+           let password = self.passwordTextField.text {
+            FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+                guard let user = authResult?.user, error == nil else {
+                    print("\(String(describing: authResult?.user)) doesn't log in")
+                    return
+                }
+                print("\(String(describing: user)) log in")
+                self.isLoggedUser = true
+            }
         }
     }
     
@@ -283,11 +286,12 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
+        self.addedNewUserToFirebase()
         if self.isLoggedUser {
             self.goToHomePage()
         } else {
             self.errorLabel.isHidden = false
-            self.errorLabel.text = "Firebase doesn't have user, please try write other login or password of sign up"
+            self.errorLabel.text = "Firebase doesn't have user, please try write other login and password or sign up"
         }
     }
 }
