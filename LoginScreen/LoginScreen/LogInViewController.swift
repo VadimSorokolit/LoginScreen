@@ -151,7 +151,7 @@ class LogInViewController: UIViewController {
         }
     }
     
-    private func addedNewUserToFirebase() {
+    private func login() {
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
@@ -286,7 +286,7 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
-        self.addedNewUserToFirebase()
+        self.login()
         if self.isLoggedUser {
             self.goToHomePage()
         } else {
