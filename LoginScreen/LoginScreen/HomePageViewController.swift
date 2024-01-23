@@ -20,8 +20,6 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.setValue(true, forKey: GlobalConstants.isLoggedInKey)
-        
         self.setupLabels()
     }
     
@@ -30,6 +28,7 @@ class HomePageViewController: UIViewController {
     private func setupLabels() {
         self.loggedInLabel.contentMode = .bottom
         self.userNameLabel.contentMode = .top
+        self.userNameLabel.text = GlobalConstants.userName
     }
     
     private func goToLogIn() {
@@ -37,7 +36,7 @@ class HomePageViewController: UIViewController {
             self.navigationController?.setViewControllers([loginVC], animated: false)
         }
     }
-    
+
     @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
         let firebaseAuth = Auth.auth()
         do {

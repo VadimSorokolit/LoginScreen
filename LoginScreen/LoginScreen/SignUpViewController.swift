@@ -212,17 +212,16 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
-        let email = self.emailTextField.text ?? ""
-        let password = self.passwordTextField.text ?? ""
-        Auth.auth().createUser(withEmail: email, password: password) { ( authResult, error) in
-            guard let user = authResult?.user, error == nil else {
-                print("\(String(describing: authResult?.user)) doesn't sign up")
-                self.errorLabel.isHidden = false
-                self.errorLabel.text = "It's user is in Firebase, please try write other login and password"
-                return
-            }
-            print("\(String(describing: user)) sign up")
-            self.goToHomePage()
+        if let email = self.emailTextField.text,
+           let password = self.passwordTextField.text {
+            Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
+                guard let user = authResult?.user, error == nil else {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = "It's user is in Firebase, please try write other login and password"
+                    return
+                }
+                self.goToHomePage()
+            })
         }
     }
 

@@ -6,7 +6,6 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseCore
 
 class LogInViewController: UIViewController {
     
@@ -38,8 +37,6 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserDefaults.standard.setValue(false, forKey: GlobalConstants.isLoggedInKey)
         
         self.resetForm()
         self.setupLabels()
@@ -274,14 +271,12 @@ class LogInViewController: UIViewController {
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
         let email = self.emailTextField.text ?? ""
         let password = self.passwordTextField.text ?? ""
-        Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
             guard let user = authResult?.user, error == nil else {
-                print("\(String(describing: authResult?.user)) doesn't log in")
                 self.errorLabel.isHidden = false
                 self.errorLabel.text = "Firebase doesn't have user, please try write other login and password or sign up"
                 return
             }
-            print("\(String(describing: user)) log in")
             self.goToHomePage()
         })
     }
