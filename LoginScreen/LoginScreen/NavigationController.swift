@@ -6,44 +6,32 @@
 
 import Foundation
 import UIKit
-import FirebaseCore
 import FirebaseAuth
 
 class NavigationController: UINavigationController {
     
     // MARK: Properties
     
-    var handle: AuthStateDidChangeListenerHandle?
-    
+    private var handle: AuthStateDidChangeListenerHandle?
     private let isLoggedIn = UserDefaults.standard.bool(forKey: GlobalConstants.isLoggedInKey)
     
     // MARK: Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        if isLoggedIn {
-            if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
-                self.setViewControllers([homePageVC], animated: true)
-            }
-        } else if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
-                self.setViewControllers([logInVC], animated: true)
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        handle =  FirebaseAuth.Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) -> Void in
-            if user != nil {
-                print(user?.email)
+        // Start auth_listener
+        self.handle = Auth.auth().addStateDidChangeListener( { (auth: Auth, user: User?) -> Void in
+            if user == nil {
+                UserDefaults.standard.setValue(false, forKey: GlobalConstants.isLoggedInKey)
+                if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
+                    self.setViewControllers([logInVC], animated: false)
+                }
+            } else {
+                UserDefaults.standard.setValue(true, forKey: GlobalConstants.isLoggedInKey)
+                if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
+                    self.setViewControllers([homePageVC], animated: false)
+                }
             }
-        }
+        })
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-    }
-    
 }

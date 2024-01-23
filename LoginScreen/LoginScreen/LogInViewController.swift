@@ -274,7 +274,7 @@ class LogInViewController: UIViewController {
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
         let email = self.emailTextField.text ?? ""
         let password = self.passwordTextField.text ?? ""
-        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) in
             guard let user = authResult?.user, error == nil else {
                 print("\(String(describing: authResult?.user)) doesn't log in")
                 self.errorLabel.isHidden = false
@@ -283,7 +283,7 @@ class LogInViewController: UIViewController {
             }
             print("\(String(describing: user)) log in")
             self.goToHomePage()
-        }
+        })
     }
 }
 
