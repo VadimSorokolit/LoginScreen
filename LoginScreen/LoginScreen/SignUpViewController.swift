@@ -118,23 +118,12 @@ class SignUpViewController: UIViewController {
     
     private func checkValidForm() {
         if self.emailTextField.hasText, self.isCorrectEmail, self.passwordTextField.hasText, self.isCorrectPassword {
-            if let email = self.emailTextField.text,
-               let password = self.passwordTextField.text {
-                FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { ( authResult, error) in
-                    guard let user = authResult?.user, error == nil else {
-                        print("\(String(describing: authResult?.user)) doesn't sign up")
-                        return
-                    }
-                    print("\(String(describing: user)) sign up")
-                    self.isLoggedUser = true
-                }
-                self.signUpButton.isEnabled = true
-                self.signUpButton.alpha = 1.0
-            }
-        }   else {
-                self.signUpButton.isEnabled = false
-                self.signUpButton.alpha = 0.5
-            }
+            self.signUpButton.isEnabled = true
+            self.signUpButton.alpha = 1.0
+        } else {
+            self.signUpButton.isEnabled = false
+            self.signUpButton.alpha = 0.5
+        }
     }
     
     private func makeCheckingEmail(_ textField: UITextField) {
@@ -223,11 +212,17 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
-        if self.isLoggedUser {
+        let email = self.emailTextField.text ?? ""
+        let password = self.passwordTextField.text ?? ""
+        Auth.auth().createUser(withEmail: email, password: password) { ( authResult, error) in
+            guard let user = authResult?.user, error == nil else {
+                print("\(String(describing: authResult?.user)) doesn't sign up")
+                self.errorLabel.isHidden = false
+                self.errorLabel.text = "It's user is in Firebase, please try write other login and password"
+                return
+            }
+            print("\(String(describing: user)) sign up")
             self.goToHomePage()
-        } else {
-            self.errorLabel.isHidden = false
-            self.errorLabel.text = "It's user is in Firebase, please try write other login and password"
         }
     }
 

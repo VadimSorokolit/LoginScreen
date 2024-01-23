@@ -151,20 +151,6 @@ class LogInViewController: UIViewController {
         }
     }
     
-    private func login() {
-        if let email = self.emailTextField.text,
-           let password = self.passwordTextField.text {
-            FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
-                guard let user = authResult?.user, error == nil else {
-                    print("\(String(describing: authResult?.user)) doesn't log in")
-                    return
-                }
-                print("\(String(describing: user)) log in")
-                self.isLoggedUser = true
-            }
-        }
-    }
-    
     private func goToHomePage() {
         if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
             self.navigationController?.setViewControllers([homePageVC], animated: true)
@@ -286,12 +272,17 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
-        self.login()
-        if self.isLoggedUser {
+        let email = self.emailTextField.text ?? ""
+        let password = self.passwordTextField.text ?? ""
+        Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            guard let user = authResult?.user, error == nil else {
+                print("\(String(describing: authResult?.user)) doesn't log in")
+                self.errorLabel.isHidden = false
+                self.errorLabel.text = "Firebase doesn't have user, please try write other login and password or sign up"
+                return
+            }
+            print("\(String(describing: user)) log in")
             self.goToHomePage()
-        } else {
-            self.errorLabel.isHidden = false
-            self.errorLabel.text = "Firebase doesn't have user, please try write other login and password or sign up"
         }
     }
 }

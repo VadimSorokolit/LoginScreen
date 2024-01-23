@@ -35,6 +35,9 @@ class NavigationController: UINavigationController {
         super.viewWillAppear(animated)
         
         handle =  FirebaseAuth.Auth.auth().addStateDidChangeListener { (auth: Auth, user: User?) -> Void in
+            if user != nil {
+                print(user?.email)
+            }
         }
     }
     

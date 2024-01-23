@@ -6,6 +6,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class HomePageViewController: UIViewController {
     
@@ -38,7 +39,13 @@ class HomePageViewController: UIViewController {
     }
     
     @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
-        self.goToLogIn()
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.goToLogIn()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
 }
 
