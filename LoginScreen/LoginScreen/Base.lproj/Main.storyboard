@@ -92,7 +92,7 @@
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="LOG IN"/>
                                 <userDefinedRuntimeAttributes>
@@ -261,7 +261,7 @@
                                     <constraint firstAttribute="height" constant="63" id="gje-Tq-ZdW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
-                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="SIGN UP"/>
                                 <userDefinedRuntimeAttributes>
@@ -394,7 +394,7 @@
                                     <constraint firstAttribute="height" constant="63" id="xRU-ZN-9V8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="18"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="LOG OUT"/>
                                 <userDefinedRuntimeAttributes>

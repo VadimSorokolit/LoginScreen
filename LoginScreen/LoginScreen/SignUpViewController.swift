@@ -52,9 +52,7 @@ class SignUpViewController: UIViewController {
     // MARK: Methods
     
     private func progressHudWillShow() {
-        ProgressHUD.succeed("Please wait...", delay: 5)
-        ProgressHUD.mediaSize = 400
-        ProgressHUD.marginSize = 400
+        ProgressHUD.animate("Please wait...", .squareCircuitSnake)
         ProgressHUD.colorAnimation = .systemBlue
     }
     
@@ -220,14 +218,16 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
-        progressHudWillShow()
+        self.progressHudWillShow()
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
                 if (authResult?.user) != nil {
+                    ProgressHUD.dismiss()
                     self.goToHomePage()
                 } else {
                     if let error = error {
+                        ProgressHUD.dismiss()
                         self.errorLabel.isHidden = false
                         self.errorLabel.text = LocalConstants.errorMessage
                         print(error)

@@ -52,9 +52,7 @@ class LogInViewController: UIViewController {
     // MARK: Methods
     
     private func progressHudWillShow() {
-        ProgressHUD.succeed("Please wait...", delay: 5)
-        ProgressHUD.mediaSize = 400
-        ProgressHUD.marginSize = 400
+        ProgressHUD.animate("Please wait...", .squareCircuitSnake)
         ProgressHUD.colorAnimation = .systemBlue
     }
 
@@ -284,9 +282,11 @@ class LogInViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: {
                 (authResult: AuthDataResult?, error: Error?) -> Void in
                 if authResult != nil {
+                    ProgressHUD.dismiss()
                     self.goToHomePage()
                 } else {
                     if let error = error {
+                        ProgressHUD.dismiss()
                         self.errorLabel.isHidden = false
                         self.errorLabel.text = LocalConstants.errorMessage
                         print(error)
