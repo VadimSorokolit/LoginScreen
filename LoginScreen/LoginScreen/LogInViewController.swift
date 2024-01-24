@@ -6,6 +6,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class LogInViewController: UIViewController {
     
@@ -50,6 +51,13 @@ class LogInViewController: UIViewController {
     
     // MARK: Methods
     
+    private func progressHudWillShow() {
+        ProgressHUD.succeed("Please wait...", delay: 5)
+        ProgressHUD.mediaSize = 400
+        ProgressHUD.marginSize = 400
+        ProgressHUD.colorAnimation = .systemBlue
+    }
+
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -270,19 +278,19 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
+        self.progressHudWillShow()
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
-                if let error = error {
-                    print(error)
-                    return
-                }
-                if (authResult?.user) != nil {
+            Auth.auth().signIn(withEmail: email, password: password, completion: {
+                (authResult: AuthDataResult?, error: Error?) -> Void in
+                if authResult != nil {
                     self.goToHomePage()
                 } else {
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = LocalConstants.errorMessage
-                    return
+                    if let error = error {
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = LocalConstants.errorMessage
+                        print(error)
+                    }
                 }
             })
         }

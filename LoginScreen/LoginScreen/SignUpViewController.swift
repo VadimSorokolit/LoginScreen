@@ -7,6 +7,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class SignUpViewController: UIViewController {
     
@@ -49,6 +50,13 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: Methods
+    
+    private func progressHudWillShow() {
+        ProgressHUD.succeed("Please wait...", delay: 5)
+        ProgressHUD.mediaSize = 400
+        ProgressHUD.marginSize = 400
+        ProgressHUD.colorAnimation = .systemBlue
+    }
     
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -212,20 +220,18 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
+        progressHudWillShow()
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
-                if let error = error {
-                    print(error)
-                    return
-                }
                 if (authResult?.user) != nil {
                     self.goToHomePage()
                 } else {
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = LocalConstants.errorMessage
-                    return
-                    
+                    if let error = error {
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = LocalConstants.errorMessage
+                        print(error)
+                    }
                 }
             })
         }
