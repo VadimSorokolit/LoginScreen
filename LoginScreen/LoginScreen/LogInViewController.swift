@@ -6,7 +6,6 @@
 
 import UIKit
 import FirebaseAuth
-import ProgressHUD
 
 class LogInViewController: UIViewController {
     
@@ -17,7 +16,7 @@ class LogInViewController: UIViewController {
         static let signUpKeyword = "Sign up"
         static let errorMessage = "Firebase doesn't have user, please try write other login and password or sign up"
     }
-
+    
     // MARK: IBOutlets
     
     @IBOutlet private weak var errorLabel: UILabel!
@@ -34,9 +33,9 @@ class LogInViewController: UIViewController {
     private var isCorrectEmail: Bool = false
     private var isCorrectPassword: Bool = false
     private var isLoggedUser: Bool = false
-   
-    // MARK: Lifecycle
     
+    // MARK: Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,7 +75,7 @@ class LogInViewController: UIViewController {
         }
         return nil
     }
-
+    
     private func checkValidPassword(_ value: String) -> String? {
         if value.isEmpty {
             return nil
@@ -98,7 +97,7 @@ class LogInViewController: UIViewController {
         }
         return nil
     }
-
+    
     private func containsDigit(_ value: String) -> Bool {
         let reqularExpression = GlobalConstants.containsDigitReqularExpression
         let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
@@ -178,7 +177,7 @@ class LogInViewController: UIViewController {
         self.view.endEditing(true)
         self.errorLabel.isHidden = true
     }
-
+    
     @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
         let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstants.signUpKeyword)
         if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
@@ -271,17 +270,24 @@ class LogInViewController: UIViewController {
     }
     
     @IBAction private func onLogInButtonDidTap(_ sender: UIButton) {
-        let email = self.emailTextField.text ?? ""
-        let password = self.passwordTextField.text ?? ""
-        Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
-            guard let user = authResult?.user, error == nil else {
-                self.errorLabel.isHidden = false
-                self.errorLabel.text = LocalConstants.errorMessage
-                return
-            }
-            self.goToHomePage()
-        })
+        if let email = self.emailTextField.text,
+           let password = self.passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                if (authResult?.user) != nil {
+                    self.goToHomePage()
+                } else {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = LocalConstants.errorMessage
+                    return
+                }
+            })
+        }
     }
+    
 }
 
 // MARK: - UITextfield

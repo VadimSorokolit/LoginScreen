@@ -12,7 +12,7 @@ import ProgressHUD
 class NavigationController: UINavigationController {
     
     // MARK: Lifecycle
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -22,14 +22,14 @@ class NavigationController: UINavigationController {
                 if let userName = user.email {
                     GlobalConstants.userName = userName
                 }
-                self.progressHudWillShow()
                 if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
+                    self.progressHudWillShow()
                     self.setViewControllers([homePageVC], animated: false)
                 }
             } else {
-                self.progressHudWillShow()
                 if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
-                    self.setViewControllers([logInVC], animated: false)
+                    self.progressHudWillShow()
+                    self.setViewControllers([logInVC],animated: false)
                 }
             }
         })
@@ -38,9 +38,9 @@ class NavigationController: UINavigationController {
     // MARK: Methods
     
     private func progressHudWillShow() {
-        ProgressHUD.succeed("Please wait...", delay: 1.5)
-        ProgressHUD.mediaSize = 300
-        ProgressHUD.marginSize = 300
+        ProgressHUD.succeed("Please wait...", delay: 3)
+        ProgressHUD.mediaSize = 400
+        ProgressHUD.marginSize = 400
         ProgressHUD.colorAnimation = .systemBlue
     }
 }

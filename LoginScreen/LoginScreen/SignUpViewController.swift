@@ -6,7 +6,6 @@
 
 import Foundation
 import UIKit
-import FirebaseCore
 import FirebaseAuth
 
 class SignUpViewController: UIViewController {
@@ -216,12 +215,18 @@ class SignUpViewController: UIViewController {
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
-                guard let user = authResult?.user, error == nil else {
+                if let error = error {
+                    print(error)
+                    return
+                }
+                if (authResult?.user) != nil {
+                    self.goToHomePage()
+                } else {
                     self.errorLabel.isHidden = false
                     self.errorLabel.text = LocalConstants.errorMessage
                     return
+                    
                 }
-                self.goToHomePage()
             })
         }
     }
