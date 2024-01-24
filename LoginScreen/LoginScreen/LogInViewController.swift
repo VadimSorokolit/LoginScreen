@@ -6,6 +6,7 @@
 
 import UIKit
 import FirebaseAuth
+import ProgressHUD
 
 class LogInViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class LogInViewController: UIViewController {
     private struct LocalConstants {
         static let signUpViewControllerId = "SignUpViewController"
         static let signUpKeyword = "Sign up"
+        static let errorMessage = "Firebase doesn't have user, please try write other login and password or sign up"
     }
 
     // MARK: IBOutlets
@@ -274,7 +276,7 @@ class LogInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
             guard let user = authResult?.user, error == nil else {
                 self.errorLabel.isHidden = false
-                self.errorLabel.text = "Firebase doesn't have user, please try write other login and password or sign up"
+                self.errorLabel.text = LocalConstants.errorMessage
                 return
             }
             self.goToHomePage()

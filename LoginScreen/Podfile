@@ -8,5 +8,6 @@ target 'LoginScreen' do
   # Pods for LoginScreen
 
   pod 'FirebaseAuth'
+  pod 'ProgressHUD'
 
 end

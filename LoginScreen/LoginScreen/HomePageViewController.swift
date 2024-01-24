@@ -43,7 +43,7 @@ class HomePageViewController: UIViewController {
             try firebaseAuth.signOut()
             self.goToLogIn()
         } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
+            print(String(format: "%@", "Error signing out: ", signOutError))
         }
     }
 }

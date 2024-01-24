@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     
     private struct LocalConstants {
         static let logInKeyword = "Log in"
+        static let errorMessage = "It's user is in Firebase, please try write other login and password"
     }
     
     // MARK: IBOutlets
@@ -217,7 +218,7 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
                 guard let user = authResult?.user, error == nil else {
                     self.errorLabel.isHidden = false
-                    self.errorLabel.text = "It's user is in Firebase, please try write other login and password"
+                    self.errorLabel.text = LocalConstants.errorMessage
                     return
                 }
                 self.goToHomePage()
