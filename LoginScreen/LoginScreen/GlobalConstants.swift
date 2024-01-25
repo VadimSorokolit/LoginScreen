@@ -24,5 +24,4 @@ struct GlobalConstants {
     static let errorMessagePasswordMustContainAtLeast1Digit = "Password must contain at least 1 digit"
     static let errorMessagePasswordMustContainAtLeast1LowerCaseCharacter = "Password must contain at least 1 lowerCase character"
     static let errorMessagePasswordMustContainAtLeast1UpperCaseCharacter = "Password must contain at least 1 upperCase character"
-    static var userName = ""
 }
