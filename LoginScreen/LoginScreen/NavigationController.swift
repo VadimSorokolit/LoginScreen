@@ -12,9 +12,9 @@ class NavigationController: UINavigationController {
     
     // MARK: Lifecycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
         // Start auth_listener
         Auth.auth().addStateDidChangeListener({ (auth: Auth, user: User?) -> Void in
             if let user, let userName = user.email {
