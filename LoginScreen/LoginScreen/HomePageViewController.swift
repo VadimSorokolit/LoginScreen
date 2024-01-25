@@ -10,11 +10,21 @@ import FirebaseAuth
 
 class HomePageViewController: UIViewController {
     
+    // MARK: Objects
+    
+    private struct LocalConstants {
+        static let errorMessage = "Error signing out: "
+    }
+    
     // MARK: IBOutlets
     
     @IBOutlet weak private var loggedInLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
-   
+    
+    // MARK: Private. Properties
+    
+    var userName = ""
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -28,7 +38,7 @@ class HomePageViewController: UIViewController {
     private func setupLabels() {
         self.loggedInLabel.contentMode = .bottom
         self.userNameLabel.contentMode = .top
-        self.userNameLabel.text = GlobalConstants.userName
+        self.userNameLabel.text = userName
     }
     
     private func goToLogIn() {
@@ -43,7 +53,7 @@ class HomePageViewController: UIViewController {
             try firebaseAuth.signOut()
             self.goToLogIn()
         } catch let signOutError as NSError {
-            print(String(format: "%@", "Error signing out: ", signOutError))
+            print(String(format: "%@", LocalConstants.errorMessage, signOutError))
         }
     }
 }

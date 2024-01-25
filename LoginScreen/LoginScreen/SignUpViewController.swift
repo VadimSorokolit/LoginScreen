@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     
     private struct LocalConstants {
         static let logInKeyword = "Log in"
+        static let message = "Please wait..."
         static let errorMessage = "It's user is in Firebase, please try write other login and password"
     }
     
@@ -33,7 +34,6 @@ class SignUpViewController: UIViewController {
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private var isCorrectEmail: Bool = false
     private var isCorrectPassword: Bool = false
-    private var isLoggedUser: Bool = false
     
     // MARK: Lifecycle
     
@@ -41,6 +41,7 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         self.resetForm()
+        self.setupActivityIndicator()
         self.setupLabels()
         self.setupTextFields()
         self.registerForKeyboardNotifications()
@@ -51,9 +52,24 @@ class SignUpViewController: UIViewController {
     
     // MARK: Methods
     
-    private func progressHudWillShow() {
-        ProgressHUD.animate("Please wait...", .squareCircuitSnake)
+    // API for activity indicator
+    
+    // Start
+    
+    private func showActivityIndicator() {
+        ProgressHUD.animate(LocalConstants.message, .squareCircuitSnake, interaction: false)
+    }
+    
+    // Setup
+    
+    private func setupActivityIndicator() {
         ProgressHUD.colorAnimation = .systemBlue
+    }
+    
+    // Stop
+    
+    private func hideActivityIndicator() {
+        ProgressHUD.dismiss()
     }
     
     private func registerForKeyboardNotifications() {
@@ -218,16 +234,15 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
-        self.progressHudWillShow()
+        self.showActivityIndicator()
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
+                self.hideActivityIndicator()
                 if (authResult?.user) != nil {
-                    ProgressHUD.dismiss()
                     self.goToHomePage()
                 } else {
                     if let error = error {
-                        ProgressHUD.dismiss()
                         self.errorLabel.isHidden = false
                         self.errorLabel.text = LocalConstants.errorMessage
                         print(error)

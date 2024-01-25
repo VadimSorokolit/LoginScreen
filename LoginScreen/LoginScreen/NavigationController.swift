@@ -12,17 +12,17 @@ class NavigationController: UINavigationController {
     
     // MARK: Lifecycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         // Start auth_listener
         Auth.auth().addStateDidChangeListener( { (auth: Auth, user: User?) -> Void in
             if let user = user {
                 if let userName = user.email {
-                    GlobalConstants.userName = userName
-                }
-                if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
-                    self.setViewControllers([homePageVC], animated: false)
+                    if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
+                        homePageVC.userName = userName
+                        self.setViewControllers([homePageVC], animated: false)
+                    }
                 }
             } else {
                 if let logInVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.loginViewControllerId) as? LogInViewController {
