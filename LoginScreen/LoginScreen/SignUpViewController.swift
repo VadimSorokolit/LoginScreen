@@ -201,8 +201,9 @@ class SignUpViewController: UIViewController {
         self.passwordTextField.keyboardType = .asciiCapable
     }
     
-    private func goToHomePage() {
+    private func goToHomePage(withUserName userName: String) {
         if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
+            homePageVC.userName = userName
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
@@ -239,13 +240,15 @@ class SignUpViewController: UIViewController {
            let password = self.passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
-                if (authResult?.user) != nil {
-                    self.goToHomePage()
-                } else {
-                    if let error = error {
-                        self.errorLabel.isHidden = false
-                        self.errorLabel.text = LocalConstants.errorMessage
-                        print(error)
+                if let error = error {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = LocalConstants.errorMessage
+                    print(error)
+                    return
+                }
+                if let user = authResult?.user {
+                    if let userName = user.email {
+                        self.goToHomePage(withUserName: userName)
                     }
                 }
             })

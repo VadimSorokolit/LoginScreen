@@ -36,7 +36,7 @@ class LogInViewController: UIViewController {
     private var isCorrectPassword: Bool = false
     
     // MARK: Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -71,7 +71,7 @@ class LogInViewController: UIViewController {
     private func hideActivityIndicator() {
         ProgressHUD.dismiss()
     }
-
+    
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -171,8 +171,9 @@ class LogInViewController: UIViewController {
         }
     }
     
-    private func goToHomePage() {
+    private func goToHomePage(withUserName userName: String) {
         if let homePageVC = self.storyboard?.instantiateViewController(withIdentifier: GlobalConstants.homePageViewControllerId) as? HomePageViewController {
+            homePageVC.userName = userName
             self.navigationController?.setViewControllers([homePageVC], animated: true)
         }
     }
@@ -295,16 +296,17 @@ class LogInViewController: UIViewController {
         self.showActivityIndicator()
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password, completion: {
-                (authResult: AuthDataResult?, error: Error?) -> Void in
+            Auth.auth().signIn(withEmail: email, password: password, completion: {(authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
-                if authResult != nil {
-                    self.goToHomePage()
-                } else {
-                    if let error = error {
-                        self.errorLabel.isHidden = false
-                        self.errorLabel.text = LocalConstants.errorMessage
-                        print(error)
+                if let error = error {
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = LocalConstants.errorMessage
+                    print(error)
+                    return
+                }
+                if let user = authResult?.user {
+                    if let userName = user.email {
+                        self.goToHomePage(withUserName: userName)
                     }
                 }
             })
