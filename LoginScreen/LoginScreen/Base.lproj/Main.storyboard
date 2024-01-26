@@ -369,16 +369,16 @@
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-Xl-eOt" customClass="VerticalAlignedLabel" customModule="LoginScreen" customModuleProvider="target">
-                                <rect key="frame" x="16" y="405" width="361" height="72"/>
+                                <rect key="frame" x="16" y="405" width="361" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="cbS-Fq-42Q"/>
+                                    <constraint firstAttribute="height" constant="80" id="cbS-Fq-42Q"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PTMono-Bold" family="PT Mono" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you can see the    app content!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADJ-aw-svg">
-                                <rect key="frame" x="62" y="486" width="269" height="63"/>
+                                <rect key="frame" x="62" y="494" width="269" height="63"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="aN1-cB-PUz"/>
                                     <constraint firstAttribute="width" constant="269" id="gOv-MR-WkC"/>
