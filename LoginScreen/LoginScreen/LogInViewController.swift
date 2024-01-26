@@ -54,14 +54,14 @@ class LogInViewController: UIViewController {
     
     // API for activity indicator
 
+    private func setupActivityIndicator() {
+        ProgressHUD.colorAnimation = .systemBlue
+    }
+    
     private func showActivityIndicator() {
         ProgressHUD.animate(LocalConstants.message, .squareCircuitSnake, interaction: false)
     }
     
-    private func setupActivityIndicator() {
-        ProgressHUD.colorAnimation = .systemBlue
-    }
-
     private func hideActivityIndicator() {
         ProgressHUD.dismiss()
     }

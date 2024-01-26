@@ -47,6 +47,8 @@ class HomePageViewController: UIViewController {
         }
     }
 
+    // MARK: IBActions
+    
     @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
