@@ -21,7 +21,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak private var loggedInLabel: UILabel!
     @IBOutlet weak private var userNameLabel: UILabel!
     
-    // MARK: Private. Properties
+    // MARK: Properties
     
     var userName = ""
     
@@ -38,7 +38,7 @@ class HomePageViewController: UIViewController {
     private func setupLabels() {
         self.loggedInLabel.contentMode = .bottom
         self.userNameLabel.contentMode = .top
-        self.userNameLabel.text = userName
+        self.userNameLabel.text = self.userName
     }
     
     private func goToLogIn() {
@@ -48,9 +48,8 @@ class HomePageViewController: UIViewController {
     }
 
     @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
-        let firebaseAuth = Auth.auth()
         do {
-            try firebaseAuth.signOut()
+            try Auth.auth().signOut()
             self.goToLogIn()
         } catch let signOutError as NSError {
             print(String(format: "%@", LocalConstants.errorMessage, signOutError))

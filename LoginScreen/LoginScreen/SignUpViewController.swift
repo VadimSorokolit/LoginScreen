@@ -40,10 +40,10 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.resetForm()
         self.setupActivityIndicator()
         self.setupLabels()
         self.setupTextFields()
+        self.resetForm()
         self.registerForKeyboardNotifications()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -54,19 +54,13 @@ class SignUpViewController: UIViewController {
     
     // API for activity indicator
     
-    // Start
-    
     private func showActivityIndicator() {
         ProgressHUD.animate(LocalConstants.message, .squareCircuitSnake, interaction: false)
     }
     
-    // Setup
-    
     private func setupActivityIndicator() {
         ProgressHUD.colorAnimation = .systemBlue
     }
-    
-    // Stop
     
     private func hideActivityIndicator() {
         ProgressHUD.dismiss()
@@ -235,9 +229,9 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction private func onSignUpButtonDidTap(_ sender: UIButton) {
-        self.showActivityIndicator()
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
+            self.showActivityIndicator()
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
                 if let error = error {
