@@ -10,6 +10,7 @@
 		B49CCB19274AEAC0A80914F1 /* Pods_LoginScreen.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8985EEBEBECA036BED3FAF2B /* Pods_LoginScreen.framework */; };
 		DD12EEAD2B585AAF00A3D1A1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD12EEAC2B585AAF00A3D1A1 /* GoogleService-Info.plist */; };
 		DD4A8BE72B658952008CDF80 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A8BE62B658952008CDF80 /* AlertsManager.swift */; };
+		DD4A8BE92B659C29008CDF80 /* VerticalAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A8BE82B659C29008CDF80 /* VerticalAlignedLabel.swift */; };
 		DD4B858B2B51D00000290F1B /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4B858A2B51D00000290F1B /* GlobalConstants.swift */; };
 		DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */; };
 		DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */; };
@@ -30,6 +31,7 @@
 		CB01ED52B6B80D6F72D738FF /* Pods-LoginScreen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginScreen.release.xcconfig"; path = "Target Support Files/Pods-LoginScreen/Pods-LoginScreen.release.xcconfig"; sourceTree = "<group>"; };
 		DD12EEAC2B585AAF00A3D1A1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD4A8BE62B658952008CDF80 /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlertsManager.swift; path = /Users/vadim/Documents/Projects/Home/LoginScreen/LoginScreen/LoginScreen/AlertsManager.swift; sourceTree = "<absolute>"; };
+		DD4A8BE82B659C29008CDF80 /* VerticalAlignedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAlignedLabel.swift; sourceTree = "<group>"; };
 		DD4B858A2B51D00000290F1B /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */,
 				DD4A8BE62B658952008CDF80 /* AlertsManager.swift */,
+				DD4A8BE82B659C29008CDF80 /* VerticalAlignedLabel.swift */,
 				DD4B858A2B51D00000290F1B /* GlobalConstants.swift */,
 				DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */,
 				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
@@ -249,6 +252,7 @@
 				DD4B858B2B51D00000290F1B /* GlobalConstants.swift in Sources */,
 				DDC9FCCC2B20CD1B005D21FD /* LogInViewController.swift in Sources */,
 				DDD9C3662B4071BC00D9CF29 /* NavigationController.swift in Sources */,
+				DD4A8BE92B659C29008CDF80 /* VerticalAlignedLabel.swift in Sources */,
 				DDC9FCC82B20CD1B005D21FD /* AppDelegate.swift in Sources */,
 				DDA6A8232B2F3B3F001EB081 /* SignUpViewController.swift in Sources */,
 				DDA6A8252B2F3C42001EB081 /* HomePageViewController.swift in Sources */,

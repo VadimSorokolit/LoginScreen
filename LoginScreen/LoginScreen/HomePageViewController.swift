@@ -17,8 +17,8 @@ class HomePageViewController: UIViewController {
     
     // MARK: Properties
     
-    var userName = ""
     private let alertsManager = AlertsManager()
+    var userName = ""
     
     // MARK: Lifecycle
     
@@ -54,26 +54,7 @@ class HomePageViewController: UIViewController {
     }
 }
 
-class VerticalAlignedLabel: UILabel {
-    
-    // MARK: Methods
-    
-    override func drawText(in rect: CGRect) {
-        var newRect = rect
-        let height = self.sizeThatFits(rect.size).height
-        switch self.contentMode {
-            case .top:
-                newRect.size.height = height
-            case .bottom:
-                newRect.origin.y += (rect.size.height - height)
-                newRect.size.height = height
-            default:
-                break
-        }
-        super.drawText(in: newRect)
-    }
-    
-}
+
 
 
     
