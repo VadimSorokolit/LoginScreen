@@ -16,7 +16,6 @@ class LogInViewController: UIViewController {
         static let signUpViewControllerId = "SignUpViewController"
         static let signUpKeyword = "Sign up"
         static let message = "Please wait..."
-        static let errorMessage = "Firebase doesn't have user, please try write other login and password or sign up"
     }
     
     // MARK: IBOutlets

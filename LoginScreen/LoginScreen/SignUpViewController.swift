@@ -16,7 +16,6 @@ class SignUpViewController: UIViewController {
     private struct LocalConstants {
         static let logInKeyword = "Log in"
         static let message = "Please wait..."
-        static let errorMessage = "It's user is in Firebase, please try write other login and password"
     }
     
     // MARK: IBOutlets
