@@ -18,6 +18,7 @@ class HomePageViewController: UIViewController {
     // MARK: Properties
     
     var userName = ""
+    private let alertsManager = AlertsManager()
     
     // MARK: Lifecycle
     
@@ -41,32 +42,22 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    // MARK: Events
-    
-    @objc func showAlertButtonTapped(withError error: String) {
-        
-        // create the alert
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertController.Style.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
     // MARK: IBActions
     
     @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
         do {
             try Auth.auth().signOut()
             self.goToLogIn()
-        } catch let signOutError as NSError {
-            self.showAlertButtonTapped(withError: signOutError.localizedDescription)
+        } catch let signOutError {
+            self.alertsManager.showAlert(error: signOutError.localizedDescription, in: self, completion: nil)
         }
     }
 }
 
 class VerticalAlignedLabel: UILabel {
+    
+    // MARK: Methods
+    
     override func drawText(in rect: CGRect) {
         var newRect = rect
         let height = self.sizeThatFits(rect.size).height
@@ -81,6 +72,7 @@ class VerticalAlignedLabel: UILabel {
         }
         super.drawText(in: newRect)
     }
+    
 }
 
 

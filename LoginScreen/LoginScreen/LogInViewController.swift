@@ -13,9 +13,9 @@ class LogInViewController: UIViewController {
     // MARK: Objects
     
     private struct LocalConstants {
+        static let message = "Please wait..."
         static let signUpViewControllerId = "SignUpViewController"
         static let signUpKeyword = "Sign up"
-        static let message = "Please wait..."
     }
     
     // MARK: IBOutlets
@@ -30,6 +30,7 @@ class LogInViewController: UIViewController {
     
     // MARK: Properties
     
+    private let alertsManager = AlertsManager()
     private let screenHeight: CGFloat = UIScreen.main.bounds.height
     private var isCorrectEmail: Bool = false
     private var isCorrectPassword: Bool = false
@@ -83,7 +84,7 @@ class LogInViewController: UIViewController {
         if value.contains(" ") {
             return GlobalConstants.errorMessageEmailDoesntMustContainSpaces
         }
-        let reqularExpression = GlobalConstants.emailReqularExpression
+        let reqularExpression = GlobalConstants.emailRegularExpression
         let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         if !predicate.evaluate(with: value) {
             return GlobalConstants.errorMessageInvalidEmailAddress
@@ -114,19 +115,19 @@ class LogInViewController: UIViewController {
     }
     
     private func containsDigit(_ value: String) -> Bool {
-        let reqularExpression = GlobalConstants.containsDigitReqularExpression
+        let reqularExpression = GlobalConstants.containsDigitRegularExpression
         let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsLowerCase(_ value: String) -> Bool {
-        let reqularExpression = GlobalConstants.containsLowerCaseReqularExpression
+        let reqularExpression = GlobalConstants.containsLowerCaseRegularExpression
         let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
     
     private func containsUpperCase(_ value: String) -> Bool {
-        let reqularExpression = GlobalConstants.containsUpperCaseReqularExpression
+        let reqularExpression = GlobalConstants.containsUpperCaseRegularExpression
         let predicate = NSPredicate(format: GlobalConstants.predicateFormat, reqularExpression)
         return !predicate.evaluate(with: value)
     }
@@ -200,18 +201,7 @@ class LogInViewController: UIViewController {
             self.goToSignUp()
         }
     }
-    
-    @objc func showAlertButtonTapped(withError description: String) {
-        
-        // create the alert
-        let alert = UIAlertController(title: "Error", message: description, preferredStyle: UIAlertController.Style.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+
     // MARK: IBActions
     
     // 'Return' button tap
@@ -300,11 +290,10 @@ class LogInViewController: UIViewController {
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             self.showActivityIndicator()
-            Auth.auth().signIn(withEmail: email, password: password, completion: {(authResult: AuthDataResult?, error: Error?) -> Void in
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
                 if let error {
-                    let description = "\(error)"
-                    self.showAlertButtonTapped(withError: description)
+                    self.alertsManager.showAlert(error: error.localizedDescription, in: self, completion: nil)
                     return
                 }
                 if let user = authResult?.user {
