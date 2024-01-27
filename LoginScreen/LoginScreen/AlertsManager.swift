@@ -1,6 +1,5 @@
 //
 //  AlertsManager.swift
-//  
 //
 //  Created by Vadym Sorokolit on 27.01.2024.
 //
