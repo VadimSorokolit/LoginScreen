@@ -202,6 +202,17 @@ class LogInViewController: UIViewController {
         }
     }
     
+    @objc func showAlertButtonTapped(withError error: String) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: IBActions
     
     // 'Return' button tap
@@ -292,10 +303,8 @@ class LogInViewController: UIViewController {
             self.showActivityIndicator()
             Auth.auth().signIn(withEmail: email, password: password, completion: {(authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
-                if let error = error {
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = LocalConstants.errorMessage
-                    print(error)
+                if let error {
+                    self.showAlertButtonTapped(withError: error.localizedDescription)
                     return
                 }
                 if let user = authResult?.user {
@@ -306,6 +315,7 @@ class LogInViewController: UIViewController {
             })
         }
     }
+    
     
 }
 

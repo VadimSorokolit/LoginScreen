@@ -9,13 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class HomePageViewController: UIViewController {
-    
-    // MARK: Objects
-    
-    private struct LocalConstants {
-        static let errorMessage = "Error signing out: "
-    }
-    
+
     // MARK: IBOutlets
     
     @IBOutlet weak private var loggedInLabel: UILabel!
@@ -46,7 +40,20 @@ class HomePageViewController: UIViewController {
             self.navigationController?.setViewControllers([loginVC], animated: false)
         }
     }
-
+    
+    // MARK: Events
+    
+    @objc func showAlertButtonTapped(withError error: String) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: IBActions
     
     @IBAction private func onLogOutButtonDidTap(_ sender: UIButton) {
@@ -54,7 +61,7 @@ class HomePageViewController: UIViewController {
             try Auth.auth().signOut()
             self.goToLogIn()
         } catch let signOutError as NSError {
-            print(String(format: "%@", LocalConstants.errorMessage, signOutError))
+            self.showAlertButtonTapped(withError: signOutError.localizedDescription)
         }
     }
 }

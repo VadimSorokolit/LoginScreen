@@ -202,6 +202,47 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    // MARK: Events
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = keyboardSize.cgRectValue
+        let keyboardHeigh = keyboardFrame.height
+        if self.view.frame.origin.y == 0.0 {
+            self.view.frame.origin.y -= (keyboardHeigh / 2)
+        }
+    }
+    
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0.0 {
+            self.view.frame.origin.y = 0.0
+        }
+    }
+    
+    @objc private func dismissKeyboard() {
+        self.view.endEditing(true)
+        self.errorLabel.isHidden = true
+    }
+    
+    @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
+        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstants.logInKeyword)
+        if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @objc func showAlertButtonTapped(withError error: String) {
+        
+        // create the alert
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: IBActions
     
     @IBAction private func emailEditingChanged(_ textField: UITextField) {
@@ -235,9 +276,7 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password, completion: { ( authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
                 if let error = error {
-                    self.errorLabel.isHidden = false
-                    self.errorLabel.text = LocalConstants.errorMessage
-                    print(error)
+                    self.showAlertButtonTapped(withError: error.localizedDescription)
                     return
                 }
                 if let user = authResult?.user {
@@ -248,36 +287,7 @@ class SignUpViewController: UIViewController {
             })
         }
     }
-
-    // MARK: Events
     
-    @objc private func keyboardWillShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-        let keyboardFrame = keyboardSize.cgRectValue
-        let keyboardHeigh = keyboardFrame.height
-        if self.view.frame.origin.y == 0.0 {
-            self.view.frame.origin.y -= (keyboardHeigh / 2)
-        }
-    }
-    
-    @objc private func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0.0 {
-            self.view.frame.origin.y = 0.0
-        }
-    }
-    
-    @objc private func dismissKeyboard() {
-        self.view.endEditing(true)
-        self.errorLabel.isHidden = true
-    }
-    
-    @objc private func onTermsLabelDidTap(gesture: UITapGestureRecognizer) {
-        let termsRange = (self.termsLabel.text! as NSString).range(of: LocalConstants.logInKeyword)
-        if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
-            self.navigationController?.popViewController(animated: true)
-        }
-    }
 }
 
 
