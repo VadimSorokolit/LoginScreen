@@ -69,6 +69,58 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DD4A8BED2B66ADB5008CDF80 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
+				DDC9FCCB2B20CD1B005D21FD /* LogInViewController.swift */,
+				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
+				DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DD4A8BEE2B66ADF3008CDF80 /* Constans */ = {
+			isa = PBXGroup;
+			children = (
+				DD4B858A2B51D00000290F1B /* GlobalConstants.swift */,
+			);
+			path = Constans;
+			sourceTree = "<group>";
+		};
+		DD4A8BF02B66AE53008CDF80 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DD4A8BE82B659C29008CDF80 /* VerticalAlignedLabel.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DD4A8BF12B66AED8008CDF80 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DD4A8BEA2B65B327008CDF80 /* AlertsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DD4A8BF22B66AF13008CDF80 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */,
+				DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD4A8BF32B66AF96008CDF80 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		DDC9FCBB2B20CD1B005D21FD = {
 			isa = PBXGroup;
 			children = (
@@ -91,17 +143,13 @@
 		DDC9FCC62B20CD1B005D21FD /* LoginScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DDC9FCC72B20CD1B005D21FD /* AppDelegate.swift */,
-				DD4A8BEA2B65B327008CDF80 /* AlertsManager.swift */,
-				DD4A8BE82B659C29008CDF80 /* VerticalAlignedLabel.swift */,
-				DD4B858A2B51D00000290F1B /* GlobalConstants.swift */,
-				DDC9FCC92B20CD1B005D21FD /* SceneDelegate.swift */,
-				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
-				DDC9FCCB2B20CD1B005D21FD /* LogInViewController.swift */,
-				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
-				DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */,
+				DD4A8BF22B66AF13008CDF80 /* App */,
+				DD4A8BF12B66AED8008CDF80 /* Managers */,
+				DD4A8BF02B66AE53008CDF80 /* Classes */,
+				DD4A8BEE2B66ADF3008CDF80 /* Constans */,
+				DD4A8BED2B66ADB5008CDF80 /* Controllers */,
+				DD4A8BF32B66AF96008CDF80 /* Resources */,
 				DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */,
-				DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */,
 				DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */,
 				DDC9FCD52B20CD1C005D21FD /* Info.plist */,
 				DDFE29CB2B22154800C8D6AA /* fonts */,
