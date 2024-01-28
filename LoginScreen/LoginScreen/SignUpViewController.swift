@@ -265,7 +265,7 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
                 if let error = error {
-                self.alertsManager.showAlert(error: error.localizedDescription, in: self, completion: nil)
+                    self.alertsManager.showErrorAlert(message: error.localizedDescription, in: self)
                     return
                 }
                 if let user = authResult?.user {

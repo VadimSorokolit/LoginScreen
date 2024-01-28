@@ -18,11 +18,15 @@ class AlertsManager {
     
     // MARK: Methods
     
-    func showAlert(error: String, in viewContoller: UIViewController, completion: ((UIAlertAction) -> (Void))? = nil) {
-        let alert = UIAlertController(title: LocalConstants.errorTitle, message: error, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: LocalConstants.okActionTitle, style: UIAlertAction.Style.default, handler: nil)
+    func showAlert(title: String, message: String, in viewContoller: UIViewController, completion: ((UIAlertAction) -> (Void))? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: title, style: UIAlertAction.Style.default, handler: nil)
         alert.addAction(okAction)
         viewContoller.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(message: String, in viewController: UIViewController) {
+        self.showAlert(title: LocalConstants.errorTitle, message: message, in: viewController, completion: nil)
     }
     
 }

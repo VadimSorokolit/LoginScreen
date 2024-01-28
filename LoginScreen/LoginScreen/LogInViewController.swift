@@ -293,7 +293,7 @@ class LogInViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult: AuthDataResult?, error: Error?) -> Void in
                 self.hideActivityIndicator()
                 if let error {
-                    self.alertsManager.showAlert(error: error.localizedDescription, in: self, completion: nil)
+                    self.alertsManager.showErrorAlert(message: error.localizedDescription, in: self)
                     return
                 }
                 if let user = authResult?.user {
@@ -305,14 +305,14 @@ class LogInViewController: UIViewController {
         }
     }
     
-    
 }
 
 // MARK: - UITextfield
 
 extension UITextField {
     func addPaddingToTextField() {
-        let paddingView: UIView = UIView.init(frame: CGRect(x: 0.0, y: 0.0, width: 15.0, height: 0.0))
+        let frame = CGRect(x: 0.0, y: 0.0, width: 15.0, height: 0.0)
+        let paddingView: UIView = UIView.init(frame: frame)
         self.leftView = paddingView
         self.leftViewMode = .always
         self.rightView = paddingView

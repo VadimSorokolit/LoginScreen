@@ -46,7 +46,7 @@ class NavigationController: UINavigationController {
                 UserDefaults.standard.setValue(true, forKey: LocalConstants.isLoggedIn)
                 UserDefaults.standard.setValue(userName, forKey: LocalConstants.userName)
             } else {
-                UserDefaults.standard.setValue(false, forKey: LocalConstants.isLoggedIn)
+                UserDefaults.standard.setValue(nil, forKey: LocalConstants.isLoggedIn)
                 UserDefaults.standard.setValue(nil, forKey: LocalConstants.userName)
             }
         })

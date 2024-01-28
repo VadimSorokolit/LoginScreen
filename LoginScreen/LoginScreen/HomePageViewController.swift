@@ -49,7 +49,7 @@ class HomePageViewController: UIViewController {
             try Auth.auth().signOut()
             self.goToLogIn()
         } catch let signOutError {
-            self.alertsManager.showAlert(error: signOutError.localizedDescription, in: self, completion: nil)
+            self.alertsManager.showErrorAlert(message: signOutError.localizedDescription, in: self)
         }
     }
 }
