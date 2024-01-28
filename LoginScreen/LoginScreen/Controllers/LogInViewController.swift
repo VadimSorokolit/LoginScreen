@@ -13,7 +13,6 @@ class LogInViewController: UIViewController {
     // MARK: Objects
     
     private struct LocalConstants {
-        static let message = "Please wait..."
         static let signUpViewControllerId = "SignUpViewController"
         static let signUpKeyword = "Sign up"
     }
@@ -59,7 +58,7 @@ class LogInViewController: UIViewController {
     }
     
     private func showActivityIndicator() {
-        ProgressHUD.animate(LocalConstants.message, .squareCircuitSnake, interaction: false)
+        ProgressHUD.animate(GlobalConstants.activityIndicatorMessage, .squareCircuitSnake, interaction: false)
     }
     
     private func hideActivityIndicator() {

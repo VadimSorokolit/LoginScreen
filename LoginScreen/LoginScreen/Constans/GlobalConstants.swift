@@ -12,6 +12,7 @@ struct GlobalConstants {
     
     static let loginViewControllerId = "LogInViewController"
     static let homePageViewControllerId = "HomePageViewController"
+    static let activityIndicatorMessage = "Please wait..."
     static let predicateFormat = "SELF MATCHES %@"
     static let emailRegularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let containsDigitRegularExpression = ".*[0-9]+.*"

@@ -72,10 +72,10 @@
 		DD4A8BED2B66ADB5008CDF80 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
-				DDC9FCCB2B20CD1B005D21FD /* LogInViewController.swift */,
-				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
 				DDA6A8242B2F3C42001EB081 /* HomePageViewController.swift */,
+				DDC9FCCB2B20CD1B005D21FD /* LogInViewController.swift */,
+				DDD9C3652B4071BC00D9CF29 /* NavigationController.swift */,
+				DDA6A8222B2F3B3F001EB081 /* SignUpViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -117,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC9FCD02B20CD1C005D21FD /* Assets.xcassets */,
+				DDFE29CB2B22154800C8D6AA /* fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -152,7 +153,6 @@
 				DDC9FCCD2B20CD1B005D21FD /* Main.storyboard */,
 				DDC9FCD22B20CD1C005D21FD /* LaunchScreen.storyboard */,
 				DDC9FCD52B20CD1C005D21FD /* Info.plist */,
-				DDFE29CB2B22154800C8D6AA /* fonts */,
 			);
 			path = LoginScreen;
 			sourceTree = "<group>";
