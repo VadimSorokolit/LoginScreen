@@ -1,5 +1,4 @@
-%%html
-<div class = "grey">
+
 
  # LoginScreen
 - Architecture - MVC
