@@ -1,6 +1,7 @@
 %%html
 <div class = "grey">
-# LoginScreen
+
+ # LoginScreen
 - Architecture - MVC
 - Layout - Interface Builder
 - Networking - Alamofire
@@ -15,5 +16,6 @@
 <img src="https://github.com/VadimSorokolit/LoginScreen/assets/130312733/e7ac9597-71b6-4170-b64b-ec6ccb3b87bb" width = 30%> &nbsp; &nbsp; &nbsp; &nbsp;    
 <img src="https://github.com/VadimSorokolit/LoginScreen/assets/130312733/c0ae86f4-83a3-4566-9ff6-f39bcb7e5278" width = 30%> &nbsp; &nbsp; &nbsp; &nbsp;   
 <img src="https://github.com/VadimSorokolit/LoginScreen/assets/130312733/30180e9f-f9e1-479c-8cb0-7172bdc382ea" width = 30%>
+
 </div>
 
