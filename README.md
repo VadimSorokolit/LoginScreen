@@ -1,6 +1,4 @@
-
-
- # LoginScreen
+# LoginScreen
 - Architecture - MVC
 - Layout - Interface Builder
 - Networking - Alamofire
