@@ -58,7 +58,7 @@ class LogInViewController: UIViewController {
     }
     
     private func showActivityIndicator() {
-        ProgressHUD.animate(GlobalConstants.activityIndicatorMessage, .squareCircuitSnake, interaction: false)
+        ProgressHUD.animate(GlobalConstants.activityIndicatorMessage, .squareCircuitSnake, interaction: true)
     }
     
     private func hideActivityIndicator() {
